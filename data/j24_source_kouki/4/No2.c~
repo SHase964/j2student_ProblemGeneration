@@ -1,0 +1,31 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+int main(void) {
+  int num = 0;
+  int **ptpt;
+
+  srand((unsigned)time(NULL));
+
+  while(num <= 0) scanf("%d",&num);
+
+  ptpt = (int **)malloc(sizeof(int *)*num);
+  for(int count = 0; count < num; count++) {
+    ptpt[count] = (int *)malloc(sizeof(int)*num);
+  }
+
+  for(int row = 0; row < num; row++) {
+    for(int callum = 0; callum < num; callum++) {
+      ptpt[row][callum] = rand()%10; 
+    }
+  }
+  
+  for(int row = 0; row < num; row++) {
+    for(int callum = 0; callum < num; callum++) {
+      printf("ptpt[%d][%d] = %d\n", row, callum, ptpt[row][callum]); 
+    }
+  }
+  
+  free(ptpt);
+}

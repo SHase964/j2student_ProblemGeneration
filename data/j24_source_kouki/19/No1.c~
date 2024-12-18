@@ -1,0 +1,14 @@
+#include<stdio.h>
+#include<stdlib.h>
+int main(){
+  int NUM,i;
+  int *pt;
+  printf("NUM =");
+  scanf("%d",&NUM);
+  pt = (int *)malloc(sizeof(int)*NUM);
+  for(i=0;i<NUM;i++){
+    pt[i]=rand()%99;
+    printf("%d\n",pt[i]);
+    }
+  return 0;
+}

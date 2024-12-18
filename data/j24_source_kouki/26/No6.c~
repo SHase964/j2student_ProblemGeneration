@@ -1,0 +1,17 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(void){
+  char *str1;
+  char *str2;
+  int num;
+
+  scanf("%d",&num);
+  str1 = malloc(sizeof(char) * (num+1));
+  fgets(str1, num+1, stdin);
+  printf("%s\n",str1);
+
+  free(str1);
+  
+  return 0;
+}

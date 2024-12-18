@@ -1,0 +1,25 @@
+{
+  "problem_id": "No7.c",
+  "difficulty": 7,
+  "description": "与えられた文字列を、単語ごとに逆順に並べ替えるプログラムを作成してください。例えば、入力文字列が\"This is a sample sentence.\" の場合、出力は \"sentence. sample a is This\" となります。単語の区切り文字は空白と句読点（.,!?）とします。動的メモリ確保を行い、メモリリークがないように注意してください。",
+  "reason": "学習者は、動的メモリ確保と配列、文字列操作の基本的なスキルを習得しています。No4.cとNo5.cでは配列操作、No5.cでは二次元配列の操作、No6.cでは文字列結合の基礎を理解していることがわかります。しかし、No6.cは未解答であることから、文字列操作に課題がある可能性があります。この問題では、これまでに習得した知識を総合的に活用し、より高度な文字列操作と動的メモリ管理を習得することを目指します。難易度を7にすることで、適切な挑戦と学習効果が期待できます。",
+  "examples": [
+    {
+      "input": "This is a sample sentence.",
+      "output": "sentence. sample a is This",
+      "explanation": "空白と句読点を区切り文字として、単語を逆順に並べ替えています。"
+    },
+    {
+      "input": "Hello, world! This is a test.",
+      "output": "test. a is This world! Hello,",
+      "explanation": "句読点も区切り文字として正しく処理されています。"
+    }
+  ],
+  "learning_objectives": [
+    "文字列の分割と逆順への並べ替え",
+    "動的メモリ確保と解放",
+    "ポインタと配列の活用",
+    "標準入出力関数(fgets, strtok, printf)の理解",
+    "エラー処理(メモリ確保失敗時の処理)"
+  ]
+}

@@ -1,0 +1,27 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+int main (){
+  int i;
+  int num;
+  int j;
+  int **pt;
+
+  srand((unsigned)time(NULL));
+  
+  printf("(1)\n");
+  scsnf("%d",&num);
+
+  pt=(int **)malloc(sizeof(int *)*num);
+
+  for(i=0;i<num;i++){
+    for(j=0;j<numj++){
+      pt[i][j]=rand()%10;
+      printf("%d",pt[i][j]);
+    }
+  }
+  
+  free(pt)
+    return 0;
+}

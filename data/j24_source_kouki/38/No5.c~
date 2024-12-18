@@ -1,0 +1,25 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+int main(void){
+
+  int i,a,b;
+  int **pt;
+
+  scanf("%d",&a);
+  
+  pt=(int **)malloc(sizeof(int *)*a);
+
+  printf("(1)\n");
+  for(i=0;i<a;i++){
+    for(j=0;j<a;j++){
+      pt[i][j]=rand()%10;
+      printf("%d",pt[i][j]);
+    }
+    printf("\n");
+  }
+
+  free(pt);
+  return 0;
+}

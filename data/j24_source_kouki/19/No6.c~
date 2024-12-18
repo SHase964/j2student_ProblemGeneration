@@ -1,0 +1,17 @@
+#include<stdio.h>
+#include<stdlib.h>
+int main(){
+  int NUM,i,count=0;
+  char *str1[]=Kisarazu;
+  char *str2[]=City;;
+  printf("(1)\n");
+  for(i=0;str1[i]!='\0';i++){
+    count++;
+  }
+  printf("str1 :%d\n",count);
+  for(i=0;str2[i]!='\0';i++){
+    count++;
+  }
+  printf("str1+2 :%d\n",count);
+  return 0;
+}

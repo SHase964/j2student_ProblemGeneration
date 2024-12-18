@@ -1,0 +1,34 @@
+{
+  "problem_id": "No7.c",
+  "difficulty": 7,
+  "description": "与えられた2つの文字列str1とstr2について、str2がstr1の部分文字列であるかどうかを判定する関数\"isSubstring\"を作成してください。str1内にstr2が含まれる場合は1を、含まれない場合は0を返してください。\n\n関数プロトタイプ：\nint isSubstring(const char *str1, const char *str2);\n\n例えば、\nstr1 = \"KisarazuCity\"\nstr2 = \"City\"\nの場合、1を返します。\n\nstr1 = \"KisarazuCity\"\nstr2 = \"Tokyo\"\nの場合、0を返します。\n\n注意：\n- 文字列の長さを取得するためにstrlen関数を使用しないでください。\n- ポインタ演算を使用して文字列を操作してください。\n- 部分文字列が見つかった場合、直ちに1を返すように最適化してください。",
+  "reason": "学習者はNo4.cとNo5.cでは配列とポインタの基本的な操作を理解し、正しく実装できていますが、No6.cは未解答です。これは文字列操作と動的メモリ確保の組み合わせに課題があることを示唆しています。そこで、No7.cでは、文字列操作に焦点を当てつつ、ポインタ演算と効率的な探索アルゴリズムの理解を深める応用問題としました。strlen関数の使用を禁止することで、ポインタ演算とヌル終端文字列の理解を促進します。また、早期リターンによる最適化を促すことで、効率的なコードの記述を学習させます。",
+  "examples": [
+    {
+      "input": "\"KisarazuCity\", \"City\"",
+      "output": "1",
+      "explanation": " \"City\"は\"KisarazuCity\"の部分文字列です。"
+    },
+    {
+      "input": "\"KisarazuCity\", \"Tokyo\"",
+      "output": "0",
+      "explanation": "\"Tokyo\"は\"KisarazuCity\"の部分文字列ではありません。"
+    },
+    {
+      "input": "\"apple\", \"ple\"",
+      "output": "1",
+      "explanation": "\"ple\"は\"apple\"の部分文字列です。"
+    },
+    {
+      "input": "\"banana\", \"orange\"",
+      "output": "0",
+      "explanation": "\"orange\"は\"banana\"の部分文字列ではありません。"
+    }
+  ],
+  "learning_objectives": [
+    "ポインタ演算の理解",
+    "ヌル終端文字列の操作",
+    "効率的な文字列探索アルゴリズムの実装",
+    "早期リターンによるコードの最適化"
+  ]
+}

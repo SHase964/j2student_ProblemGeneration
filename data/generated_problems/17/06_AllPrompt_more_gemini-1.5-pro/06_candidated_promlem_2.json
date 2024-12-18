@@ -1,0 +1,31 @@
+{
+  "problem_id": "No7.c",
+  "difficulty": "7",
+  "description": "与えられた複数の文字列を連結し、一つの文字列として返す関数を作成してください。\n\n関数 `concatenate_strings` は、以下の仕様を満たす必要があります。\n\n* 引数:\n    * `num_strings`: 連結する文字列の数 (int)\n    * `strings`: 連結する文字列の配列 (char**)\n* 戻り値:\n    * 連結された文字列 (char*)\n    * 連結された文字列を格納するメモリ領域は、関数内で動的に確保する必要があります。\n    * 文字列の連結に失敗した場合は、NULL を返します。\n\n入力文字列はNULL終端されていると仮定して構いません。\n\n例えば、`num_strings` が 3 で、`strings` が `{\"Kisarazu\", \"City\", \"Station\"}` の場合、戻り値は `\"KisarazuCityStation\"` となります。",
+  "reason": "学習者は、単一の文字列の連結、動的メモリ確保、配列操作、ポインタ操作を理解している。しかし、複数の文字列を扱う問題は未経験である。この問題は、複数の文字列を連結するという新しい課題を提供することで、学習者のポインタと配列の理解度を深め、より複雑な文字列操作への準備を促す。また、メモリ管理の重要性を再認識させる。",
+  "examples": [
+    {
+      "input": "3\nKisarazu\nCity\nStation",
+      "output": "KisarazuCityStation",
+      "explanation": "3つの文字列\"Kisarazu\", \"City\", \"Station\"が連結されて\"KisarazuCityStation\"が出力される。"
+    },
+    {
+      "input": "2\nHello\nWorld",
+      "output": "HelloWorld",
+      "explanation": "2つの文字列\"Hello\", \"World\"が連結されて\"HelloWorld\"が出力される。"
+    },
+    {
+      "input": "1\nTest",
+      "output": "Test",
+      "explanation": "1つの文字列\"Test\"が入力され、そのまま\"Test\"が出力される。"
+    }
+  ],
+  "learning_objectives": [
+    "複数の文字列の連結",
+    "動的メモリ確保",
+    "二次元配列の理解",
+    "ポインタ配列の理解",
+    "メモリ管理",
+    "エラー処理"
+  ]
+}

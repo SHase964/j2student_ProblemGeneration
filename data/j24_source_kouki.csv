@@ -1,0 +1,4675 @@
+date,j2exam1125,j2exam1125,j2exam1125
+problem_id,No4.c,No5.c,No6.c
+1,"#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+int main(void)
+{
+  int *array;
+  int i,n;
+  int num;
+  
+  srand((unsigned)time(NULL));
+  printf(""入力する数="");
+  scanf(""%d"",&num);
+
+  array = (int *)malloc(sizeof(int)*num);
+  
+  i=0;
+  printf(""(1)\n"");
+  while(i<num){
+    array[i] = rand()%100;
+    printf(""%d\n"",array[i]);
+    i++;
+  }
+  printf(""\n"");
+   printf(""(2)\n"");
+   while(i>0){
+     i--; 
+    printf(""%d\n"",array[i]);  
+   }
+   printf(""\n"");
+   i=0;n=0;
+   printf(""(3)\n"");
+   while(i<num){
+     n = array[i]%2;
+     if(n == 0){
+       printf(""%d\n"",array[i]);
+     }
+     i++;
+   }
+   
+   
+   free(array);
+   return 0;
+}
+","#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+int main(void)
+{
+  int **numberBox;
+  int i;
+  int r, c;
+  int num;
+
+  srand((unsigned)time(NULL));
+  scanf(""%d"",&num);
+  
+  // 行数を決める
+  numberBox = (int **)malloc(sizeof(int *) * num);
+  for (r=0; r<num; r++) {
+    numberBox[r] = (int *)malloc(sizeof(int) * num);
+  }
+
+  
+  for (r=0; r<num; r++) {
+    for (c=0; c<num; c++) {
+      numberBox[r][c] =  rand()%10;
+    }
+  }
+
+  printf(""\n(1)\n"");
+  for (r=0; r<num; r++) {
+    for (c=0; c<num; c++) {
+      printf(""%2d"",numberBox[r][c]);
+    }
+    printf(""\n"");
+  }
+
+
+  
+  printf(""\n(2)\n"");
+  int A,sum;
+  A=0;
+  while(A<num){
+    printf(""%2d"",numberBox[A][A]);
+    sum = sum + numberBox[A][A];
+    A++;
+    printf(""\n"");
+  }
+  printf(""sum=%d"",sum);
+
+  
+  printf(""\n(3)\n"");
+  for (c=0; c<num; c++) {
+    for (r=0; r<num; r++) {
+      
+      printf(""%2d"",numberBox[r][c]);
+    }
+    printf(""\n"");
+  }
+  
+  
+  for (r=0; r<num; r++) {
+    free(numberBox[r]);
+  }
+  free(numberBox);
+
+  return 0;
+}
+",
+2,"#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+int main(void) {
+
+  srand((unsigned)time(NULL));
+  
+  int num;
+  scanf(""%d"", &num);
+  int *array;
+  array = malloc(sizeof(int) * num);
+
+  printf(""\n(1)\n"");
+  for(int i = 0; i <num; i++) {
+    array[i] = rand() % 100;
+    printf(""%d\n"", array[i]);
+  }
+
+  printf(""\n(2)\n"");
+  for(int i = 0; num - i > 0; i++) {
+    printf(""%d\n"", array[num - i - 1]);
+  }
+
+  printf(""\n(3)\n"");
+  for(int i = 0; i < num; i++) {
+    if(array[i] % 2 == 0) {
+      printf(""%d\n"", array[i]);
+    }
+  }
+  
+  free(array);
+  return 0;
+}
+","#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+int main(void) {
+
+  srand((unsigned)time(NULL));
+  
+  int n;
+  scanf(""%d"", &n);
+
+  int **matrix;
+  matrix = malloc(sizeof(int *) * n);
+  for(int i = 0; i < n; i++) {
+    matrix[i] = malloc(sizeof(int) * n);
+  }
+
+  printf(""\n(1)\n"");
+  for(int i = 0; i < n; i++) {
+
+    for(int j = 0; j < n; j++) {
+      matrix[i][j] = rand() % 10;
+      printf(""%d "", matrix[i][j]);
+    }
+    printf(""\n"");
+  }
+
+  printf(""\n(2)\n"");
+  int sum = 0;
+  for(int i = 0; i < n; i++) {
+    sum += matrix[i][i];
+  }
+  printf(""%d\n"", sum);
+
+  printf(""\n(3)\n"");
+  for(int i = 0; i < n; i++) {
+
+    for(int j = 0; i + j < n; j++) {
+      int store;
+      store = matrix[i][i + j];
+      matrix[i][i + j] = matrix[i + j][i];
+      matrix[i + j][i] = store;
+    }
+  }
+  for(int i = 0; i < n; i++) {
+
+    for(int j = 0; j < n; j++) {
+      printf(""%d "", matrix[i][j]);
+    }
+    printf(""\n"");
+  }
+  
+  for(int i = 0; i < n; i++) {
+    free(matrix[i]);
+  }
+  free(matrix);
+  
+  return 0;
+}
+","#include <stdio.h>
+#include <stdlib.h>
+
+int main(void) {
+
+  char str1[] = ""Kisarazu"";
+  char str2[] = ""City"";
+
+  int ct1 = 0, ct2 = 0;
+
+  int i = 0;
+  while(str1[i] != '\0') {
+    ct1++;
+    i++;
+  }
+  
+  i = 0;
+  while(str2[i] != '\0') {
+    ct2++;
+    i++;
+  }
+
+  char *pt;
+  pt = malloc(sizeof(char) * (ct1 + ct2));
+
+  i = 0;
+  for(i = 0; i < ct1; i++) {
+    pt[i] = str1[i];
+  }
+  for(i = 0; i < ct2; i++) {
+    pt[i + ct1] = str2[i];
+  }
+
+  printf(""%s\n"", pt);
+  
+  free(pt);
+  return 0;
+}
+"
+3,"#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+int main(void){
+  int  *hako;
+  int a,i;
+//  char dummy;
+
+  srand((unsigned)time(NULL));
+
+
+  printf(""(1)\n入力="");
+
+  scanf(""%d"",&a);
+//  scanf(""%c"",&dummy);
+  hako=(int*)malloc(sizeof(int)*a+1);
+
+  for(i=0;i<a;i++){
+    hako[i]=rand()%100;
+    printf(""%d\n"",hako[i]);
+  }
+
+//  hako[i]==""\0"";
+  i=i-1;
+
+
+  printf(""\n\n(2)\n"");
+
+  while(i>=0){
+    printf(""%d\n"",hako[i]);
+    i--;
+  }
+
+
+  i=0;
+  printf(""\n\n(3)\n"");
+
+
+  while(hako[i]!='\0'){
+    if(hako[i]%2==0){
+      printf(""%d\n"",hako[i]);
+    }
+    i++;
+  }
+
+
+  free(hako);
+  return 0;
+}
+",,
+4,"#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+int main(void) {
+  int num = 0;
+  int *pt;
+
+  srand((unsigned)time(NULL));
+  
+  while(num <= 0) scanf(""%d"",&num);
+
+  pt = (int *)malloc(sizeof(int)*num);
+
+  for(int count = 0; count < num; count++) {
+    pt[count] = rand()%100;
+  }
+
+  printf(""(1)\n"");
+  for(int count = 0; count < num; count++) {
+    printf(""pt[%d] = %d\n"", count, pt[count]);
+  }
+
+  printf(""(2)\n"");
+  for(int count = 0; count < num; count++) {
+    printf(""pt[%d] = %d\n"", num-1-count, pt[num-1-count]);
+  }
+
+  printf(""(3)\n"");
+  for(int count = 0; count < num; count++) {
+    if(pt[count]%2 == 0 && pt[count] != 0) printf(""%d\n"", pt[count]);
+  }
+  
+  free(pt);
+}
+","#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+int main(void) {
+  int num = 0;
+  int **ptpt;
+  int sum = 0;
+  int **array;
+
+  srand((unsigned)time(NULL));
+
+  while(num <= 0) scanf(""%d"",&num);
+
+  ptpt = (int **)malloc(sizeof(int *)*num);
+  for(int count = 0; count < num; count++) {
+    ptpt[count] = (int *)malloc(sizeof(int)*num);
+  }
+
+  for(int row = 0; row < num; row++) {
+    for(int callum = 0; callum < num; callum++) {
+      ptpt[row][callum] = rand()%10; 
+    }
+  }
+
+  printf(""(1)\n"");
+  for(int row = 0; row < num; row++) {
+    for(int callum = 0; callum < num; callum++) {
+      //printf(""ptpt[%d][%d] = %d\n"", row, callum, ptpt[row][callum]);
+      printf(""%d "", ptpt[row][callum]);
+    }
+    printf(""\n"");
+  }
+
+  printf(""(2)\n"");
+  for(int count = 0; count < num; count++) sum += ptpt[count][count];
+  printf(""sum = %d\n"", sum);
+
+  array = (int **)malloc(sizeof(int *)*num);
+  for(int count = 0; count < num; count++) {
+    array[count] = (int *)malloc(sizeof(int)*num);
+  }
+  for(int row = 0; row < num; row++) {
+    for(int callum = 0; callum < num; callum++) {
+      array[row][callum] = ptpt[callum][row]; 
+    }
+  }
+  
+  printf(""(3)\n"");
+  for(int row = 0; row < num; row++) {
+    for(int callum = 0; callum < num; callum++) {
+      //printf(""ptpt[%d][%d] = %d\n"", row, callum, ptpt[row][callum]);
+      printf(""%d "", array[row][callum]);
+    }
+    printf(""\n"");
+  }
+
+  free(ptpt);
+}
+","#include <stdio.h>
+#include <stdlib.h>
+
+int main(void) {
+  int len1 = 0;
+  int len2 = 0;
+  int len3 = 0;
+  int count = 0;
+  char str1[] = ""Kisarazu0000"";
+  char str2[] = ""City0000"";
+  char *str3;
+
+  while(str1[count] != '\0') {
+    len1++;
+    count++;
+  }
+  count = 0;
+  while(str2[count] != '\0') {
+    len2++;
+    count++;
+  }
+  len3 = len1+len2;
+  printf(""%d %d %d\n"", len1, len2, len3);
+
+  str3 = (char *)malloc(sizeof(char)*(len3+1));
+
+  for(count = 0; count < len3+1; count++) {
+    if(count < len1) str3[count] = str1[count];
+    else str3[count] = str2[count-len1];
+  }
+  str3[len3+1] = '\0';
+
+  printf(""%s\n"", str3);
+  
+  free(str3);
+}
+"
+5,"#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+int main(){
+
+  srand((unsigned)time(NULL));
+
+  int size;
+  int *array;
+
+  printf(""(1)Enter array size: "");
+  scanf(""%d"", &size);
+
+  array = (int *)malloc(sizeof(int) * size);
+
+  int i;
+
+  for(i = 0; i < size; i++){
+    array[i] = rand()%100;
+
+    printf(""%2d,"", array[i]);
+  }
+  printf(""\n"");
+
+  printf(""(2)\n"");
+
+  for(i = 0; i < size; i++){
+    printf(""%2d,"", array[size - i - 1]);
+  }
+  printf(""\n"");
+
+  printf(""(3)\n"");
+
+  for(i = 0; i < size; i++){
+    if(array[i]%2 == 0){
+      printf(""%2d,"", array[i]);
+    }
+  }
+  printf(""\n"");
+
+  free(array);
+
+  return 0;
+}
+","#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+void m_init(int ***p_matrix, int *size);
+void rand_matrix(int ***p_matrix, int size);
+
+int main(){
+
+  int **matrix;
+  int size;
+
+  srand((unsigned)time(NULL));
+
+  m_init(&matrix, &size);
+
+  printf(""%p\n"", &matrix);
+  printf(""%p\n"", matrix);//swap datta...
+
+  rand_matrix(&matrix, size);
+
+  free(matrix);
+
+  return 0;
+}
+
+void m_init(int ***p_matrix, int *size){
+
+  printf(""Enter matrix size: "");
+  scanf(""%d"", size);
+  printf(""size = %d\n"", *size);
+
+  *p_matrix = (int **)malloc(sizeof(int *) * *size);
+  printf(""Done!\n"");
+
+  int i;
+
+  for(i = 0; i < *size; i++){
+    p_matrix[i] = (int **)malloc(sizeof(int *) * *size);
+  }
+  printf(""Done!\n"");
+
+}
+
+void rand_matrix(int ***p_matrix, int size){
+  printf(""rand_matrix action\n"");
+
+  int i, j;
+
+  for(i = 0; i < size -1; i++){
+    for(j = 0; j < size -1; j++){
+      printf(""a"");
+      *p_matrix[i][j] = rand()%10;
+      printf(""%d "", *p_matrix[i][j]);
+    }
+    printf(""\n"");
+  }
+  printf(""\n"");
+
+}
+",
+6,"#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+int main(void){
+
+  int *pt;
+  int num;
+  int i;
+  srand((unsigned)time(NULL));
+  
+  while(num<1){
+    printf(""(1) 1以上の整数を入力\n配列の数："");
+    scanf(""%d"" , &num);
+  }
+  
+  pt = (int *)malloc(sizeof(int)*num);
+
+  for(i=0; i<num; i++){
+    pt[i] = rand()%100;
+    printf(""%d\n"", pt[i]);
+  }
+
+  printf(""\n(2)逆順に出力\n"");
+  for(i=num-1; i>=0; i--){
+    printf(""%d\n"", pt[i]);
+  }
+
+  printf(""\n(3)偶数だけ出力\n"");
+  for(i=0; i<num; i++){
+    if(pt[i]%2==0){
+      printf(""%d\n"",pt[i]);
+    }
+  }
+    
+  free(pt);
+  return 0;
+}
+","#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+int main(void){
+
+  int **numbox;
+  int i;
+  int j;
+  int num = 0;
+  int taikaku;
+  taikaku = 0;
+  srand((unsigned)time(NULL));
+
+  while(num<1){
+    printf(""(1)1以上の整数を入力\n n の値："");
+    scanf(""%d"", &num);
+  }
+
+  numbox = (int **)malloc(sizeof(int *) *num);
+  for(i=0; i<num; i++){
+    numbox[i] = (int*)malloc(sizeof(int) *num);
+  }
+
+  for(i=0; i<num; i++){
+    for(j=0; j<num; j++){
+      numbox[i][j] = rand()%10;
+      printf(""%d "", numbox[i][j]);
+      if(i==j){
+	taikaku = taikaku + numbox[i][j];
+      }
+     }
+    printf(""\n"");
+  }
+
+  printf(""\n(2)対角成分の和：%d\n"", taikaku);
+
+  printf(""\n(3)転置行列\n"");
+  for(i=0; i<num; i++){
+    for(j=0; j<num; j++){
+      printf(""%d "", numbox[j][i]);
+    }
+    printf(""\n"");
+  }
+
+  free(numbox);
+  return 0;
+}
+  
+","#include <stdio.h>
+
+void ketugou(char **pt1, char **pt2);
+
+int main(void){
+  char str1[] = ""Cafe"";
+  char str2[] = ""Takion"";
+
+  ketugou(&str1, &str2);
+  printf(""%s\n"", str1);
+  
+  return 0;
+}
+
+void ketugou(char **pt1, char **pt2){
+      
+    int i;
+    int j;
+    char *tmp1;
+    char *tmp2;
+
+    tmp1 = *pt1;
+    for(i=0; tmp1[i]!='\0'; i++){
+      tmp2[i]==tmp1[i];
+    }
+    tmp1 = *pt2;
+    
+    for(j=0; tmp1[j]!='\0'; j++){
+      tmp2[i]==tmp1[j];
+      i++;
+    }
+    *pt1 = tmp2;
+    *pt2 = tmp2;
+}
+"
+7,"#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+int main(void){
+  int num,i;
+  int *pt;
+
+  srand((unsigned)time(NULL));
+
+  printf(""作成する配列の個数を入力してください（０ー９９）\n"");
+  scanf(""%d"",&num);
+  while(num<0 || num>99){
+    printf(""作成する配列の個数を入力してください（０ー９９）"");
+    scanf(""%d"",&num);
+  }
+
+  pt = (int *)malloc(sizeof(int) * num);
+
+  for(i=0;i<num;i++){
+    pt[i] = rand()%100;
+  }
+
+  printf(""(1)\n"");  
+  for(i=0;i<num;i++){
+    printf(""%2d\n"",pt[i]);
+  }
+
+  printf(""(2)\n"");
+  for(i=num;i>0;i--){
+    printf(""%2d\n"",pt[i-1]);
+  }
+
+  printf(""(3)\n"");
+  for(i=0;i<num;i++){
+    // printf(""%d"",pt[i]%2);
+    if(pt[i]%2==0){
+      printf(""%2d\n"",pt[i]);
+    }
+  }
+
+  
+  free(pt);
+  
+  return 0;
+}
+","#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+int main(void){
+  int **array;
+
+  int i,j,num,num2;
+  num2=0;
+
+  srand((unsigned)time(NULL));
+  
+  printf(""n行n列の正方行列を製作します。\nnに当てはまる数値を入力してください->"");
+  scanf(""%d"",&num);
+
+  array = (int **)malloc(sizeof(int *) * num);
+
+  for(i=0;i<num;i++){
+    array[i] = (int *)malloc(sizeof(int) * num);
+  }
+
+  printf(""(1)\n"");
+  for(i=0;i<num;i++){
+    printf(""|"");
+    for(j=0;j<num;j++){
+      array[i][j]=rand()%10;
+      printf(""%d "",array[i][j]);
+    }
+    printf(""|\n"");
+  }
+
+  printf(""(2)\n"");
+  for(i=0;i<num;i++){
+    num2=num2+array[i][i];
+  }
+  printf(""%d\n"",num2);
+
+  for(i=0;i<num;i++){
+    free(array[i]);
+  }
+  free(array);
+
+  return 0;
+}
+","#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+int main(void){
+  char str1[]=""abcd"";
+  char str2[]=""efghi"";
+
+  int i=0;
+  int j=0;
+  int count=0;
+
+  while(str1[i]!='\0'){
+    count++;
+    i++;
+  }
+  i=0;
+  while(str2[i]!='\0'){
+    count++;
+    i++;
+  }
+
+  char *str;
+
+  str = (char *)malloc(sizeof(char) * (count+1));
+
+  i=0;
+  while(str1[i]!='\0'){
+    str[i]=str1[i];
+    i++;
+  }
+  while(str2[j]!='\0'){
+    str[i]=str2[j];
+    i++;
+    j++;
+  }
+
+  str[i]='\0';
+
+  printf(""%s\n"",str);
+
+  free(str);
+
+  return 0;
+}
+"
+8,"#include <stdio.h>
+#include <stdlib.h>
+
+int main(void)
+{
+  int *array;
+  int i,num;
+  
+  printf(""num="");
+  scanf(""%d"",&num);
+  
+  array = (int *)malloc(sizeof(int)*num);
+  
+  for (i=0; i<num; i++) {
+    array[i] = rand()%100;
+  }
+  
+  printf(""(1)\n"");
+  for (i=0; i<num; i++) {
+    printf(""a[%d]=%d\n"",i,array[i]);
+  }
+  printf(""\n"");
+  
+  printf(""(2)\n"");
+  for (i=0; i<num; i++) {
+    printf(""a[%d]=%d\n"",num-i-1,array[num-i-1]);
+  }
+  printf(""\n"");
+  
+  printf(""(3)\n"");
+  for (i=0; i<num; i++) {
+    if(array[i]%2==0){
+      printf(""a[%d]=%d\n"",i,array[i]);
+    }
+  }
+  printf(""\n"");
+  
+   free(array);
+  return 0;
+}
+","#include <stdio.h>
+#include <stdlib.h>
+
+int main(void)
+{
+  int **numberBox;
+  int   i,j,len,wa;
+
+  printf(""len="");
+  scanf(""%d"",&len);
+  // 行数を決める
+  numberBox = (int **)malloc(sizeof(int *) *(len+1));
+  
+  for(i=0;i<len;i++){
+    // i行目の列数
+    numberBox[i] = (int *)malloc(sizeof(int) *(len+1));
+  }
+  
+  // nyuu力
+  for(i=0;i<len;i++){
+    for(j=0;j<len;j++){
+      numberBox[i][j]=rand()%10;
+    }
+  }
+  
+  printf(""(1)\n"");     //(1)
+  for(i=0;i<len;i++){
+    for(j=0;j<len;j++){
+      printf(""%d "",numberBox[i][j]);
+    }
+    printf(""\n"");
+  }
+  printf(""\n"");
+  
+  printf(""(2)\n"");        //(2)
+  wa=0;
+  for(i=0;i<len;i++){
+    for(j=0;j<len;j++){
+      if(i==j){
+	wa=wa+numberBox[i][j];
+      }
+    }
+  }
+  printf(""wa=%d\n\n"",wa);
+  
+  printf(""(3)\n"");     //(3)
+  int **a;
+   a = (int **)malloc(sizeof(int *) *(len+1));
+    for(i=0;i<len;i++){
+    a[i] = (int *)malloc(sizeof(int) *(len+1));
+  }
+  for(i=0;i<len;i++){
+    for(j=0;j<len;j++){
+      a[i][j]= numberBox[i][j];
+    }
+  }
+  
+  for(i=0;i<len;i++){
+    for(j=0;j<len;j++){
+      numberBox[i][j]=a[j][i];
+    }
+  }
+   for(i=0;i<len;i++){
+    for(j=0;j<len;j++){
+      printf(""%d "",numberBox[i][j]);
+    }
+    printf(""\n"");
+  }
+
+   
+  for(i=0;i<len;i++){
+    free(numberBox[i]);
+    free(a[i]);
+  }
+  free(numberBox);
+  free(a);
+  
+  return 0;
+}
+","#include <stdio.h>
+#include <stdlib.h>
+
+int main(void)
+{
+  char *pt;
+  char str1[]=""Kisarazu"";
+  char str2[]=""City"";
+  int   i,len,a,b;
+  
+  i=0;
+  while(str1[i] != '\0'){
+    i++;
+  }
+  a=i;
+  printf(""a=%d\n"",a);
+  
+  i=0;
+  while(str2[i] != '\0'){
+       i++;
+  }
+  b=i;
+  printf(""b=%d\n"",b);
+   
+  len=a+b;
+  printf(""len=%d\n"",len);
+  pt = (char *)malloc(sizeof(char) *len);
+  
+   // nyuu力
+   for(i=0;i<a;i++){
+    pt[i]=str1[i];
+  }
+    for(i=0;i<b;i++){
+    pt[i+a]=str2[i];
+  }
+    
+  printf(""ans=%s\n"",pt);
+  
+  free(pt);
+  
+  return 0;
+}
+"
+9,"#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+int main(void)
+{
+  srand((unsigned)time(NULL));
+  int num;
+  int *pt;
+  printf(""num = "");scanf(""%d"",&num);
+
+  pt = (int *)malloc(sizeof(int)*num);
+  printf(""(1)\n"");
+  for(int i=0;i<num;i++){
+    pt[i] = rand()%100;
+    printf(""pt[%d] = %d\n"",i,pt[i]);
+  }
+
+  printf(""\n(2)\n"");
+  for(int i=num-1;i>=0;i--){
+    printf(""pt[%d] = %d \n"",i,pt[i]);
+  }
+
+  printf(""\n(3)\n"");
+  for(int i=0;i<num;i++){
+    if(pt[i]%2 == 0)printf(""pt[%d] = %d\n"",i,pt[i]);
+  }
+  free(pt);
+
+  return 0;
+}
+","#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+int main(void)
+{
+  srand((unsigned)time(NULL));
+  int n;
+  int **pt;
+  printf(""n = "");scanf(""%d"",&n);
+  
+  pt = (int **)malloc(sizeof(int *) * n);
+  for(int i=0;i<n;i++){
+    pt[i] = (int *)malloc(sizeof(int) * n);
+  }
+  printf(""(1)\n"");
+  for(int i=0;i<n;i++){
+    for(int j=0;j<n;j++){
+      pt[i][j] = rand()%10;
+      printf(""%d "",pt[i][j]);
+    }
+    printf(""\n"");
+  }
+
+  printf(""\n(2)\n"");
+  int sum=0;
+  for(int i=0;i<n;i++){
+    sum += pt[i][i];
+  }
+  printf(""sum = %d\n"",sum);
+
+  printf(""\n(3)\n"");
+  for(int i=0;i<n;i++){
+    for(int j=i+1;j<n;j++){
+      int tmp;
+      tmp = pt[i][j];
+      pt[i][j] = pt[j][i];
+      pt[j][i] = tmp;
+    }
+  }
+  
+  for(int i=0;i<n;i++){
+    for(int j=0;j<n;j++){
+      printf(""%d "",pt[i][j]);
+    }
+    printf(""\n"");
+  }
+  
+  for(int i=0;i<n;i++){
+    free(pt[i]);
+  }
+  free(pt);
+
+  return 0;
+}
+","#include <stdio.h>
+#include <stdlib.h>
+
+int main(void)
+{
+  char str1[]=""Kisarazu"";
+  char str2[]=""City"";
+  int len = sizeof(str1)/sizeof(str1[0]) + sizeof(str2)/sizeof(str2[0]) -1;
+  char *pt;
+
+  pt = (char *)malloc(sizeof(char) * len);
+
+  int i=0;
+  while(str1[i]!='\0'){
+    pt[i] = str1[i];
+    i++;
+  }
+  int j=i;
+  i=0;
+  while(str2[i]!='\0'){
+    pt[j] = str2[i];
+    j++;
+    i++;
+  }
+  pt[j]='\0';
+  printf(""%s\n"",pt);
+  
+  free(pt);
+
+
+  return 0;
+}
+  
+"
+10,"#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+int main (){  
+
+  int i;
+  int num;
+  int *pt;
+  
+  srand((unsigned)time(NULL));
+  printf(""array="");
+  scanf(""%d"",&num);
+  printf(""(1)\n"");
+  
+  pt=(int *)malloc(sizeof(int)*num);
+  
+  for(i=0;i<num;i++){
+    pt[i]=rand()%100;
+    printf(""%d\n"",pt[i]);
+  }
+
+  printf(""(2)\n"");
+
+  for(i=1;i<=num;i++){
+    printf(""%d\n"",pt[num-i]);
+  }
+
+  printf(""(3)\n"");
+  int even;
+  
+  for(i=0;i<num;i++){
+    even=pt[i]%2;
+    if(even==0){
+      printf(""even=%d\n"",pt[i]);
+    }
+  }
+  
+  
+  free(pt);
+  return 0;
+}
+","#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+int main (){
+  int i;
+  int num;
+  int j;
+  int **pt;
+  
+  srand((unsigned)time(NULL));
+  
+  printf(""num="");
+  scanf(""%d"",&num);
+  printf(""(1)\n"");
+  pt=(int **)malloc(sizeof(int *)*num);
+  
+  for(i=0;i<num;i++){
+    pt[i]=(int *)malloc(sizeof(int)*num);
+    for(j=0;j<num;j++){
+      pt[i][j]=rand()%10;
+      printf(""%d"",pt[i][j]);
+    }
+    printf(""\n"");
+  }
+
+  printf(""(2)\n"");
+  int total=0;
+  for(i=0;i<num;i++){
+    printf(""%d+"",pt[i][i]);
+    total=total+pt[i][i];
+  }
+  printf(""=%d\n"",total);
+
+  printf(""(3)\n"");
+  int **box;
+  box=(int **)malloc(sizeof(int *)*num);
+
+  for(i=0;i<num;i++){
+    box[i]=(int *)malloc(sizeof(int)*num);
+    for(j=0;j<num;j++){
+      box[i][j]=pt[j][i];
+    }
+  }
+  
+  for(i=0;i<num;i++){
+    for(j=0;j<num;j++){
+      pt[i][j]=box[i][j];
+      printf(""%d"",pt[i][j]);
+    }
+    printf(""\n"");
+  }
+  
+  free(box);
+  free(pt);
+  return 0;
+}
+","#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+int main(){
+  
+  char str1[]=""Kisarazu"";
+  char str2[]=""City"";
+  char *pt;
+  int c;
+  int i;
+  
+  while(str1[i]!='\0'){
+    
+"
+11,"#include<stdio.h>
+#include<stdlib.h>
+
+#define NUM 100
+int main(void){
+  void *malloc(size_t size);
+  int rand(void);
+  int i;
+  int *pt;
+  int n;
+  for(n=0;n<100;n++);
+  n = rand();
+  pt = (char *)malloc(100);
+  for(i=0;i<NUM;i++){
+    pt[i] = i;
+  }
+  for(i=0;i<NUM;i++){
+    printf(""pt[%d]=%d\n"",i,pt[i]);
+  }
+  
+    return 0;
+
+}
+",,
+12,"#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+int main(void){
+  int u,n,k,o;
+  int *array1;
+
+  srand((unsigned)time(NULL));
+
+  printf(""Enter Num\n"");
+  scanf(""%d"",&u);
+
+  array1 = (int *)malloc(sizeof(int)*(u+1));
+
+  int array2[u];
+
+  printf(""(1)\n"");
+  
+  for(n=0;n<u;n++){
+    array1[n] = rand()%100;
+    printf(""array1[%d] = %2d\n"",n,array1[n]);
+  }
+
+  printf(""\n(2)\n"");
+
+  n = 0;
+
+  for(k=u-1;k>=0;k--){
+    array2[k] = array1[n];
+    printf(""array2[%d] = %2d\n"",k,array2[k]);
+    n++;
+  }
+
+  printf(""\n(3)\n"");
+
+  for(n=0;n<u;n++){
+    o = array1[n]%2;
+    if(o==0){
+      printf(""array1[%d] = %2d\n"",n,array1[n]);
+    }
+    o = 0;
+  }
+
+  free(array1); 
+  
+  return 0;
+  
+}
+","#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+int main(void){
+  int n,a,s,u;
+  int **fn;
+
+  printf(""Enter NUM\n"");
+  scanf(""%d"",&n);
+
+  fn = (int **)malloc(sizeof(int *)*(n-1));
+
+  srand((unsigned)time(NULL));
+
+  printf(""(1)\n"");
+
+  for(a=0;a<n;a++){
+    for(s=0;s<n;s++){
+      fn[a][s] = rand()%10;
+      printf(""%d"",fn[a][s]);
+    }
+    printf(""\n"");
+  }
+
+  printf(""(2)\n"");
+
+  u = 0;
+
+  for(a=0;a<n;a++){
+    u = fn[a][a] + u;
+  }
+
+  printf(""%d\n"",u);
+
+  free(fn);
+  
+  return 0;
+}
+",
+13,"#include<stdio.h>
+#include<stdlib.h>
+#include<time.h>
+
+int main(){
+  int *array;
+  int i,num;
+  char no;
+  srand((unsigned)time(NULL));
+  printf(""num="");
+  scanf(""%d"",&num);
+  scanf(""%c"",&no);
+  array=(int *)malloc(sizeof(int)*(num+1));
+  printf(""(1)\n"");
+  for(i=0;i<num;i++){
+    array[i]=rand()%100;
+    printf(""%2d\n"",array[i]);
+  }
+  printf(""\n(2)\n"");
+  for(i=num-1;i>=0;i--){
+    printf(""%2d\n"",array[i]);
+  }
+  printf(""\n(3)\n"");
+  for(i=0;i<num;i++){
+    if(array[i]%2==0){
+      printf(""%2d\n"",array[i]);
+    }
+  }
+  free(array);
+  return 0;
+}
+","#include<stdio.h>
+#include<stdlib.h>
+#include<time.h>
+
+int main(){
+  int **array;
+  int flag,sum=0,num,i,j,change;
+  char no;
+  srand((unsigned)time(NULL));
+  printf(""n="");
+  scanf(""%d"",&num);
+  scanf(""%c"",&no);
+  array=(int **)malloc(sizeof(int *)*num);
+  for(i=0;i<num;i++){
+    array[i]=(int *)malloc(sizeof(int)*(num+1));
+  }
+  printf(""(1)\n"");
+  for(i=0;i<num;i++){
+    for(j=0;j<num;j++){
+      array[i][j]=rand()%10;
+      printf(""%d "",array[i][j]);
+    }
+    printf(""\n"");
+  }
+  printf(""(2)\n"");
+  for(i=0;i<num;i++){
+    sum+=array[i][i];
+  }
+  printf(""sum=%d\n"",sum);
+  printf(""(3)\n"");
+  change=0;
+  for(i=0;i<num;i++){
+    for(j=change;j>=0;j--){
+      flag=array[i][j];
+      array[i][j]=array[j][i];
+      array[j][i]=flag;
+    }
+    change++;
+  }
+  for(i=0;i<num;i++){
+    for(j=0;j<num;j++){
+      printf(""%d "",array[i][j]);
+    }
+    printf(""\n"");
+  }
+  for(i=0;i<num;i++){
+    free(array[i]);
+  }
+  free(array);
+}
+","#include<stdio.h>
+#include<stdlib.h>
+
+int main(){
+  char str1[]=""SAZANAMI"";
+  char str2[]=""E257"";
+  int sum=0,i;
+  char *array;
+  while(str1[i]!='\0'){
+    sum++;
+    i++;
+  }
+  i=0;
+  while(str2[i]!='\0'){
+    sum++;
+    i++;
+  }
+  array=(char *)malloc(sizeof(char)*(sum+1));
+  sum=0;
+  i=0;
+  while(str1[i]!='\0'){
+    array[sum]=str1[i];
+    i++;
+    sum++;
+  }
+  i=0;
+  while(str2[i]!='\0'){
+    array[sum]=str2[i];
+    i++;
+    sum++;
+  }
+  printf(""%s\n"",array);
+  free(array);
+}
+"
+14,"#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+int main(void){
+  int i;
+  int count=0;
+  int *pt;
+  srand((unsigned)time(NULL));
+  printf(""配列の数を入力してください:"");
+  scanf(""%d"",&i);
+  pt = (int *)malloc(sizeof(int)*i+1);
+  printf(""(1)\n"");
+  while(count<i){
+    pt[count]=rand()%100;
+    printf(""%d\n"",pt[count]);
+    count++;
+  }
+  pt[count]='\0';
+  count--;
+  printf(""(2)\n"");
+  while(count>=0){
+    printf(""%d\n"",pt[count]);
+    count--;
+  }
+  count=0;
+  printf(""(3)\n"");
+  while(count<i){
+    if(pt[count]%2==0){
+      printf(""%d\n"",pt[count]);
+    }
+    count++;
+  }
+  free(pt);
+  return 0;
+}
+","#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+int main(void)
+{
+  int **numberBox;
+  int i,count,count1,goukei;
+  count1=0;
+  goukei=0;
+  i=0;
+  srand((unsigned)time(NULL));
+  printf(""正方行列の大きさを決めてください:"");
+  scanf(""%d"",&count);
+  numberBox = (int **)malloc(sizeof(int *) * count);
+  printf(""(1)\n"");
+  while(i<count){
+  // i行目の列数
+    numberBox[i] = (int *)malloc(sizeof(int) * count);
+    while(count1<count){
+      numberBox[i][count1]=rand()%10;
+      printf(""%d"",numberBox[i][count1]);
+      if(count1==i){
+	goukei=goukei+numberBox[i][count1];
+      }
+      count1++;
+    }
+    count1=0;
+    printf(""\n"");
+    i++;
+  }
+  printf(""(2)\n対角成分の合計:"");
+  printf(""%d\n"",goukei);
+  
+  i=0;
+  while (i<count){
+  free(numberBox[i]);
+  i++;
+  }
+  free(numberBox);
+
+  return 0;
+}
+",
+15,"#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+int main(){
+  int *array;
+  int array_num;
+  int i;
+  srand((unsigned)time(NULL));
+
+  printf(""input num = "");
+  scanf(""%d"",&array_num);
+
+  array = (int*)calloc(array_num, sizeof(int));
+
+  for(i = 0; i < array_num; i++){
+    array[i] = rand() % 100;
+  }
+
+  printf(""(1)\n"");
+  for(i = 0; i < array_num; i++){
+    printf(""[%d] = %d\n"", i, array[i]);
+  }
+
+  printf(""\n(2)\n"");
+  for(i = array_num -1; i >= 0; i--){
+    printf(""[%d] = %d\n"", i, array[i]);
+  }
+  
+  printf(""\n(3)\n"");
+  for(i = 0; i < array_num; i++){
+    if(array[i] % 2 == 0){
+      printf(""[%d] = %d\n"", i, array[i]);
+    }
+  }
+  
+  free(array);
+  return 0;
+}
+","#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+int main(){
+  int i,j;
+  int array_num;
+  int **array;
+  int **tarray;
+  int sum = 0;
+
+  printf(""input_num = "");
+  scanf(""%d"", &array_num);
+
+  srand((unsigned)time(NULL));
+  array = (int**)calloc(array_num, sizeof(int*));
+
+  for(i = 0; i < array_num; i++){
+    array[i] = (int*)calloc(array_num, sizeof(int));
+      
+    for(j = 0; j < array_num; j++){
+       array[i][j] = rand() % 10;
+      
+    }
+  }
+
+  printf(""(1)\n"");
+  for(i = 0; i < array_num; i++){
+      printf(""|"");
+    for(j = 0; j < array_num; j++){
+      printf(""%d"", array[i][j]);
+    }
+    printf(""|\n"");
+  }
+
+  printf(""\n(2)\n"");
+  for(i = 0; i < array_num; i++){
+    sum += array[i][i];
+  }
+  printf(""sum = %d\n"", sum);
+
+  
+  printf(""\n(3)\n"");
+
+  tarray = (int**)calloc(array_num, sizeof(int*));
+  
+  for(i = 0; i < array_num; i++){
+    tarray[i] = (int*)calloc(array_num, sizeof(int));
+    for(j = 0; j < array_num; j++){
+      tarray[i][j] = array[j][i];
+    }
+  }
+
+  for(i = 0; i < array_num; i++){
+      printf(""|"");
+    for(j = 0; j < array_num; j++){
+      array[i][j] = tarray[i][j];
+      printf(""%d"", array[i][j]);
+    }
+    printf(""|\n"");
+  }
+
+  //free
+  for(i = 0; i < array_num; i++){
+    free(array[i]);
+  }
+  free(array);
+  
+  return 0;
+}
+","#include <stdio.h>
+#include <stdlib.h>
+
+int main(){
+  int NUM;
+  int i = 0;
+  char *array;
+  char str1[] = "" Kisarazu"";
+  char str2[] = "" City"";
+
+  NUM = snprintf(NULL , 0, ""%s"", str1) + snprintf(NULL , 0, ""%s"", str2) - 1 - 1 + 1;
+  printf(""NUM = %d\n"", NUM);
+
+  array = (char*)calloc(NUM+1, sizeof(char));
+  array[NUM] = 0;
+  
+  while(i < snprintf(NULL , 0, ""%s"", str1)){
+    array[i] = str1[i+1];
+    i++;
+  }
+
+  i--;
+  while(i < NUM){
+    array[i] = str2[(i -  snprintf(NULL , 0, ""%s"", str1) + 1) + 1];
+    i++;
+  }
+
+  printf(""%s\n"", array);
+
+  free(array);
+  return 0;
+}
+"
+16,"#include<stdio.h>
+#include<stdlib.h>
+#include<time.h>
+
+int main(void)
+{
+  int i;
+  int a=0;
+  int b=0;
+  int *num;
+  
+  scanf(""%d"", &i);
+
+  num = (int *)malloc(sizeof(int)*i);
+  
+  srand((unsigned)time(NULL));
+
+  printf(""(1)"");
+  for(a=1; a<=i; a++){
+    *(num+a) = rand()%100;
+    printf(""%3d "", num[a]);
+  }
+  printf(""\n"");
+
+  printf(""(2)"");
+  for(a=i; a>0; a--){
+    printf(""%3d "", num[a]);
+  }
+  printf(""\n"");
+  
+
+  printf(""(3)"");
+  for(a=1; a<=i; a++){
+    if(num[a]%2==0){
+      printf(""%3d "", num[a]);
+    }
+  }
+  printf(""\n"");
+
+  free(num);
+  
+  return 0;
+
+}
+","#include<stdio.h>
+#include<stdlib.h>
+#include<time.h>
+
+int main(void)
+{
+  int n;
+  int i;
+  int r;
+  int a,b;
+  int **array;
+  int *num;
+  
+  srand((unsigned)time(NULL));
+  
+  n = rand()%8+1;
+
+  //行
+  array = (int **)malloc(sizeof(int *) * n);
+
+  //列
+  for(i=0; i<n; i++){
+    array[i] = (int *)malloc(sizeof(int) * n);
+
+    for(a=0; a<=n; a++){
+      array[a][b] = num[]
+	}
+  }
+
+
+  
+",
+17,"#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+int main(void){
+
+  int *array;
+  int array_num;
+  int i;
+
+  printf(""num = "");
+  scanf(""%d"",&array_num);
+
+  array = (int *)malloc(sizeof(int)*array_num);
+  srand((unsigned)time(NULL));
+
+  printf(""(1)\n"");
+  for(i=0;i<array_num;i++){
+    array[i] = rand()%100;
+    printf(""%d|"",array[i]);
+  }
+  printf(""\n"");
+
+  printf(""(2)\n"");
+  for(i=0;i<array_num;i++){
+    printf(""%d|"",array[array_num-(1+i)]);
+  }
+  printf(""\n"");
+
+  printf(""(3)\n"");
+  for(i=0;i<array_num;i++){
+    if(array[i]%2==0){
+      printf(""%d|"",array[i]);
+    }
+  }
+  printf(""\n"");
+
+  free(array);
+  
+  return 0;
+}
+","#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+int main(void){
+
+  int **array;
+  int array_n;
+  int i,j;
+  int sum;
+
+  printf(""n = "");
+  scanf(""%d"",&array_n);
+
+  array = (int **)malloc(sizeof(int *)*array_n);
+  srand((unsigned)time(NULL));
+
+  sum = 0;
+  printf(""(1)\n"");
+  for(i=0;i<array_n;i++){
+    array[i] = (int *)malloc(sizeof(int)*array_n);
+    for(j=0;j<array_n;j++){
+      array[i][j] = rand()%10;
+      printf(""%d "",array[i][j]);
+      if(i==j){
+	sum += array[i][j];
+      }
+    }
+    printf(""\n"");
+  }
+  printf(""(2)\nsum = %d\n"",sum);
+
+  printf(""(3)\n"");
+  for(i=0;i<array_n;i++){
+    for(j=0;j<array_n;j++){
+      array[i][j] = array[j][i];
+      printf(""%d "",array[i][j]);
+    }
+    printf(""\n"");
+  }
+
+  for(i=0;i<array_n;i++){
+    free(array[i]);
+  }
+  free(array);
+
+  return 0;
+}
+      
+",
+18,"#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+int ran(int Min, int Max){     
+
+  int random;
+  random=rand();
+  return random%(Max-Min+1)+Min;
+}
+
+void main(){
+  
+  int *pw;
+  int word, i;
+  srand((unsigned)time(NULL));
+  
+  scanf(""%d"", &word);
+  
+  
+  pw = (int *)malloc(sizeof(int) * word);
+
+  printf(""(1)\n"");
+  
+  for(i=0;i<word;i++){
+    pw[i]=ran(0, 99);
+  }
+  for(i=0;i<word;i++){
+    printf(""%d "", pw[i]);
+  }
+  printf(""\n"");
+
+  printf(""(2)\n"");
+  
+  for(i=word-1;i>=0;i--){
+    printf(""%d "", pw[i]);
+}
+  
+  printf(""\n(3)\n"");
+  for(i=0;i<word;i++){
+
+    if(pw[i]%2==0){
+
+      printf(""%d "", pw[i]);
+      
+    }
+  }
+  printf(""\n"");
+
+  free(pw);
+}
+","#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+int ran(int Min, int Max){     
+
+  int random;
+  random=rand();
+  return random%(Max-Min+1)+Min;
+}
+
+int main(){
+
+  srand((unsigned)time(NULL));
+  
+  int **array, i, j, dim, sum, **tmp;
+
+  sum=0;
+
+  printf(""正方行列の次数を入力してください.\n"");
+  
+  scanf(""%d"", &dim);
+  
+  printf(""(1)\n"");
+  if(dim==0){
+    return 0;
+  }
+  
+  array=(int **)malloc(sizeof(int *)*dim);
+
+  for(i=0;i<dim;i++){
+
+    array[i]=(int *)malloc(sizeof(int)*dim);
+    for(j=0;j<dim;j++){
+      array[i][j]=ran(0, 9);
+      printf(""%d "", array[i][j]);
+    }
+    printf(""\n"");
+  }
+
+  printf(""(2)\n"");
+
+  for(i=0;i<dim;i++){
+
+    sum=sum+array[i][i];
+  }
+  printf(""%d\n"", sum);
+
+  printf(""(3)\n"");
+
+  tmp=(int **)malloc(sizeof(int *)*dim);
+
+  for(i=0;i<dim;i++){
+
+    tmp[i]=(int *)malloc(sizeof(int)*dim);
+    for(j=0;j<dim;j++){
+      tmp[i][j]=array[i][j];
+    }
+  }
+
+  for(i=0;i<dim;i++){
+
+    for(j=0;j<dim;j++){
+      array[i][j]=tmp[j][i];
+    }
+  }
+
+  for(i=0;i<dim;i++){
+
+    for(j=0;j<dim;j++){
+      printf(""%d "", array[i][j]);
+    }
+    printf(""\n"");
+  }
+
+  for(i=0;i<dim;i++){
+
+    free(array[i]);
+    free(tmp[i]);
+  }
+
+  free(array);
+  free(tmp);
+
+}
+
+  
+
+
+  
+
+  
+","#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+#include <string.h>
+
+void main(){
+
+
+  char str1[]=""Kisarazu"", str2[]=""City"", *combine;
+  int length1, length2, length, i;
+
+  for(length1=0;str1[length1]!='\0';length1++){
+
+  }
+  for(length2=0;str2[length2]!='\0';length2++){
+
+  }
+  length=0;
+  length=length1+length2;
+  
+  
+  combine=(char *)malloc(sizeof(char *)*(length+1));
+
+  for(i=0;i<length;i++){
+    if(i<length1){
+      combine[i]=str1[i];
+    }else{
+      combine[i]=str2[i-length1];
+    }
+  }
+  
+  combine[length]='\0';
+  printf(""%s\n"", combine);
+
+  free(combine);
+}
+"
+19,"#include<stdio.h>
+#include<stdlib.h>
+int main(){
+  int NUM,i;
+  int *pt;
+  printf(""NUM="");
+  scanf(""%d"",&NUM);
+  printf(""(1)\n"");
+  pt = (int *)malloc(sizeof(int)*NUM);
+  for(i=0;i<NUM;i++){
+    pt[i]=rand()%99;
+    printf(""%d\n"",pt[i]);
+    }
+   printf(""(2)逆順に出力\n"");
+   for(i=NUM-1;i>=0;i--){
+     printf(""%d\n"",pt[i]);
+    }
+   printf(""(3)偶数のみ出力\n"");
+   for(i=0;i<NUM;i++){
+     if(pt[i]%2==0){
+     printf(""%d\n"",pt[i]);
+     }
+    }
+  return 0;
+}
+
+","#include<stdio.h>
+#include<stdlib.h>
+int main(){
+  int NUM,i=0,j,SUM=0;
+  int **pt;
+  int **copy;
+  printf(""NUM="");
+  scanf(""%d"",&NUM);
+  printf(""(1)\n"");
+  // while(i<16){
+  //  printf(""%d"",rand()%10);
+  //  i++;
+  //}
+  /*順番通りに数が入っているかの確認*/
+  pt = (int **)malloc(sizeof(int *)*NUM);
+  for(i=0;i<NUM;i++){
+    pt[i] = (int *)malloc(sizeof(int)*NUM);
+  }
+  for(i=0;i<NUM;i++){
+    for(j=0;j<NUM;j++){
+      pt[i][j]=rand()%10;
+    }
+  }
+  for(i=0;i<NUM;i++){
+    for(j=0;j<NUM;j++){
+      printf(""%d "",pt[i][j]);
+    }
+    printf(""\n"");
+  }
+  printf(""(2)対角成分の和\n"");
+  for(i=0;i<NUM;i++){
+    SUM += pt[i][i];
+  }
+  printf(""SUM=%d\n"",SUM);
+  printf(""(3)転置行列\n"");
+   copy = (int **)malloc(sizeof(int *)*NUM);
+  for(i=0;i<NUM;i++){
+    copy[i] = (int *)malloc(sizeof(int)*NUM);
+  }
+  for(i=0;i<NUM;i++){
+    for(j=0;j<NUM;j++){
+      copy[i][j]=pt[j][i];
+    }
+  }
+  //  for(i=0;i<NUM;i++){
+  //  for(j=0;j<NUM;j++){
+  //    printf(""%d "",copy[i][j]);
+  //  }
+  // printf(""\n"");
+  //}
+  /*copyが正常に転置行列になっているかの確認*/
+  for(i=0;i<NUM;i++){
+    for(j=0;j<NUM;j++){
+      pt[i][j]=copy[i][j];
+    }
+  }
+  for(i=0;i<NUM;i++){
+    for(j=0;j<NUM;j++){
+      printf(""%d "",pt[i][j]);
+    }
+    printf(""\n"");
+   }
+
+  for(i=0;i<NUM;i++){
+    free(pt[i]);
+    free(copy[i]);
+  }
+  free(pt);
+  free(copy);
+  return 0;
+}
+
+","#include<stdio.h>
+#include<stdlib.h>
+int main(){
+  int NUM,i,count1=0,count2=0,SUM=0;
+  char str1[]=""Kisarazu"";
+  char str2[]=""City"";
+  char *combine;
+  printf(""(1)\n"");
+  for(i=0;str1[i]!='\0';i++){
+    count1++;
+    SUM++;
+  }
+  printf(""str1[%s]:%d\n"",str1,count1);
+  for(i=0;str2[i]!='\0';i++){
+    count2++;
+    SUM++;
+  }
+  printf(""str2[%s]:%d\n"",str2,count2);
+  printf(""SUM:%d\n"",SUM);
+  combine = (char *)malloc(sizeof(char)*SUM);
+  for(i=0;i<count1+1;i++){
+    combine[i]=str1[i];
+  }
+  for(i=count1;i<SUM+1;i++){
+    combine[i]=str2[i-count1];
+  }
+  combine[SUM] = '\0';
+  printf(""combine:%s\n"",combine);
+  free(combine);
+  return 0;
+}
+"
+20,"#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+int main(){
+  int num;
+  int drx;
+  int *pt;
+  srand((unsigned int)time(NULL));
+  printf(""kazuha="");
+  scanf(""%d"",&num);
+  pt=(int *)malloc(sizeof(int)*num);
+  drx=num;
+  for(drx=0;drx<num;drx++){
+    pt[drx]=rand()%100;
+  }
+   printf(""(1)\n"");
+  for(drx=0;drx<num;drx++){
+    printf(""%d\n"",pt[drx]);
+  }
+  printf(""(2)\n"");
+  for(drx=num-1;drx>=0;drx--){
+    printf(""%d\n"",pt[drx]);
+  }
+  printf(""(3)\n"");
+  for(drx=0;drx<num;drx++){
+    if(pt[drx]%2==0){
+      printf(""%d\n"",pt[drx]);
+    }
+  }
+  free(pt);
+  return 0;
+}
+","#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+int main(){
+  int **nb;
+  int n;
+  int drx;
+  int t1;
+  int ff;
+  srand((unsigned int)time(NULL));
+  printf(""n="");
+  scanf(""%d"",&n);
+  nb=(int **)malloc(sizeof(int *)*n);
+  for(drx=0;drx<n;drx++){
+    nb[drx]=(int *)malloc(sizeof(int)*n);
+  }
+  for(drx=0;drx<n;drx++){
+    free(nb[drx]);
+  }
+  for(drx=0;drx<n;drx++){
+    for(t1=0;t1<n;t1++){
+    nb[drx][t1]=rand()%10;
+    }
+  }
+  printf(""(1)\n"");
+  for(drx=0;drx<n;drx++){
+    for(t1=0;t1<n;t1++){
+      printf(""%d "",nb[drx][t1]);
+    }
+    printf(""\n"");
+  }
+  t1=0;
+  for(drx=0;drx<n;drx++){
+    t1=t1+nb[drx][drx];
+  }
+  printf(""(2)\n%d\n"",t1);
+   printf(""(3)\n"");
+   for(drx=0;drx<n;drx++){
+    for(t1=drx;t1<n;t1++){
+      ff=nb[drx][t1];
+      nb[drx][t1]=nb[t1][drx];
+      nb[t1][drx]=ff;
+    }
+  }
+  for(drx=0;drx<n;drx++){
+    for(t1=0;t1<n;t1++){
+      printf(""%d "",nb[drx][t1]);
+    }
+    printf(""\n"");
+  }
+  free(nb);
+  return 0;
+}
+","#include <stdio.h>
+#include <stdlib.h>
+int main(){
+  int num;
+  int drx;
+  char *dis;
+  char str1[]=""Kisarazu"";
+  char str2[]=""City"";
+  num=0;
+  for(drx=0;str1[drx]!='\0';drx++){
+    num++;
+  }
+  for(drx=0;str2[drx]!='\0';drx++){
+    num++;
+  }
+  dis=(char *)malloc(sizeof(char)*num);
+  num=0;
+  for(drx=0;str1[drx]!='\0';drx++){
+    dis[num]=str1[drx];
+    num++;
+  }
+  for(drx=0;str2[drx]!='\0';drx++){
+    dis[num]=str2[drx];
+    num++;
+  }
+  printf(""%s\n"",dis);
+  free(dis);
+  return 0;
+}
+"
+21,"#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+int main(){
+
+  int *pt;
+  int num;
+  int i;
+
+  printf(""数値を入力\n"");
+  scanf(""%d"",&num);
+
+  pt = (int *)malloc(sizeof(int)*num);
+
+  srand((unsigned)time(NULL));
+
+  printf(""\n(1)\n"");
+  
+  for(i=0;i<num;i++){
+    pt[i] = rand()%100;
+    printf(""pt[%d]に%dを入力\n"",i,pt[i]);
+  }
+
+  printf(""\n(2)\n"");
+  
+  for(i=num;0<i;i--){
+    printf(""pt[%d] = %d\n"",i-1,pt[i-1]);
+  }
+
+  printf(""\n(3)\n"");
+
+  for(i=0;i<num;i++){
+    if(pt[i]%2==0){
+      printf(""pt[%d] = %d\n"",i,pt[i]);
+    }
+  }
+
+  free(pt);
+
+  return 0;
+}
+","#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+int main(){
+
+  int **pt;
+  int n;
+  int i,j;
+
+  printf(""n = "");
+  scanf(""%d"",&n);
+
+  pt = (int **)malloc(sizeof(int *)*n);
+
+  for(i=0;i<n;i++){
+    pt[i] = (int *)malloc(sizeof(int)*n);
+  }
+
+  srand((unsigned)time(NULL));
+
+  printf(""\n(1)\n"");
+  
+  for(i=0;i<n;i++){
+    for(j=0;j<n;j++){
+      pt[i][j] = rand()%10;
+    }
+  }
+
+  for(i=0;i<n;i++){
+    for(j=0;j<n;j++){
+      printf("" %d"",pt[i][j]);
+    }
+    printf(""\n"");
+  }
+
+  
+  printf(""\n(2)\n"");
+
+  int sum=0;
+
+  for(i=0;i<n;i++){
+
+    sum += pt[i][i];
+
+  }
+
+  printf(""sum = %d\n"",sum);
+
+  
+  printf(""\n(3)\n"");
+
+  int keep;
+
+  for(i=0;i<n;i++){
+
+    for(j=0;j<n;j++){
+
+      if(i<j){
+	keep = pt[i][j];
+	pt[i][j] = pt[j][i];
+	pt[j][i] = keep;
+      }
+
+    }
+
+  }
+
+  for(i=0;i<n;i++){
+    for(j=0;j<n;j++){
+      printf("" %d"",pt[i][j]);
+    }
+    printf(""\n"");
+  }
+
+  
+
+  for(i=0;i<n;i++){
+    free(pt[i]);
+  }
+  
+  free(pt);
+
+  return 0;
+}
+","#include <stdio.h>
+#include <stdlib.h>
+
+int main(){
+
+  char str1[] = ""Kisarazu"";
+  char str2[] = ""City"";
+
+  char *str3;
+
+  int i=0;
+  int count1,count2;
+    
+  while(str1[i]!='\0'){
+    count1 ++;
+    i++;
+  }
+  
+  i=0;
+  while(str2[i]!='\0'){
+    count2 ++;
+    i++;
+  }
+
+  str3 = (char *)malloc(sizeof(char)*(count1+count2)+1);
+
+  for(i=0;i<count1;i++){
+    str3[i] = str1[i];
+  }
+  
+  for(;i<(count1+count2);i++){
+    str3[i] = str2[i-count1];
+  }
+
+  str3[i] = '\0';
+
+  printf(""%s\n"",str3);
+
+  free(str3);
+
+  return 0;
+}
+"
+22,"#include<stdio.h>
+#include<stdlib.h>
+#include<time.h>
+
+int main(void){
+
+  int *pt;
+  int i,n;
+  
+  srand((unsigned)time(NULL));
+
+  printf(""input number = "");
+  scanf(""%d"",&n);
+
+  pt = (int *)malloc(sizeof(int)*n);
+
+  printf(""(1)\n"");
+  for(i=0;i<n;i++){
+    pt[i] = rand()%100;
+    printf(""pt[%d] = %d\n"",i,pt[i]);
+  }
+
+  printf(""(2)\n"");
+  while(i>0){
+    i -= 1;
+    printf(""pt[%d] = %d\n"",i,pt[i]);
+  }
+
+  printf(""(3)\n"");
+  for(i=0;i<n;i++){
+    if(pt[i]%2 == 0){
+      printf(""%d\n"",pt[i]);
+    }
+  }
+
+  free(pt);
+
+  return 0;
+  
+}
+    
+","#include<stdio.h>
+#include<stdlib.h>
+#include<time.h>
+
+int main(){
+  int **ma;
+  int *pt1;
+  int *pt2;
+  int i,j,k,n,sum;
+  n = 0;
+
+  srand((unsigned)time(NULL));
+  
+  printf(""Input number = "");
+  scanf(""%d"",&n);
+
+  ma = (int **)malloc(sizeof(int)*n);
+  
+  for(i=0;i<n;i++){
+    ma[i] = (int *)malloc(sizeof(int)*n);
+  }
+
+  printf(""(1)\n"");
+  for(j=0;j<n;j++){
+    for(k=0;k<n;k++){
+      ma[j][k] = rand()%10;
+      printf(""%2d"",ma[j][k]);
+    }
+    printf(""\n"");
+  }
+
+  for(j=0;j<n;j++){
+    for(k=0;k<n;k++){
+      if(j == k){
+	sum +=ma[j][k];
+      }
+    }
+  }
+
+  printf(""(2)\n"");
+  printf(""sum = %d\n"",sum);
+
+  printf(""(3)\n"");
+  for(j=0;j<n;j++){
+    pt2 = &ma[k][j];
+    ma[j][k] = *pt2;
+  }
+  for(k=0;k<n;k++){
+      pt1 = &ma[j][k];
+      ma[k][j] = *pt1;
+      printf(""%2d"",ma[j][k]);
+    }
+    printf(""\n"");
+    
+  free(ma);
+
+  return 0;
+
+}
+",
+23,"#include<stdio.h>
+#include<stdlib.h>
+#include<time.h>
+
+int main(void){
+
+  int *array;
+  int len;
+
+  srand((unsigned)time(NULL));
+
+  printf(""type length\n"");
+  scanf(""%d"",&len);
+
+  array = (int *)malloc(sizeof(int) * len);
+
+  for(int i=0; i<len; i++){
+    array[i] = rand()%100;
+  }
+
+  printf(""(1)\n"");
+  for(int i=0; i<len; i++){
+    printf(""array[%d] = %3d\n"",i,array[i] );
+  }
+
+  printf(""(2)\n"");
+  for(int i=len-1; i>=0; i--){
+    printf(""array[%d] = %3d\n"",i,array[i] );
+  }
+
+  printf(""(3)\n"");
+  for(int i=0; i<len; i++){
+    if(array[i]%2 == 0)printf(""array[%d] = %3d\n"",i,array[i] );
+  }
+
+  return 0;
+}
+","#include<stdio.h>
+#include<stdlib.h>
+#include<time.h>
+
+void printmatrix(int **numberbox,int n){
+  for(int j=0; j<n; j++){
+    for(int i=0;i < n; i++){
+      printf(""%d "",numberbox[j][i]);
+    }
+    printf(""\n"");
+  }
+}
+
+int main(void){
+
+  srand((unsigned)time(NULL));
+
+  int **numberbox;
+  int n = 3;
+  int cul = 0;
+
+  printf(""n = %d\n"",n);
+
+    numberbox = (int **)malloc(sizeof(int) * n);
+    for(int i=0; i<n; i++){
+    numberbox[i] = (int *)malloc(sizeof(int) * n);
+    }
+
+
+
+    for(int j=0; j<n; j++){
+      for(int i=0;i < n; i++){
+        numberbox[j][i] = rand()%10;
+        if(i == j)cul += numberbox[j][i];
+      }
+    }
+
+    printf(""(1)\n"");
+    printmatrix(numberbox, n);
+
+
+    printf(""(2)\n"");
+    printf(""cul = %3d\n"",cul);
+
+
+    int tempb,tempa;
+    int tempn = n;
+    int tempn2=0;
+    for(int j=0; j<n; j++){
+      for(int i=0;i < tempn; i++){
+        tempb = numberbox[j][i+tempn2];
+        tempa = numberbox[i+tempn2][j];
+        numberbox[j][i+tempn2] = tempa;
+        numberbox[i+tempn2][j] = tempb;
+      }
+      tempn--;
+      tempn2++;
+    }
+
+
+
+    printf(""(3)\n"");
+    printmatrix(numberbox, n);
+
+
+
+
+
+  free(numberbox);
+  return 0;
+}
+","#include<stdio.h>
+#include<stdlib.h>
+#include<time.h>
+
+int main(void){
+
+  char str1[] = ""Kisarazu"";
+  char str2[] = ""Kosen"";
+
+  int numstr1 = 0;
+  int numstr2 = 0;
+
+  char *str3;
+
+  int i=0;
+  while(str1[i]!='\0'){
+    numstr1++;
+    i++;
+  }
+
+  i=0;
+  while(str2[i]!='\0'){
+    numstr2++;
+    i++;
+  }
+
+  
+
+  int len = numstr1+numstr2;
+
+  str3 = (char *)malloc(sizeof(char) * len);
+
+  for(int i=0; i<numstr1; i++){
+    str3[i] = str1[i];
+  }
+
+  for(int i=numstr1; i<numstr1+numstr2; i++){
+    str3[i] = str2[i-numstr1];
+  }
+
+  printf(""str3= ''%s''\n"",str3);
+
+  free(str3);
+
+  return 0;
+}
+"
+24,"#include<stdio.h>
+#include<stdlib.h>
+#include<time.h>
+
+int main(void){
+  int n,i;
+  int *arr;
+  srand((unsigned)time(NULL));
+  
+  printf(""Hou many?\n"");
+  scanf(""%d"",&n);
+  arr=(int *)malloc(sizeof(int)*n);
+
+  printf(""(1)\n"");
+  for(i=0;i<n;i++){
+    arr[i]=rand();
+    arr[i]%=100;
+    printf(""%2d  %d\n"",i,arr[i]);
+  }
+  printf(""\n"");
+
+  printf(""(2)\n"");
+  for(i=n-1;i>=0;i--){
+    printf(""%2d %d\n"",i,arr[i]);
+  }
+
+  printf(""(3)\n"");
+  for(i=0;i<n;i++){
+    if(i%2==0){
+      printf(""%2d %d\n"",i,arr[i]);
+    }
+  }
+  free(arr);
+  return 0;
+}
+","#include<stdio.h>
+#include<stdlib.h>
+#include<time.h>
+
+int main(void){
+  int n,i,j,sum;
+  int **arr;
+  int **tmp;
+  srand((unsigned)time(NULL));
+
+  printf(""How many?\n"");
+  scanf(""%d"",&n);
+
+  printf(""(1)\n"");
+  arr=(int **)malloc(sizeof(int)*n);
+  for(i=0;i<n;i++){
+    arr[i]=(int *)malloc(sizeof(int)*n);
+    for(j=0;j<n;j++){
+      arr[i][j]=rand();
+      arr[i][j]%=10;
+      printf(""%d "",arr[i][j]);
+    }
+    printf(""\n"");
+  }
+
+  printf(""(2)\n"");
+  for(i=0;i<n;i++){
+    sum+=arr[i][i];
+  }
+  printf(""%d\n"",sum);
+
+  printf(""(3)\n"");
+  tmp=(int **)malloc(sizeof(int)*n);
+  for(i=0;i<n;i++){
+    tmp[i]=(int *)malloc(sizeof(int)*n);
+    for(j=i;j<n;j++){
+      tmp[i][j]=arr[i][j];
+      arr[i][j]=arr[j][i];
+      arr[j][i]=tmp[i][j];
+    }
+  }
+  for(i=0;i<n;i++){
+    for(j=0;j<n;j++){
+      printf(""%d "",arr[i][j]);
+    }
+    printf(""\n"");
+  }
+  free(arr);
+  return 0;
+}
+","#include<stdio.h>
+#include<stdlib.h>
+
+int main(void){
+  char str1[]=""Kisarazu"";
+  char str2[]=""City"";
+  int i,sen[2],sent,flag;
+  char *arr;
+
+  for(i=0;i!='\0';i++){
+  }
+  sen[0]+=i;
+  for(i=0;i!='\0';i++){
+  }
+  sen[1]+=i;
+  for(i=0;i<2;i++){
+    sent+=sen[i];
+  }
+
+  flag=0;
+  arr=(char *)malloc(sizeof(char)*(sent+1));
+  for(i=0;i<sent;i++){
+    if(str1[i]=='\0'&&flag==0){
+      flag=1;
+    }
+    if(flag==0){
+      arr[i]=str1[i];
+    }
+    if(flag==1){
+      arr[i]=str2[(i-sen[0])];
+    }
+    printf(""%c"",arr[i]);
+  }
+  printf(""\n"");
+  return 0;
+}
+"
+25,"#include<stdio.h>
+#include<stdlib.h>
+#include<time.h>
+
+int main(void)
+{
+  int *pt;
+  int i;
+  int NUM;
+  int gyaku;
+  int guusuu;
+  scanf(""%d"",&NUM);
+  srand((unsigned)time(NULL));
+
+  pt= (int* )malloc(sizeof(int)*NUM);
+
+  printf(""(1)\n"");
+  for(i=0;i<NUM;i++){
+    pt[i]=rand()%100;
+    printf(""pt[%d]=%d\n"",i,pt[i]);
+  }
+
+
+  printf(""(2)\n"");
+  for(i=0;i<NUM;i++){
+    gyaku=pt[NUM-i-1];
+    printf(""gyaku=%d\n"",gyaku);
+  }
+
+  printf(""(3)\n"");
+  for(i=0;i<NUM;i++){
+    if(pt[i]%2==0){
+      guusuu=pt[i];
+      printf(""guusuu=%d\n"",guusuu);
+    }
+  }
+  
+  free(pt);
+
+  return 0;
+}
+",,
+26,"#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+void rand_num(int *array,int num);
+void reverse_array(int *array, int num);
+void disp_guusuu(int *array, int num);
+
+int main(void){
+  int *array;
+  int num;
+
+  printf(""(1)\n"");
+  printf(""input the num : "");
+  scanf(""%d"",&num);
+
+  array = (int *)malloc(sizeof(int) * num);
+
+  rand_num(array,num);
+
+  printf(""(2)\n"");
+  reverse_array(array,num);
+  
+  printf(""(3)\n"");
+  disp_guusuu(array,num);
+
+  free(array);
+  
+  return 0;
+}
+
+void rand_num(int *array,int num){
+    srand((unsigned)time(NULL));
+  
+  for(int i = 0;i < num;i++){
+    array[i] = rand() % 100;
+    printf(""array[%d] : %d\n"",i,array[i]);
+  }
+}
+
+void reverse_array(int *array, int num){
+  for(int i = 0;i < num;i++){
+    printf(""reverse[%d] : %d\n"",i,array[(num-1) - i]);
+  }
+}
+
+void disp_guusuu(int *array, int num){
+  printf(""guusuu : \n"");
+  for(int i = 0;i < num;i++){
+    if(array[i] % 2 == 0){
+       printf(""array[%d] : %d\n"",i,array[i]);
+    }
+  }
+}
+","#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+void rand_num(int **array, int n);
+void sum_taikaku(int **array, int n);
+void tenchi_gyouretu(int **array,int **copy,int n);
+
+int main(void){
+  int **array;
+  int **copy;
+  int n;
+
+  printf(""(1)\n"");
+  printf(""enter the num : "");
+  scanf(""%d"",&n);
+
+  array = (int **)malloc(sizeof(int *) * n);
+  for(int i = 0;i < n;i++){
+    array[i] = (int *)malloc(sizeof(int) * n);
+  }
+  rand_num(array,n);
+   /*--------------------------------------------------------*/
+  
+  printf(""(2)\n"");
+  sum_taikaku(array, n);
+  
+  /*--------------------------------------------------------*/
+  
+  printf(""(3)\n"");
+  copy = (int **)malloc(sizeof(int *) * n);
+  for(int i = 0;i < n;i++){
+    copy[i] = (int *)malloc(sizeof(int) * n);
+  }
+
+  tenchi_gyouretu(array,copy,n);
+
+   /*--------------------------------------------------------*/
+  
+  for(int i = 0;i < n;i++){
+    free(array[i]);
+    free(copy[i]);
+  }
+  free(array);
+  free(copy);
+
+  return 0;
+}
+
+void rand_num(int **array, int n){
+  srand((unsigned)time(NULL));
+  
+  for(int i = 0;i < n;i++){
+    for(int j = 0;j < n;j++){
+      array[i][j] = rand() % 10;
+      printf(""%d "",array[i][j]);
+    }
+    printf(""\n"");
+  }
+}
+
+void sum_taikaku(int **array, int n){
+  int taikaku;
+  
+  for(int i = 0;i < n;i++){
+    taikaku += array[i][i];
+  }
+  printf(""taikaku sum : %d\n"",taikaku);
+}
+
+void tenchi_gyouretu(int **array,int **copy,int n){
+  printf(""tenchi gyouretu : \n"");
+  for(int i = 0;i < n;i++){
+    for(int j = 0;j < n;j++){
+      copy[i][j] = array[j][i];
+      array[j][i] = 0;
+    }
+  }
+  for(int i = 0;i < n;i++){
+    for(int j = 0;j < n;j++){
+      array[i][j] = copy[i][j];
+      printf(""%d "",array[i][j]);
+    }
+    printf(""\n"");
+  }
+}
+","#include <stdio.h>
+#include <stdlib.h>
+
+int main(void){
+  char *str1;
+  char *str2;
+  char *str;
+  int num1;
+  int num2;
+  char dummy;
+
+  printf(""input the str1 length : "");
+  scanf(""%d"",&num1);
+  scanf(""%c"",&dummy);
+  
+  str1 = (char *)malloc(sizeof(char) * (num1+1));
+
+  printf(""input the letter : "");
+  fgets(str1, num1+1, stdin);
+
+  printf(""\ninput the str2 length : "");
+  scanf(""%d"",&num2);
+  scanf(""%c"",&dummy);
+  
+  str2 = (char *)malloc(sizeof(char) * (num2+1));
+  
+  printf(""input the letter : "");
+  fgets(str2, num2+1, stdin);
+
+  str = (char *)malloc(sizeof(char) * (num1+num2+1));
+  for(int i = 0;i < )
+
+  printf(""\nAll str : %s\n"",str);
+
+  free(str1);
+  free(str2);
+  
+  return 0;
+}
+"
+27,"#include<stdio.h>
+#include<stdlib.h>
+#include<time.h>
+
+int main (void){
+  int *pt;
+  int i,size;
+
+  srand((unsigned)time(NULL));
+  printf(""input number : "");
+  scanf(""%d"",&size);
+
+  pt=(int *)malloc(sizeof(int)*size);
+
+  printf(""(1)\n"");
+  for(i=0;i<size;i++){
+    
+    pt[i]=rand()%100;
+    printf(""pt[%d]=%d\n"",i,pt[i]);
+    
+  }
+
+  printf(""(2)\n"");
+  for(i=size-1;i>=0;i--){
+
+    printf(""pt[%d]=%d\n"",i,pt[i]);
+
+  }
+
+  printf(""(3)\n"");
+  for(i=0;i<size;i++){
+
+    if(pt[i]%2==0){
+
+      printf(""pt[%d]=%d\n"",i,pt[i]);
+
+    }
+  }
+    
+  free(pt);
+  return 0;
+}
+  
+","#include<stdio.h>
+#include<stdlib.h>
+#include<time.h>
+
+int main(void){
+  int **pt;
+  int sum,i,j,t,size;
+  srand((unsigned)time(NULL));
+  
+  printf(""n = "");
+  scanf(""%d"",&size);
+
+  pt=(int **)malloc(sizeof(int *)*size);
+
+  for(i=0;i<size;i++){
+    pt[i]=(int *)malloc(sizeof(int)*size);
+  }
+
+  printf(""(1)\n"");
+  for(i=0;i<size;i++){
+    for(j=0;j<size;j++){
+      pt[i][j]=rand()%10;
+      printf(""%d "",pt[i][j]);
+    }
+    printf(""\n"");
+  }
+  sum=0;
+  
+  printf(""(2)\n"");
+  for(i=0;i<size;i++){
+    j=i;  
+    sum=sum+pt[i][j];
+  }
+  printf(""%d\n"",sum);
+  i=j=0;
+  
+  printf(""(3)\n"");
+  for(i=0;i<size;i++){
+    for(j=i+1;j<size;j++){
+      t=pt[i][j];
+      pt[i][j]=pt[j][i];
+      pt[j][i]=t;
+    }
+  }
+
+  for(i=0;i<size;i++){
+    for(j=0;j<size;j++){
+      printf(""%d "",pt[i][j]);
+    }
+    printf(""\n"");
+  }
+  
+  for(i=0;i<size;i++){
+    free(pt[i]);
+  }
+  free(pt);
+
+  return 0;
+}
+","#include<stdio.h>
+#include<stdlib.h>
+
+int main(void){
+  char *str1=""kisarazu"";
+  char *str2=""City"";
+  char **mix;
+  int num1,num2,i,j;
+  num1=num2=i=j=0;
+  while(str1[num1]!='\0'){
+    num1++;
+  }
+  
+  while(str2[num2]!='\0'){
+    num2++;
+  }
+  
+  mix=(char **)malloc(sizeof(char *)*2);
+
+  mix[0]=(char *)malloc(sizeof(char)*num1);
+  mix[1]=(char *)malloc(sizeof(char)*num2);
+   
+
+
+  printf(""%s"",str1);
+  printf(""%s\n"",str2);
+
+  free(mix[0]);
+  free(mix[1]);
+  free(mix);
+  return 0;
+}
+"
+28,"#include<stdio.h>
+#include<stdlib.h>
+#include<time.h>
+
+int main(){
+  int i;
+  int ransu;
+  int num;
+  int *pt;
+  int *ptr;
+
+
+
+  printf(""確保したい配列の数は?="");
+  scanf(""%d"",&num);
+  
+  
+  pt=(int *)malloc(sizeof(int)*(num+1));
+  ptr=(int *)malloc(sizeof(int)*(num+1));
+
+  
+  srand((unsigned)time(NULL));
+
+  printf(""(1)\n"");
+  for(i=0;i<num;i++){
+    ransu=rand()%100;
+   *(pt+i)=ransu;
+   printf(""%d\n"",*(pt+i));
+  }
+
+  printf(""(2)\n"");
+  for(i=0; i<num; i++){
+    *(ptr+i)=*(pt+num-1-i);
+  }
+  for(i=0; i<num; i++){
+    printf(""%d\n"",*(ptr+i));
+  }
+
+  printf(""(3)\n"");
+
+  for(i=0;i<num;i++){
+    if(*(pt+i)%2==0){
+      printf(""%d\n"",*(pt+i));
+    }
+  }
+ 
+
+ 
+
+
+
+  free(pt);
+  free(ptr);
+
+  return 0;
+}
+		   
+		   
+		   
+		   
+		   
+","#include<stdio.h>
+#include<stdlib.h>
+#include<time.h>
+
+int main(){
+   int **numberBox;
+   int num;
+   int i,c;
+   int taikaku;
+   
+   printf(""何行何列の正方行列にしたい？="");
+   scanf(""%d"",&num);
+
+   srand((unsigned)time(NULL));
+   
+   numberBox = (int **)malloc(sizeof(int *) *(num+1) );
+  for (i=0; i<num; i++) {
+    numberBox[i] = (int *)malloc(sizeof(int) *(num+1));
+  }
+  
+  for (i=0; i<num; i++) {
+    for (c=0; c<num; c++) {
+      numberBox[i][c] =rand()%10;
+    }
+  }
+
+  printf(""(1)\n"");
+  for (i=0; i<num; i++) {
+    for (c=0; c<num; c++) {
+      printf(""%d"",numberBox[i][c]);
+      printf("" "");
+    }
+    printf(""\n"");
+  }
+
+  
+  for (i=0; i<num; i++) {
+    for (c=0; c<num; c++) {
+      if(i==c){
+	taikaku=taikaku+numberBox[i][c];
+      }
+    }
+  }
+
+  printf(""(2)\n"");
+  printf(""行列Aの対角成分の和は=%d\n"",taikaku);
+      
+
+  
+  
+  for (i=0; i<num; i++) {
+    free(numberBox[i]);
+  }
+  free(numberBox);
+
+  return 0;
+}
+","#include<stdio.h>
+#include<stdlib.h>
+
+
+int main(){
+  char str1[]=""Kisarazu"";
+  char str2[]=""City"";
+  int count;
+  char *pt;
+
+  while(str1[i]!=\0){
+    count++;
+  }
+  while(str2[i]!=\0){
+    count++;
+  }
+
+  pt=(char *)malloc(sizeof(char)*(count-1));
+    
+
+
+  pt=str1;
+  pt[9]=str2;
+
+  free(pt);
+
+
+  
+"
+29,"#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+int main(){
+
+  printf(""(1)\n"");
+
+  int in;
+  printf(""input:"");
+  scanf(""%d"",&in);
+
+  int *array,*rev;
+  srand((unsigned)time(NULL));
+
+  array=(int*)malloc(sizeof(int)*in);
+  rev=(int*)malloc(sizeof(int)*in);
+
+  for(int i=0;i<in;i++){
+    array[i]=rand()%100;
+    printf(""array[%d]=%d\n"",i,array[i]);
+  }
+
+  printf(""(2)\n"");
+
+  for(int i=0;i<in;i++){
+    rev[i]=array[in-i-1];
+    printf(""rev[%d]=%d\n"",i,rev[i]);
+  }
+
+  printf(""(3)\n"");
+
+  for(int i=0;i<in;i++){
+    if(array[i]%2==0) printf(""array[%d]=%d\n"",i,array[i]);
+  }
+
+  free(array);
+  free(rev);
+
+}
+","#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+void output(int **A,int n,char a[]){
+
+  int len;
+  for(len=0;a[len]!='\0';len++);
+
+  for(int i=0;i<n;i++){
+
+    if(i==n/2) printf(""%s="",a);
+    else for(int j=0;j<=len;j++) printf("" "");
+
+    if(i==0&&n>1) printf(""/"");
+    else if(i==n-1&&n>1) printf(""\\"");
+    else if(n==1) printf(""("");
+    else printf(""|"");
+
+    for(int j=0;j<n;j++) printf(""%d "",A[i][j]);
+
+    if(i==0&&n>1) printf(""\\"");
+    else if(i==n-1&&n>1) printf(""/"");
+    else if(n==1) printf("")"");
+    else printf(""|"");
+
+    printf(""\n"");
+  }
+}
+
+int main(){
+
+  int **A;
+  int *dum;
+  int n;
+  srand((unsigned)time(NULL));
+
+  printf(""input n:"");
+  scanf(""%d"",&n);
+
+  printf(""(1)\n"");
+  A=(int**)malloc(sizeof(int*)*n);
+  for(int i=0;i<n;i++) A[i]=(int*)malloc(sizeof(int)*n);
+  for(int i=0;i<n;i++) for(int j=0;j<n;j++) A[i][j]=rand()%10;
+  output(A,n,""A"");
+
+  printf(""(2)\n"");
+  int sum=0;
+  for(int i=0;i<n;i++) sum+=A[i][i];
+  printf(""sum=%d\n"",sum);
+
+  printf(""(3)\n"");
+  dum=(int*)malloc(sizeof(int)*n);
+  for(int i=0;i<n*2-1;i++){
+    for(int j=0;j<=i;j++) if(j<n&&i-j<n) dum[j]=A[j][i-j];
+    for(int j=0;j<=i;j++) if(j<n&&i-j<n) A[i-j][j]=dum[j];
+  }
+  output(A,n,""tA"");
+
+  free(dum);
+  for(int i=0;i<n;i++) free(A[i]);
+  free(A);
+}
+","#include <stdio.h>
+#include <stdlib.h>
+
+int main(){
+
+  char str1[]=""Kisarazu"";
+  char str2[]=""City"";
+
+  char *str;
+  int len1,len2;
+
+  for(len1=0;str1[len1]!='\0';len1++);
+  for(len2=0;str2[len2]!='\0';len2++);
+  printf(""len1=%d,len2=%d\n"",len1,len2);
+
+  str=(char*)malloc(sizeof(char)*(len1+len2+1));
+
+  for(int i=0;i<=len1+len2;i++){
+    if(i<len1) str[i]=str1[i];
+    else if(i<len1+len2) str[i]=str2[i-len1];
+    else str[i]='\0';
+  }
+  printf(""str=%s\n"",str);
+
+}
+"
+30,"#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+int my_rand(int min,int max)
+{
+  return rand()%(max-min+1)+min;
+}//my_rand(1,5)
+
+int main(void)
+{
+  int num,i;
+  int *list;
+  srand((unsigned)time(NULL));
+  printf(""num="");
+  scanf(""%d"",&num);
+  list=(int *)malloc(sizeof(int)*num);
+  for(i=0;i<num;i++){
+    list[i]=my_rand(0,99);
+  }
+  printf(""(1)\n"");
+  for (i=0;i<num;i++){
+    printf(""%d\n"",list[i]);
+  }
+  printf(""\n(2)\n"");
+  for (i=num;0<i;i--){
+    printf(""%d\n"",list[i-1]);
+  }
+  printf(""\n(3)\n"");
+  for (i=0;i<num;i++){
+    if(!(list[i]%2)){
+      printf(""%d\n"",list[i]);
+    }
+  }
+
+  free(list);
+  return 0;//free check!!!
+}
+","#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+int my_rand(int min,int max)
+{
+  return rand()%(max-min+1)+min;
+}//my_rand(1,5)
+
+void disp(int **gyo,int n){
+  int i,j;
+  for (i=0;i<n;i++){
+    for (j=0;j<n;j++){
+      printf(""%d "",gyo[i][j]);
+    }
+    printf(""\n"");
+  }
+}
+
+int taikakuwa(int **gyo,int n){
+  int res=0;
+  for (int i=0;i<n;i++){
+    res=res+gyo[i][i];
+  }
+  return res;
+}
+
+void tenchi(int **gyo,int i,int j){
+  int tmp;
+  tmp=gyo[i][j];
+  gyo[i][j]=gyo[j][i];
+  gyo[j][i]=tmp;
+}
+
+
+int main(void)
+{
+  int n,i,j;
+  int **gyo;
+  //int *retsu;
+  srand((unsigned)time(NULL));
+  printf(""n="");
+  scanf(""%d"",&n);
+  gyo=(int **)malloc(sizeof(int *)*n);
+  for(i=0;i<n;i++){
+    gyo[i]=(int *)malloc(sizeof(int)*n);
+    for (j=0;j<n;j++){
+      gyo[i][j]=my_rand(0,9);
+    }
+  }
+  printf(""(1)\n"");
+  disp(gyo,n);
+  printf(""\n(2)\n"");
+  printf(""num=%d\n\n"",taikakuwa(gyo,n));
+  printf(""(3)\n"");
+  for (i=0;i<n;i++){
+    for(j=0;j<n;j++){
+      if(j>i){
+	tenchi(gyo,i,j);
+      }
+    }
+  }
+  disp(gyo,n);
+  for (i=0;i<n;i++){
+    free(gyo[i]);
+  }
+  free(gyo);
+  return 0;//free check!!!
+}
+","#include<stdio.h>
+#include<stdlib.h>
+
+int moji_len(char *str){
+  int i=0;
+  while(str[i]!='\0'){
+    i++;
+  }
+  return i;
+}
+void ketsugo(char *res,char *str,int *c,int st_len){
+  int i;
+  for (i=0;i<st_len;i++){
+    res[i+*c]=str[i];
+  }
+  *c=i;
+}
+
+
+int main(void){
+  char str1[]=""Kisarazu"";
+  char str2[]=""City"";
+  char *res;
+  int c=0;
+  int len1=moji_len(str1);
+  int len2=moji_len(str2);
+  printf(""1:%d 2:%d \n"",len1,len2);
+  res=(char *)malloc(sizeof(char)*(len1+len2)+1);
+  res[len1+len2]='\0';
+  ketsugo(res,str1,&c,len1);
+  printf(""%d\n"",c);
+  ketsugo(res,str2,&c,len2);
+  printf(""%s\n"",res);
+  free(res);
+  return 0;//free!!!!
+}
+"
+31,"#include<stdio.h>
+#include<stdlib.h>
+#include<time.h>
+
+int main(){
+  int *array;
+  int i;
+  int n;
+  char dummy;
+
+  srand((unsigned)time(NULL));
+  printf(""num="");
+  scanf(""%d"",&n);
+  scanf(""%c"",&dummy);
+  array=(int *)malloc(sizeof(int)*n);
+  printf(""(1)\n"");
+  for(i=0;i<n;i++){
+    array[i]=rand()%100;
+    printf(""%d\n"",array[i]);
+  }
+  printf(""\n(2)\n"");
+  for(i=n-1;i>-1;i--){
+    printf(""%d\n"",array[i]);
+  }
+  printf(""\n(3)\n"");
+  for(i=0;i<n;i++){
+    if(array[i]%2==0){
+      printf(""%d\n"",array[i]);
+    }
+  }
+  free(array);
+  return 0;
+}
+","#include<stdio.h>
+#include<stdlib.h>
+#include<time.h>
+int main(){
+  int *array2;
+  int n;
+  char dummy;
+  int i;
+  int j;
+  int total;
+
+  srand((unsigned)time(NULL));
+  printf(""n="");
+  scanf(""%d"",&n);
+  scanf(""%c"",&dummy);
+  array2=(int *)malloc(sizeof(int)*n);
+  array2=(int *)malloc(sizeof(int)*n);
+  
+  printf(""(1)\n"");
+  for(i=0;i<n;i++){
+    array2[i]=rand()%10;
+    for(j=0;j<n;j++){
+      array2[j]=rand()%10;
+      printf(""%2d"",array2[i],array2[j]);
+      //if(i=j){
+      //total++;
+      //}
+    }
+    printf(""\n"");
+  }
+
+  printf(""\n(2)\n"");
+  printf(""sum=%d\n"",total);
+  return 0;
+}
+  
+
+  
+",
+32,"#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+int main(void) {
+  int i;
+  int large;
+  int *space;
+  int oddcheck;
+  
+  srand((unsigned)time(NULL));
+
+  printf(""\n(1)\n"");
+  printf(""Input the number: "");
+  scanf(""%d"", &large);
+
+  space = (int *)malloc(sizeof(int)*(large+1));
+
+  *space = 0;
+  for(i=0;i<large;i++) {
+    space[i] = rand()%100;
+    printf(""%d "", space[i]);
+  }
+  printf(""\n"");
+
+  printf(""\n(2)\n"");
+  
+  for(i=0;i<large;i++) {
+    printf(""%d "", space[large-i-1]);
+  }
+  printf(""\n"");
+
+  printf(""\n(3)\n"");
+
+  for(i=0;i<large;i++) {
+    oddcheck = space[i] % 2;
+    if(oddcheck == 0) {
+      printf(""%d "", space[i]);
+    }
+  }
+  printf(""\n"");
+  
+  free(space);
+  return 0;
+}
+","#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+int main(void) {
+  int i, j;
+  int large;
+  int *space;
+
+  srand((unsigned)time(NULL));
+
+  printf(""\n(1)\n"");
+  printf(""Input the number: "");
+  scanf(""%d"", &large);
+
+  space = (int *)malloc(sizeof(int)*(large*large+1));
+
+  *space = 0;
+  for(i=0;i<large;i++) {
+    for(j=0;j<large;j++) {
+      space[i][j] = rand()%100;
+      printf(""%d "", space[i][j]);
+    }
+    printf(""\n"");
+  }
+  printf(""\n"");
+
+  return 0;
+}
+",
+33,"#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+int main(void){
+
+  int a;
+  int *num;
+  int *another;
+
+  printf(""num = "");
+  scanf(""%d"",&a);
+  num     = (int *)malloc(sizeof(int)*a);
+  another = (int *)malloc(sizeof(int)*a);
+
+  srand((unsigned)time(NULL));
+
+  printf(""(1)\n"");
+  for(int i=0; i<a; i++){
+    num[i] = rand()%100;
+    printf(""%d\n"",num[i]);
+  }
+  printf(""(2)\n"");
+  for(int i=0; i<a; i++){
+    another[i] = num[a-i-1];
+    printf(""%d\n"",another[i]);
+  }
+  printf(""(3)\n"");
+  for(int i=0; i<a; i++){
+    if(num[i]%2==0){
+      printf(""%d\n"",num[i]);
+    }
+  }
+  free(num);   free(another);
+  return 0;
+}
+","#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+int main(void){
+  int num;
+  int **array;
+  
+  printf(""num = "");
+  scanf(""%d"",&num);
+
+  array = (int **)malloc(sizeof(int*)*num);
+  for(int i=0; i <num; i++){
+    array[i] = (int *)malloc(sizeof(int)*num);
+  }
+  srand((unsigned)time(NULL));
+  
+  printf(""(1)\n"");
+  for(int i=0; i<num; i++){
+    for(int j=0; j<num; j++){
+      array[i][j] = rand()%10;
+      printf(""%d "",array[i][j]);
+    }
+    printf(""\n"");
+  }
+  printf(""(2)\n"");
+  int total = 0;
+  for(int i=0; i<num; i++){
+    total = total + array[i][i];
+  }
+  printf(""%d\n"",total);
+  printf(""(3)\n"");
+  int **save;
+  save = (int **)malloc(sizeof(int*)*num);
+  for(int i=0; i <num; i++){
+    save[i] = (int *)malloc(sizeof(int)*num);
+  }
+
+  for(int i=0; i<num; i++){
+    for(int j=0; j<num; j++){
+      save[i][j]  = array[i][j];
+    }
+  }
+  for(int i=0; i<num; i++){
+    for(int j=0; j<num; j++){
+      array[i][j] = save[j][i];
+      printf(""%d "",array[i][j]);
+    }
+    printf(""\n"");
+  }
+
+  free(array);   free(save);
+  return 0;
+}
+","#include <stdio.h>
+
+int main(void){
+  char str1[]="" Chiba"";
+  char str2[]="" City"";
+
+  char *str3;
+
+  for(int i=0; i<9; i++){
+    str3 = str1[i];
+    if(i >=)
+  }
+  printf("""")
+}
+"
+34,"#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+int main(){
+  
+  int i,kazu=0;
+  int *pt;
+  
+  srand((unsigned)time(NULL));
+  
+  printf(""num="");
+  scanf(""%d"",&kazu);
+  pt=(int *)malloc(sizeof(int)*kazu);
+
+  printf(""(1)\n"");
+  for(i=0;i<kazu;i++){
+    pt[i]=rand()%100;
+    printf(""%d\n"",pt[i]);
+  }
+
+  printf(""\n(2)\n"");
+  for(i=0;i<kazu;i++){
+    printf(""%d\n"",pt[kazu-i-1]);
+  }
+
+  printf(""\n(3)\n"");
+  for(i=0;i<kazu;i++){
+    if(pt[i]%2==0){
+      printf(""%d\n"",pt[i]);
+    }
+  }
+  printf(""\n"");
+  
+  free(pt);
+}
+","#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+int main(){
+  
+  int i,j,kazu=0,sum=0;
+  int **numberbox,**save;
+
+  srand((unsigned)time(NULL));
+  
+  printf(""num="");
+  scanf(""%d"",&kazu);
+  numberbox=(int **)malloc(sizeof(int *)*kazu);
+  for(i=0;i<kazu;i++){
+    numberbox[i]=(int *)malloc(sizeof(int)*kazu);
+  }
+  
+  printf(""(1)\n"");
+  for(i=0;i<kazu;i++){
+    for(j=0;j<kazu;j++){
+      numberbox[i][j]=rand()%10;
+      printf(""%d "",numberbox[i][j]);
+    }
+    printf(""\n"");
+  }
+
+  printf(""\n(2)\n"");
+  for(i=0;i<kazu;i++){
+    sum+=numberbox[i][i];
+  }
+  printf(""%d\n"",sum);
+
+  printf(""\n(3)\n"");
+  save=(int **)malloc(sizeof(int *)*kazu);
+  for(i=0;i<kazu;i++){
+    save[i]=(int *)malloc(sizeof(int)*kazu);
+  }
+  for(i=0;i<kazu;i++){
+    for(j=0;j<kazu;j++){
+      save[i][j]=numberbox[i][j];
+    }
+  }
+  for(i=0;i<kazu;i++){
+    for(j=0;j<kazu;j++){
+      numberbox[i][j]=save[j][i];
+      printf(""%d "",numberbox[i][j]);
+    }
+    printf(""\n"");
+  }
+
+
+  free(numberbox);
+  free(save);
+}
+","#include <stdio.h>
+#include <stdlib.h>
+
+int main(){
+  int i,mojisu_str1=0,mojisu_str2=0;
+  char str1[]=""Kisarazu"";
+  char str2[]=""City"";
+  char *ketu;
+
+  for(i=0;str1[i]!='\0';i++){
+    mojisu_str1++;
+  }
+  for(i=0;str2[i]!='\0';i++){
+    mojisu_str2++;
+  }
+  
+  ketu=(char *)malloc(sizeof(char)*(mojisu_str1+mojisu_str2));
+  for(i=0;i<mojisu_str1;i++){
+    ketu[i]=str1[i];
+  }
+  for(i=mojisu_str1;i<mojisu_str1+mojisu_str2;i++){
+    ketu[i]=str2[i-mojisu_str1];
+  }
+  printf(""%s\n"",ketu);
+  
+  free(ketu);
+}
+"
+35,"#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+int main(void)
+{
+  int i,j,k;
+  int *array;
+
+  printf(""input number = "");
+  scanf(""%d"",&k);
+  
+  array = (int *)malloc(sizeof(int)*k);
+
+  srand((unsigned)time(NULL));
+
+  printf(""(1)\n"");
+  for(i=0; i<k; i++){
+    array[i]=rand()%100;
+    printf(""%d\n"",array[i]);
+  }
+
+  printf(""(3)\n"");
+  for(i=0; i<k; i++){
+    if(array[i]%2==0){
+      printf(""%d\n"",array[i]);
+    }
+  }
+  i--;
+  
+  printf(""(2)\n"");
+  while(k>0){
+    array[k] = array[i];
+    printf(""%d\n"",array[k]);
+    i--;
+    k--;
+    }
+
+
+  return 0;
+
+
+}
+
+  
+","#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+int main(void)
+{
+  int i,j,k;
+  int **array[][];
+
+  printf(""input number = "");
+  scanf(""%d"",&k);
+  
+  array = (int **)malloc(sizeof(int *)*k);
+
+  array[k] = (int *)malloc(sizeof(int *)*k);
+
+  for(i=0; i<k; i+;){
+    for(j=0; j<k; j+;){
+      
+
+  srand((unsigned)time(NULL));
+",
+36,"#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+int main(void)
+{
+  srand((unsigned)time(NULL));
+  
+  int i;
+  int num;
+  int *array;
+  
+  printf(""num="");
+  scanf(""%d"", &num);
+  printf(""\n"");
+  
+  array = (int*)malloc(sizeof(int) * num);
+
+  printf(""(1)\n"");
+  for (i=0; i<num; i++) {
+    array[i] = rand()%100;
+
+    printf(""%d\n"", array[i]);
+  }
+
+  printf(""\n(2)\n"");
+  for (i=num; i>0; i--) {
+    printf(""%d\n"", array[i-1]);
+  }
+
+  printf(""\n(3)\n"");
+  for (i=0; i<num; i++) {
+    if (array[i]%2 == 0 || array[i] == 0) {
+      printf(""%d\n"", array[i]);
+    }
+  }
+  
+  free(array);
+  return 0;
+}
+","#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+int main(void)
+{
+  srand((unsigned)time(NULL));
+  
+  int **numbox;
+  int i,j;
+  int n;
+  int sum = 0;
+
+  printf(""n="");
+  scanf(""%d"", &n);
+
+  numbox = (int **)malloc(sizeof(int *) * n);
+
+  printf(""(1)"");
+  for (i=0; i<n; i++) {
+    numbox[i] = (int *)malloc(sizeof(int) * n);
+    printf(""\n"");
+    for (j=0; j<n; j++) {
+      numbox[i][j] = rand()%10;
+      printf(""%d "", numbox[i][j]);
+      if (i == j) {
+	sum = sum+numbox[i][j];
+      }
+    }
+  }
+  printf(""\n"");
+  
+  printf(""\n(2)\n"");
+  printf(""sum=%d\n"", sum);
+
+  printf(""\n(3)"");
+  for (j=0; j<n; j++) {
+    printf(""\n"");
+    for (i=0; i<n; i++) {
+      printf(""%d "", numbox[i][j]);
+    }
+  }
+  printf(""\n"");
+  
+  for(i=0; i<n; i++) {
+    free(numbox[i]);
+  }
+  free(numbox);
+  return 0;
+
+}
+",
+37,"#include<stdio.h>
+#include<stdlib.h>
+#include<time.h>
+
+int main(){
+  int i,a,b;
+  int* array;
+
+  printf(""please number"");
+  scanf(""%d"",&a);
+
+  srand((unsigned)time(NULL));
+  array=(int *)malloc(sizeof(int)*a);
+
+  printf(""(1)"");
+  for(i=0;i<a;i++){
+    array[i]=rand()%100;
+    printf(""%d "",array[i]);
+  }
+  printf(""\n"");
+
+  i=i-1;
+  printf(""(2)"");
+  while(i>=0){
+    printf(""%d "",array[i]);
+    i=i-1;
+  }
+  printf(""\n"");
+
+  printf(""(3)"");
+  for(i=0;i<a;i++){
+    if(array[i]%2==0){
+      printf(""%d "",array[i]);
+    }
+  }
+  printf(""\n"");
+  
+  free(array);
+  return 0;
+}
+","#include<stdio.h>
+#include<stdlib.h>
+#include<time.h>
+
+int func(int *a,int *b){
+  int tmp;
+  
+  tmp=*a;
+  *a=*b;
+  *b=tmp;
+}
+
+int main(){
+  int n,i,nn,ii,total;
+  int **A;
+
+  printf(""n="");
+  scanf(""%d"",&n);
+  
+  srand((unsigned)time(NULL));
+  A=(int **)malloc(sizeof(int *)*n);
+
+  nn=n;
+  printf(""(1)\n"");
+  for(i=0;i<n;i++){
+    A[i]=(int *)malloc(sizeof(int)*n);
+    for(ii=0;ii<nn;ii++){
+      A[i][ii]=rand()%10;
+      printf(""%d "",A[i][ii]);
+    }
+    printf(""\n"");
+  }
+  printf(""\n"");
+
+  total=0;
+  printf(""(2)"");
+  for(i=0;i<n;i++){
+    total=total+A[i][i];
+    printf(""%d "",A[i][i]);
+  }
+  printf(""=%d\n\n"",total);
+
+  printf(""(3)\n"");
+  for(i=0;i<n;i++){
+    for(ii=0;ii<nn;ii++){
+      func(&A[i][ii],&A[ii][i]);
+	}
+  }
+  
+  for(i=0;i<n;i++){
+    for(ii=0;ii<nn;ii++){
+      printf(""%d "",A[i][ii]);
+    }
+    printf(""\n"");
+  }
+  
+  for(i=0;i<n;i++){
+    free(A[i]);
+  }
+  free(A);
+
+  return 0;
+}
+",
+38,"#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+int main(void){
+
+  int i,a,b;
+  int *pt;
+
+  scanf(""%d"",&a);
+  printf(""\n"");
+
+  srand((unsigned)time(NULL));
+  pt=(int *)malloc(sizeof(int)*a);
+
+
+  printf(""(1)\n"");
+  for(i=0;i<a;i++){
+    pt[i]=rand()%100;
+    printf(""%d\n"",pt[i]);
+  }
+
+
+  printf(""\n"");
+  printf(""(2)\n"");
+  for(i=0;i<a;i++){
+    printf(""%d\n"",pt[a-1-i]);
+  }
+
+  printf(""\n"");
+  printf(""(3)\n"");
+  for(i=0;i<a;i++){
+    if(pt[i]%2==0){
+      printf(""%d\n"",pt[i]);
+    }
+  }
+  
+  free(pt);
+  return 0;
+}
+","#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+int main(void){
+
+  int i,j,a;
+  int total;
+  int **pt;
+
+  scanf(""%d"",&a);
+  
+  pt=(int **)malloc(sizeof(int *)*a);
+
+  total=0;
+  printf(""(1)\n"");
+  for(i=0;i<a;i++){
+    pt[i]=(int *)malloc(sizeof(int)*a);
+    for(j=0;j<a;j++){
+      pt[i][j]=rand()%10;
+      printf(""%d"",pt[i][j]);
+    }
+    printf(""\n"");
+  }
+
+  printf(""\n"");
+  printf(""(2)\n"");
+  for(i=0;i<a;i++){
+    for(j=0;j<a;j++){
+      if(i==j){
+	total=total+pt[i][j];
+      }
+    }
+  }
+  printf(""%d\n"",total);
+
+  printf(""\n"");
+  printf(""(3)\n"");
+  for(i=0;i<a;i++){
+    for(j=0;j<a;j++){
+      printf(""%d"",pt[j][i]);
+    }
+    printf(""\n"");
+  }
+
+  
+  free(pt);
+  return 0;
+}
+","#include <stdio.h>
+#include <stdlib.h>
+
+int main(void){
+
+  char str1[]=""Kisarazu"";
+  char str2[]=""City"";
+  char *pt;
+  char *pt2;
+  int i,total,total2;;
+
+  i=0;
+  total=0;
+  while(str1[i]!='\0'){
+    total=total+1;
+    i=i+1;
+  }
+  printf(""%d"",total);
+
+  i=0;
+  total2=0;
+  while(str2[i]!='\0'){
+    total2=total2+1;
+    i=i+1;
+  }
+
+  pt=(char *)malloc(sizeof(char)*total+1);
+  pt2=(char *)malloc(sizeof(char)*total2+1);
+
+  pt=str1;
+  pt2=str2;
+
+  printf(""%s"",pt);
+  printf(""%s"",pt2);
+
+  free(pt);
+  free(pt2);
+
+  return 0;
+}
+  
+"
+39,"#include<stdio.h>
+#include<stdlib.h>
+#include<time.h>
+
+void func1(char *pt)
+{
+  int i,num;
+
+  srand((unsigned)time(NULL));
+
+  i = 0;
+  while(pt[i+1] != '\0')
+    {
+      pt[i] = rand() % 99;
+      i++;
+    }
+  printf(""(1)\n"");
+  i = 0;
+  while(pt[i+1] != '\0')
+    {
+      printf(""array[%d] = %d\n"",i,pt[i]);
+      i++;
+    }
+}
+
+void func2(char *pt)
+{
+  int i;
+  i = 0;
+  while(pt[i+2] != '\0')
+    {
+      i++;
+    }
+  printf(""(2)\n"");
+  while(i >=  0)
+    {
+      printf(""array[%d] = %d\n"",i,pt[i]);
+      i -= 1;
+    }
+}
+
+void func3(char *pt)
+{
+  int i,n;
+  i = n = 0;
+  printf(""(3)\n"");
+  while(pt[i+1] != '\0')
+    {
+      n = pt[i] % 2;
+      if(n == 0)
+	{
+	  printf(""array[%d] = %d\n"",i,pt[i]);
+	}
+      i++;
+    }
+}
+
+int main(void)
+{
+  char *array;
+  char *pt;
+  int num;
+
+  printf(""Input num = "");
+  scanf(""%d"",&num);
+
+  array = (char *)malloc(sizeof(char)*(num+1));
+  array[num+1] = '\0';
+  pt = array;
+
+  func1(pt);
+  func2(pt);
+  func3(pt);
+
+  free(array);
+
+  return 0;
+}
+  
+","#include<stdio.h>
+#include<stdlib.h>
+#include<time.h>
+
+
+/* void func1(int array[][],int x);
+   void func2(int array[][],int x);
+*/
+int main(void)
+{
+  int **matrix;
+  int num,i,j;
+
+  srand((unsigned)time(NULL));
+  
+  printf(""Input num = "");
+  scanf(""%d"",&num);
+
+  matrix = (int **)malloc(sizeof(int *)* num);
+
+  for(i=0;i<num;i++)
+    {
+      matrix[i] = (int *)malloc(sizeof(int *)* num);
+    }
+  for(i=0;i<num;i++)
+    {
+      for(j=0;j<num;j++)
+	{
+	  matrix[i][j] = rand() % 9;
+	}
+    }
+
+  printf(""(1)\n"");
+  for(i=0;i<num;i++)
+    {
+      for(j=0;j<num;j++)
+	{
+	  printf(""%d "",matrix[i][j]);
+	}
+      printf(""\n"");
+    }
+  
+
+  //func1(matrix,num);
+  //func2(matrix,num);
+
+  for(i=0;i<num;i++)
+    {
+      free(matrix[i]);
+    }
+  free(matrix);
+
+  return 0;
+}
+
+/*void func1(int array[][],int x)
+{
+  int i,j,val;
+  i = j = val = 0;
+  
+  for(i=0;i<x;i++)
+    {
+      for(j=0;j<x;j++)
+	{
+	  if(i == j)
+	    {
+	      val += array[i][j];
+	    }
+	}
+    }
+}
+*/
+","#include<stdio.h>
+#include<stdlib.h>
+
+int main(void)
+{
+
+  char str1[] = ""TOKYO"";
+  char str2[] = ""disneyresort"";
+
+  char *pt,*pt1,*pt2;
+  int i,j,num;
+
+  i = j = num = 0;
+
+  while(str1[i+1] != '\0')
+    {
+      i++;
+    }
+  while(str2[j+1] != '\0')
+    {
+      j++;
+    }
+
+  num = i + j;
+
+  pt = (char *)malloc(sizeof(char) * (num+1));
+
+  pt1 = str1;
+  pt2 = str2;
+
+  pt = pt1;
+
+  pt[i] = pt2;
+
+  printf(""str1 = %s\n"",str1);
+  printf(""str2 = %s\n"",str2);
+  printf(""pt   = %s\n"",pt);
+
+  free(pt);
+
+  return 0;
+}
+  
+"
+40,"#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+int main(){
+
+  int x,i;
+  int *num;
+  srand((unsigned)time(NULL));
+
+  scanf(""%d"",&x);
+  num=(int *)malloc(sizeof(int)* x);
+
+  printf(""(1)\n"");
+  for(i=0;i<x;i++){
+    num[i]=rand()%100;
+    printf(""%d\n"",num[i]);
+  }
+
+  printf(""(2)\n"");
+  for(i=x;i>0;i--){
+    printf(""%d\n"",num[i-1]);
+  }
+
+  printf(""(3)\n"");
+  for(i=0;i<x;i++){
+    if(num[i]%2==0){
+      printf(""%d\n"",num[i]);
+    }
+  }
+  free(num);
+}
+","#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+int main(){
+
+  int n,i,j,total=0;
+  int **num;
+  srand((unsigned)time(NULL));
+
+  scanf(""%d"",&n);
+  num=(int **)malloc(sizeof(int *)* n);
+  for(i=0;i<n;i++){
+    num[i]=(int *)malloc(sizeof(int)* n);
+  }
+
+  printf(""(1)\n"");
+  for(i=0;i<n;i++){
+    for(j=0;j<n;j++){
+      num[i][j]=rand()%10;
+      printf(""%d "",num[i][j]);
+      if(i==j){
+        total+=num[i][j];
+      }
+    }
+    printf(""\n"");
+  }
+
+  printf(""(2)\n"");
+  printf(""%d\n"",total);
+
+  printf(""(3)\n"");
+  for(i=0;i<n;i++){
+    for(j=0;j<n;j++){
+      printf(""%d "",num[j][i]);
+    }
+    printf(""\n"");
+  }
+  for(i=0;i<n;i++){
+    free(num[i]);
+  }
+  free(num);
+}
+","#include <stdio.h>
+#include <stdlib.h>
+
+int main (){
+
+  int i=0,x;
+  char *str1=""kisarazu"";
+  char *str2=""city"";
+
+  while(str1[i]!='\0'){
+    i++;
+  }
+  str1=(char *)malloc(sizeof(char)* i);
+
+  i=0;
+  while(str2[i]!='\0'){
+    i++;
+  }
+  str2=(char *)malloc(sizeof(char)* i);
+  printf(""(1)\n"");
+  printf(""%s"",str1);
+  printf(""%s\n"",str2);
+
+  free(str1);
+  free(str2);
+}
+"
+41,"#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+#define MIN_LENGTH 0
+#define MAX_LENGTH 99
+
+int main(){
+  int i;
+  int num;
+  int rev;
+
+  srand(time(NULL));
+
+  printf (""num="");
+  scanf(""%d"",&num);
+
+  i = 0;
+  while (i < 99) {
+     = rand();
+    
+  }
+
+   printf(""Reversed array:\n"");
+    for (int i=0; i<SIZE; i++){
+     printf(""%d"",*(rev+i));
+  }
+  printf(""\n"");
+  return 0;
+}
+","#include <stdio.h>
+#include <stdlib.h>
+
+int main(void)
+{
+  int **numberBox;
+  int i, ct;
+  int num;
+
+  printf (""num="");
+  scanf(""%d"",&num);
+
+
+  numberBox = (int **)malloc(sizeof(int *));
+
+  for (i=0; i<9; i++) {
+    numberBox[num][num] = ct++;
+  }
+
+  for (i=0; i<9; i++) {
+    printf(""numberBox[%d][%d]=%d\n"", num, num, numberBox[num][num]);
+  }
+
+
+  free(numberBox);
+
+  return 0;
+}
+",

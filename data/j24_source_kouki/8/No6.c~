@@ -1,0 +1,41 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+#define NUM 3
+
+int main(void)
+{
+  char *pt;
+  char str1[]="Kisarazu";
+  char str2[]="City";
+  int   i,j,len,a,b;
+  
+  while(str1[i] != '\0'){
+  i++
+    }
+  a=i;
+  printf("a=%d",a);
+     while(str2[i] != '\0'){
+  i++
+    }
+  b=i;
+   printf("b=%d",b);
+   
+   len=a+b;
+   pt = (char *)malloc(sizeof(char) *(len+1));
+  }
+  
+  // nyuu力
+  for(i=0;i<a;i++){
+    pt[i]=str1[i];
+  }
+  for(i=0;i<b;i++){
+    pt[i+a]=str2[i];
+  }
+
+     pruntf("ans=%s",pt[i])
+     
+  free(pt);
+  
+  return 0;
+}

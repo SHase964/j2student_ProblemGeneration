@@ -1,0 +1,31 @@
+{
+  "problem_id": "No7.c",
+  "difficulty": 7,
+  "description": "与えられた2つの文字列str1とstr2を連結し、その結果を動的に確保したメモリ領域に格納して返す関数`concatenate_strings`を作成してください。str1とstr2は任意の文字列です。\n\n関数プロトタイプ：\n```c\nchar *concatenate_strings(const char *str1, const char *str2);\n```\n\nなお、メモリリークを防ぐため、不要になったメモリは適切に解放する必要があります。",
+  "reason": "学習者は、動的メモリ確保、配列操作、ポインタ操作、文字列操作、whileループ、forループ、if文、関数定義、モジュール設計などの基本的なC言語の概念を理解し、問題No4.cとNo5.cを正しく実装できています。しかし、文字列連結に関する問題No6.cは未解答です。\n\nこの問題では、文字列連結というNo6.cの課題を関数として実装することで、モジュール化と再利用性を意識したプログラミングを促します。また、const修飾子を用いることで、引数として渡された文字列が関数内で変更されないことを保証する、より安全なコードの記述を学習させます。これにより、学習者はより高度な文字列操作とメモリ管理技術を習得できます。",
+  "examples": [
+    {
+      "input": "\"Kisarazu\", \"City\"",
+      "output": "\"KisarazuCity\"",
+      "explanation": "文字列\"Kisarazu\"と\"City\"が連結され、\"KisarazuCity\"が返されます。"
+    },
+    {
+      "input": "\"Hello\", \"World\"",
+      "output": "\"HelloWorld\"",
+      "explanation": "文字列\"Hello\"と\"World\"が連結され、\"HelloWorld\"が返されます。"
+    },
+    {
+      "input": "\"\", \"Test\"",
+      "output": "\"Test\"",
+      "explanation": "空文字列と\"Test\"が連結され、\"Test\"が返されます。"
+    }
+  ],
+  "learning_objectives": [
+    "文字列連結",
+    "動的メモリ確保",
+    "ポインタ操作",
+    "const修飾子",
+    "関数定義",
+    "メモリリーク対策"
+  ]
+}

@@ -1,0 +1,22 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+int main(void){
+
+  int i,a,b;
+  int *pt;
+
+  scanf("%d",&a);
+
+  srand((unsiged)time(NULL));
+  pt=(int *)malloc(sizeof(int)*a);
+
+  for(i=0;i<a;i++){
+    pt[i]=rand()%100;
+    printf("%d",pt[i]);
+  }
+
+  free(pt);
+  return 0;
+}

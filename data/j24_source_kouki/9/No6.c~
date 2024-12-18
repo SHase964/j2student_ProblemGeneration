@@ -1,0 +1,17 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(void)
+{
+  char str1[]="kisarazu";
+  char str2[]="City";
+  int len = sizeof(str1)/sizeof(str1[0]) + sizeof(str2)/sizeof(str2[0]);
+
+  printf("%d",len);
+  
+
+
+
+  return 0;
+}
+  

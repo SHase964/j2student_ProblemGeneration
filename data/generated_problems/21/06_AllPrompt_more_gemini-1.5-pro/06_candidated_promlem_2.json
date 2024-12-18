@@ -1,0 +1,29 @@
+{
+  "problem_id": "No7.c",
+  "difficulty": 7,
+  "description": "与えられた2つの整数の配列（array1とarray2）を結合し、その結果を新しい配列（combined_array）に格納するC言語の関数を作成してください。\n\n関数名は`combine_arrays`とします。\n\n引数：\n- `array1`：最初の整数配列\n- `size1`：`array1`のサイズ\n- `array2`：2番目の整数配列\n- `size2`：`array2`のサイズ\n\n戻り値：\n- `combined_array`：結合された配列へのポインタ\n- 結合に失敗した場合はNULLポインタを返す\n\n関数`combine_arrays`は、`array1`と`array2`の内容を新しい配列`combined_array`にコピーする必要があります。`combined_array`は動的に割り当てられ、`array1`の要素の後に`array2`の要素が続くように配置される必要があります。\n\n関数の使用例：\n```c\nint main() {\n    int array1[] = {1, 2, 3};\n    int size1 = sizeof(array1) / sizeof(array1[0]);\n    int array2[] = {4, 5, 6};\n    int size2 = sizeof(array2) / sizeof(array2[0]);\n\n    int *combined_array = combine_arrays(array1, size1, array2, size2);\n\n    if (combined_array != NULL) {\n        for (int i = 0; i < size1 + size2; i++) {\n            printf(\"%d \", combined_array[i]);\n        }\n        printf(\"\\n\");\n        free(combined_array);\n    } else {\n        printf(\"配列の結合に失敗しました\\n\");\n    }\n\n    return 0;\n}\n```",
+  "reason": "学習者は、動的メモリ割り当て、配列操作、ポインタ、およびループの使用を含む複数のC言語の基本概念を理解していることを示しました。この新しい問題は、これらの概念を統合し、より複雑なシナリオに適用することを学習者に要求することで、学習者の理解をさらに深めます。具体的には、この問題は、2つの配列を結合するという現実世界のシナリオを提示することで、学習者が動的メモリ割り当てと配列操作のスキルをどのように使用できるかを理解するのに役立ちます。さらに、この問題は、適切なエラー処理を実装することの重要性を強調しています。これは、堅牢なC言語プログラムを開発するために不可欠な側面です。",
+  "examples": [
+    {
+      "input": "array1 = {1, 2, 3}, size1 = 3, array2 = {4, 5, 6}, size2 = 3",
+      "output": "1 2 3 4 5 6",
+      "explanation": "2つの配列{1, 2, 3}と{4, 5, 6}が結合され、新しい配列{1, 2, 3, 4, 5, 6}が作成されます。"
+    },
+    {
+      "input": "array1 = {}, size1 = 0, array2 = {1}, size2 = 1",
+      "output": "1",
+      "explanation": "空の配列と{1}が結合され、新しい配列{1}が作成されます。"
+    },
+    {
+      "input": "array1 = {1, 2}, size1 = 2, array2 = {}, size2 = 0",
+      "output": "1 2",
+      "explanation": "{1, 2}と空の配列が結合され、新しい配列{1, 2}が作成されます。"
+    }
+  ],
+  "learning_objectives": [
+    "動的メモリ割り当ての理解",
+    "配列操作の習熟",
+    "ポインタと配列の関係の理解",
+    "エラー処理の実装"
+  ]
+}

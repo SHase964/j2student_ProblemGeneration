@@ -1,0 +1,24 @@
+{
+  "problem_id": "No7.c",
+  "difficulty": 7,
+  "description": "コマンドライン引数で与えられた複数のファイルを読み込み、各ファイルの行数をカウントし、ファイル名とともに表示するプログラムを作成してください。エラー処理を行い、ファイルが存在しない場合や読み込みに失敗した場合には適切なエラーメッセージを表示してください。",
+  "reason": "学習者は動的メモリ確保、配列、文字列操作、そして基本的な入出力処理を理解しています。この問題では、ファイル入出力、エラー処理、コマンドライン引数の処理といった新たな概念を導入し、学習内容の応用力を試します。コマンドライン引数の処理は、argcとargvの理解が求められ、エラー処理は、perror関数や適切なif文の使用など、より堅牢なプログラム作成能力を育成します。",
+  "examples": [
+    {
+      "input": "myprogram.exe file1.txt file2.txt",
+      "output": "file1.txt: 10 lines\nfile2.txt: 5 lines",
+      "explanation": "file1.txtに10行、file2.txtに5行のテキストが含まれている場合の出力例です。"
+    },
+    {
+      "input": "myprogram.exe nonexistent.txt",
+      "output": "Error opening nonexistent.txt: No such file or directory",
+      "explanation": "存在しないファイルを指定した場合のエラーメッセージの例です。"
+    }
+  ],
+  "learning_objectives": [
+    "ファイル入出力(fopen, fclose, fgets, ferror)",
+    "エラー処理(perror,ferror)",
+    "コマンドライン引数の処理(argc, argv)",
+    "堅牢なプログラム設計"
+  ]
+}

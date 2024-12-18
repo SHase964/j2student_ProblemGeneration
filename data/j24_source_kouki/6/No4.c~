@@ -1,0 +1,25 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+int main(void){
+
+  int *pt;
+  int num;
+  int i;
+  srand((unsigned)time(NULL));
+  while(num<1){
+    printf("1以上の整数を入力\n");
+    scanf("%d" , &num);
+  }
+  
+  pt = (int *)malloc(sizeof(int)*num);
+  
+  for(i=0; i<num; i++){
+    pt[i] = rand()%99 + 1;
+    printf("%d\n",pt[i]);
+  }
+  
+  free(pt);
+  return 0;
+}

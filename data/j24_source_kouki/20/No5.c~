@@ -1,0 +1,20 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+int main(){
+  int **nb;
+  int n;
+  int drx;
+  srand((unsigned int)time(NULL));
+  printf("n=");
+  scanf("%d",&n);
+  nb=(int **)malloc(sizeof(int)*n);
+  for(drx=0;drx<n;drx++){
+    nb[drx]=(int *)malloc(sizeof(int)*n);
+  }
+  for(drx=0;drx<n;drx++){
+    free(nb[drx]);
+  }
+  free(nb);
+  return 0;
+}

@@ -1,0 +1,38 @@
+#include<stdio.h>
+#include<stdlib.h>
+#include<time.h>
+
+int main(){
+  int i;
+  int ransu;
+  int num;
+  int *pt;
+
+
+
+  printf("確保したい配列の数は?=");
+  scanf("%d",&num);
+  
+  
+  pt=(int *)malloc(sizeof(int)*(num+1));
+
+  
+  srand((unsigned)time(NULL));
+
+  for(i=0;i>num;i++){
+    ransu=rand%100;
+    (pt+i)=ransu;
+    printf("%d\n",pt+i);
+  }
+
+
+
+  free(pt);
+
+  return 0;
+}
+		   
+		   
+		   
+		   
+		   

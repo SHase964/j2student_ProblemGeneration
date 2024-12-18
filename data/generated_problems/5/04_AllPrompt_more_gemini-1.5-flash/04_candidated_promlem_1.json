@@ -1,0 +1,25 @@
+{
+  "problem_id": "No7.c",
+  "difficulty": 7,
+  "description": "与えられた文字列を、単語ごとに逆順に並べ替えるプログラムを作成してください。例えば、入力文字列が\"This is a sample sentence.\" の場合、出力は \"sentence. sample a is This\" となります。単語の区切り文字は空白文字と句読点（.,!?）とします。動的メモリ確保を用いてください。",
+  "reason": "学習者は動的メモリ確保と配列、文字列操作の基本を理解しているため、より高度な文字列操作とアルゴリズム設計のスキルを問う問題を設計しました。単語の区切り文字を複数扱うことで、文字列処理の複雑さを増し、より実践的な課題にしています。",
+  "examples": [
+    {
+      "input": "This is a sample sentence.",
+      "output": "sentence. sample a is This",
+      "explanation": "空白文字と句読点を区切り文字として、単語を逆順に並べ替えています。"
+    },
+    {
+      "input": "Hello, world! This is a test.",
+      "output": "test. a is This world! Hello,",
+      "explanation": "句読点も区切り文字として認識し、単語を逆順に並べ替えています。"
+    }
+  ],
+  "learning_objectives": [
+    "動的メモリ確保",
+    "文字列操作",
+    "ポインタ演算",
+    "アルゴリズム設計",
+    "複雑な文字列処理"
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "problem_id": "No7.c",
+  "difficulty": 7,
+  "description": "キーワードを複数含む英文を入力し、キーワードを含む単語数をカウントするプログラムを作成しなさい。\n\n仕様は以下の通りです。\n1. キーワードは最大5つ入力可能\n2. キーワードはスペース区切りで入力\n3. 英文は1行で入力\n4. キーワードを含む単語が複数回出現した場合でも、1単語としてカウント\n5. 大文字と小文字は区別しない\n\n入力例:\nキーワード：apple orange banana grape\n英文：I like apple and orange. I also like banana and grape.\n\n出力例:\n4",
+  "reason": "学習者は、動的配列の確保、ランダムな値の入力、配列の要素の出力、逆順出力、偶数出力、2次元配列の動的確保、対角成分の和の計算、転置行列の計算、文字列の結合といった基本的な操作を理解しています。\n\nしかし、文字列操作において、動的に確保したメモリへの適切な文字列のコピー、メモリリークの回避といった点で課題が見られました。\n\nそこで、文字列操作の理解を深め、メモリ管理のスキル向上を促すために、キーワード検索を行う問題を提示します。この問題は、文字列操作、動的メモリ確保、複数キーワードの処理といった要素を含んでおり、学習者の現状のスキルセットを発展させるのに適しています。",
+  "examples": [
+    {
+      "input": "apple orange banana\nI like apple and orange. I also like banana.",
+      "output": "3",
+      "explanation": "キーワード\"apple\"、\"orange\"、\"banana\"がそれぞれ1回ずつ出現するため、合計3つの単語が出現する。"
+    },
+    {
+      "input": "red blue green\nThe sky is blue. The tree is green. The apple is red.",
+      "output": "3",
+      "explanation": "キーワード\"red\"、\"blue\"、\"green\"がそれぞれ1回ずつ出現するため、合計3つの単語が出現する。"
+    },
+    {
+      "input": "cat dog bird\nI have a cat and a dog. I also like birds, especially the bird.",
+      "output": "2",
+      "explanation": "キーワード\"cat\"、\"dog\"が出現する。\"bird\"はキーワードだが、\"birds\"はキーワードではないためカウントされない。大文字小文字は区別しないため、\"bird\"はカウントされる。重複する単語は1回としてカウントするため、\"bird\"は1回のみカウントされる。"
+    }
+  ],
+  "learning_objectives": [
+    "文字列操作",
+    "動的メモリ確保",
+    "複数キーワードの処理",
+    "メモリリークの回避",
+    "探索アルゴリズム"
+  ]
+}

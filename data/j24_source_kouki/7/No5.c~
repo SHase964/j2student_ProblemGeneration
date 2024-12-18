@@ -1,0 +1,20 @@
+#include <stdio.h>
+
+int main(void){
+  int **array;
+
+  int i,num,num2;
+
+  printf("n行n列の正方行列を製作します。\nnに当てはまる数値を入力してください->");
+  scanf("%d",&num);
+
+  array = (int **)malloc(sizeof(int *) * num);
+
+  for(i=0;i<num;i++){
+    array[i] = (int *)malloc(sizeof(int) * num);
+
+
+  for(i=0;i<num;i++){
+    free(array[i]);
+  }
+  free(array);

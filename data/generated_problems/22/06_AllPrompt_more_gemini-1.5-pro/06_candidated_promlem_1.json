@@ -1,0 +1,29 @@
+{
+  "problem_id": "No7.c",
+  "difficulty": 7,
+  "description": "与えられた2つの文字列str1とstr2について、str2がstr1の部分文字列であるかどうかを判定する関数isSubstringを作成してください。str1内にstr2が含まれる場合は1を、含まれない場合は0を返してください。\n\n関数プロトタイプ：\nint isSubstring(const char *str1, const char *str2);\n\n例えば、\nstr1 = \"abcdefg\"\nstr2 = \"cde\"\nの場合、str2はstr1の部分文字列なので1を返します。\n\nstr1 = \"abcdefg\"\nstr2 = \"ced\"\nの場合、str2はstr1の部分文字列ではないので0を返します。\n\nstr1 = \"abcdefg\"\nstr2 = \"abcdefgh\"\nの場合、str2はstr1の部分文字列ではないので0を返します。\n\nヒント：ポインタ演算と文字列比較関数を活用して実装してください。",
+  "reason": "学習者は、動的メモリ確保、配列操作、ループ処理、条件分岐といった基本的なC言語の概念を理解し、それらを組み合わせてプログラムを作成できる段階にあると判断しました。しかし、文字列操作、特にポインタを用いた文字列処理には課題が見られました。そこで、文字列操作の理解を深めるために、部分文字列判定問題を提示します。この問題は、ポインタ演算、文字列比較、ループ処理、条件分岐といった複数の要素を組み合わせる必要があるため、学習者の理解度を効果的に測ることができ、応用力の向上に繋がるでしょう。",
+  "examples": [
+    {
+      "input": "str1 = \"abcdefg\", str2 = \"cde\"",
+      "output": "1",
+      "explanation": "str2はstr1の部分文字列です。"
+    },
+    {
+      "input": "str1 = \"abcdefg\", str2 = \"ced\"",
+      "output": "0",
+      "explanation": "str2はstr1の部分文字列ではありません。"
+    },
+    {
+      "input": "str1 = \"abcdefg\", str2 = \"abcdefgh\"",
+      "output": "0",
+      "explanation": "str2はstr1の部分文字列ではありません。"
+    }
+  ],
+  "learning_objectives": [
+    "ポインタ演算の理解",
+    "文字列比較関数の活用",
+    "文字列操作の習熟",
+    "アルゴリズムの設計能力の向上"
+  ]
+}

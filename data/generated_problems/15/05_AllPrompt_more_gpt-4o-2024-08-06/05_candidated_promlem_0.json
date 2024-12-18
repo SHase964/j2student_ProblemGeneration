@@ -1,0 +1,19 @@
+{
+  "problem_id": "DynamicStringManipulation.c",
+  "difficulty": 6,
+  "description": "複数の文字列を動的に結合するプログラムを作成してください。ユーザーから文字列の数と各文字列を入力として受け取り、そのすべてを結合して出力します。文字列の結合には動的メモリ確保を使用し、結合後の文字列を表示してください。",
+  "reason": "学習者は動的メモリの確保と文字列操作の基本を理解していますが、配列操作の応用とメモリ管理の向上が求められます。この問題は、動的メモリ管理と文字列操作の応用を強化し、さらに複数の文字列を扱う能力を向上させます。",
+  "examples": [
+    {
+      "input": "3\napple\nbanana\ncherry\n",
+      "output": "applebananacherry\n",
+      "explanation": "3つの文字列が順に結合され、applebananacherryとして表示されます。"
+    }
+  ],
+  "learning_objectives": [
+    "動的メモリ確保の理解と実践",
+    "文字列操作の応用",
+    "ユーザー入力の動的処理",
+    "メモリリークの防止"
+  ]
+}

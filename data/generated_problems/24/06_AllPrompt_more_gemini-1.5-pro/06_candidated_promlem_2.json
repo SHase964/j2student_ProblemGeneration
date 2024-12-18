@@ -1,0 +1,30 @@
+{
+  "problem_id": "No7.c",
+  "difficulty": 7,
+  "description": "可変長の文字列を複数入力し、それらをアルファベット順にソートして出力するプログラムを作成してください。文字列の入力は、空行が入力されるまで続けられます。文字列の最大数は100個とし、各文字列の最大長は256文字とします。動的メモリ確保を活用し、適切なエラー処理を実装してください。",
+  "reason": "学習者は、動的配列を用いた数値処理、2次元配列の操作、文字列の基本操作を理解している。しかし、文字列配列のソート、複数文字列の動的確保、複雑なエラー処理といった応用的な課題には取り組んでいない。この問題では、これらの要素を組み合わせることで、学習者の理解度をさらに深めることができる。",
+  "examples": [
+    {
+      "input": "apple\norange\nbanana\n\n",
+      "output": "apple\nbanana\norange\n",
+      "explanation": "3つの文字列を入力し、アルファベット順にソートして出力している。"
+    },
+    {
+      "input": "grape\nkiwi\nmelon\npineapple\n\n",
+      "output": "grape\nkiwi\nmelon\npineapple\n",
+      "explanation": "4つの文字列を入力し、アルファベット順にソートして出力している。"
+    },
+    {
+      "input": "strawberry\nraspberry\nblueberry\n\n",
+      "output": "blueberry\nraspberry\nstrawberry\n",
+      "explanation": "3つの文字列を入力し、アルファベット順にソートして出力している。"
+    }
+  ],
+  "learning_objectives": [
+    "文字列配列の動的メモリ確保",
+    "複数文字列の入力処理",
+    "文字列の比較とソート",
+    "エラー処理",
+    "qsort関数の利用"
+  ]
+}

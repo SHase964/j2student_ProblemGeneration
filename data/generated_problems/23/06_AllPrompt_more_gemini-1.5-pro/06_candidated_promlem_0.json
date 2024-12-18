@@ -1,0 +1,33 @@
+{
+  "problem_id": "No7.c",
+  "difficulty": 7,
+  "description": "与えられた2つの文字列str1とstr2について、str2がstr1の部分文字列であるかどうかを判定する関数isSubstringを作成しなさい。str1内にstr2が含まれていれば1を、そうでなければ0を返すようにしてください。\n\n関数isSubstringの仕様は以下の通りです。\n\nint isSubstring(const char *str1, const char *str2);\n\n例えば、str1が\"KisarazuKosen\"、str2が\"Kosen\"の場合、関数は1を返します。str1が\"KisarazuKosen\"、str2が\"Kisako\"の場合、関数は0を返します。\n\nmain関数では、isSubstring関数を呼び出し、適切なテストケースを実行して動作を確認してください。キーボード入力は不要です。",
+  "reason": "学習者は、動的メモリ確保、配列操作、文字列操作、ポインタの基本的な理解を示しています。以前の問題では、文字列の連結、配列の逆順出力、偶数の要素の抽出などを正しく実装できています。\n\nこの新しい問題は、学習者が文字列操作とポインタの理解を深めるために設計されています。部分文字列の判定は、文字列操作において重要な概念であり、ポインタの操作と組み合わせることで、より高度な文字列処理能力を養うことができます。\n\nこの問題は、以前の問題よりも難易度が高く設定されています。これは、学習者が基本的な文字列操作を理解していることを前提として、より複雑なアルゴリズムの実装に挑戦させるためです。",
+  "examples": [
+    {
+      "input": "\"KisarazuKosen\", \"Kosen\"",
+      "output": "1",
+      "explanation": "str2はstr1の部分文字列です。"
+    },
+    {
+      "input": "\"KisarazuKosen\", \"Kisako\"",
+      "output": "0",
+      "explanation": "str2はstr1の部分文字列ではありません。"
+    },
+    {
+      "input": "\"apple\", \"ple\"",
+      "output": "1",
+      "explanation": "str2はstr1の部分文字列です。"
+    },
+    {
+      "input": "\"banana\", \"orange\"",
+      "output": "0",
+      "explanation": "str2はstr1の部分文字列ではありません。"
+    }
+  ],
+  "learning_objectives": [
+    "ポインタを用いた文字列操作",
+    "部分文字列判定アルゴリズムの理解",
+    "複雑な条件分岐の処理"
+  ]
+}

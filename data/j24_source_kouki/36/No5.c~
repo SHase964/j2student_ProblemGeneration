@@ -1,0 +1,37 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+int main(void)
+{
+  srand((unsigned)time(NULL));
+  
+  int **numbox;
+  int i,j;
+  int n;
+
+  printf("n=");
+  scanf(%d", &n);
+  printf("\n");
+
+  numbox = (int **)malloc(sizeof(int *) * n);
+  numbox = (int *)malloc(sizeof(int) * n);
+
+  for (i=0; i<n; i++) {
+    for (j=0; j<n; j++) {
+      numbox[i][j] = rand()%10;
+    }
+  }
+
+  printf("(1)\n");
+  for (i=0; i<n; i++) {
+    printf("%s",numbox[i]);
+  }
+
+  for(i=0; i<n; i++) {
+    free(numbox[i]);
+  }
+  free(numbox);
+  return 0;
+
+}

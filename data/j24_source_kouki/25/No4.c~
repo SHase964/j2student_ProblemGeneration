@@ -1,0 +1,21 @@
+#include<stdio.h>
+#include<stdlib.h>
+
+int main(void)
+{
+  int *pt;
+  int i;
+  int NUM;
+  scanf("%d",&NUM);
+
+  pt= (int* )malloc(sizeof(int)*NUM);
+  printf("(1)\n");
+  for(i=0;i<NUM;i++){
+    pt[i]=rand()%100;
+    printf("pt[%d]=%d\n",i,pt[i]);
+  }
+
+  free(pt);
+
+  return 0;
+}

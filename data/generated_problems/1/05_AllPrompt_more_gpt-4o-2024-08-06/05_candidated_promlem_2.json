@@ -1,0 +1,24 @@
+{
+  "problem_id": "DynamicStringManipulation.c",
+  "difficulty": 5,
+  "description": "ユーザーから任意の数の文字列を入力として受け取り、それらを順番に結合して1つの大きな文字列を作成し、その結果を出力するプログラムを作成してください。必要なメモリは動的に確保し、プログラム終了時に適切に解放してください。",
+  "reason": "学習者は動的メモリ管理と基本的な文字列操作を理解しているが、未回答の文字列結合問題の解決に向けて、複数の文字列を動的に扱うスキルを深める必要があります。この問題は、既存の知識を応用しつつ、ポインタ操作と動的メモリ管理能力を強化するために設計されています。",
+  "examples": [
+    {
+      "input": "3\nHello\nWorld\nCProgramming\n",
+      "output": "HelloWorldCProgramming\n",
+      "explanation": "ユーザーは3つの文字列を入力し、それらを順番に結合して出力します。"
+    },
+    {
+      "input": "2\nDynamic\nMemory\n",
+      "output": "DynamicMemory\n",
+      "explanation": "ユーザーは2つの文字列を入力し、それらを順番に結合して出力します。"
+    }
+  ],
+  "learning_objectives": [
+    "動的メモリの確保と解放",
+    "文字列操作のためのポインタ使用",
+    "標準入力からのデータ取得と処理",
+    "複数の文字列結合の実践"
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "problem_id": "No7.c",
+  "difficulty": 7,
+  "description": "以下の仕様を満たすC言語プログラムを作成してください。\n\n**仕様:**\n\n1. ユーザーから、複数の単語を含む文章を入力してもらいます。単語はスペースで区切られています。\n2. プログラムは、入力された文章を単語ごとに分割し、各単語の長さを計算します。\n3. 各単語とその長さを、標準出力に表示します。\n4. 全ての単語の長さの合計を出力します。\n5. 動的メモリ確保を行い、メモリリークがないようにしてください。\n\n**制約条件:**\n\n- 単語数は事前に不明です。\n- 各単語の長さは最大100文字とします。\n- 文字列の長さを求めるために、`strlen()`関数を使用しないでください。\n\n**例:**\n\n**入力:**\nThis is a sample sentence.\n\n**出力:**\nWord: This, Length: 4\nWord: is, Length: 2\nWord: a, Length: 1\nWord: sample, Length: 6\nWord: sentence., Length: 9\nTotal length: 22",
+  "reason": "この問題は、以前に学習者が取り組んだ動的メモリ確保、配列、文字列操作のスキルを総合的に活用する必要があるため、適切な難易度だと判断しました。`strlen()`関数を使用しないという制約を加えることで、文字列の長さを自分で計算する能力を試すことができます。これにより、文字列操作に関する深い理解を促し、ポインタの扱いに慣れる機会を提供します。",
+  "examples": [
+    {
+      "input": "This is a test string.",
+      "output": "Word: This, Length: 4\nWord: is, Length: 2\nWord: a, Length: 1\nWord: test, Length: 4\nWord: string., Length: 7\nTotal length: 18"
+    }
+  ],
+  "learning_objectives": [
+    "動的メモリ確保と解放",
+    "文字列の単語への分割",
+    "文字列の長さの計算（strlen()関数不使用）",
+    "ポインタ演算の活用",
+    "エラー処理（入力エラーへの対応）"
+  ]
+}

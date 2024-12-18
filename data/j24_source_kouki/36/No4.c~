@@ -1,0 +1,27 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+int main(void)
+{
+  srand((unsigned)time(NULL));
+  
+  int i;
+  int num;
+  int *array;
+  
+  printf("num=");
+  scanf("%d", &num);
+  printf("\n");
+  
+  array = (int*)malloc(sizeof(int) * num);
+
+  for (i=0; i<num; i++) {
+    array[i] = rand()%100;
+
+    printf("%d", array[i]\n);
+  }
+
+  free(array);
+  return 0;
+}

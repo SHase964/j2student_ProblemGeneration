@@ -1,0 +1,32 @@
+#include <stdio.h>
+
+int main(void) {
+  int len1 = 0;
+  int len2 = 0;
+  int count = 0;
+  char str1[] = "Kisarazu";
+  char str2[] = "City";
+  char *str3;
+
+  while(str1[count] != '\0') {
+    len1++;
+    count++;
+  }
+  count = 0;
+  while(str2[count] != '\0') {
+    len2++;
+    count++;
+  }
+
+  str3 = (int *)malloc(sizeof(int)*(len1+len2+1));
+
+  for(count = 0; count < len; count++) {
+    if(count <= len1) str3[count] = str1[count];
+    else str3[count] = str2[count-len1];
+  }
+  str3[len1+len2] = '\0';
+
+  printf("%s\n", str3);
+  
+  free(str3);
+}

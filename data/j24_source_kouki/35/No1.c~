@@ -1,0 +1,33 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+int main(void)
+{
+  int i,j,k;
+  int *array;
+
+  printf("input number = ");
+  scanf("%d",&k);
+  
+  array = (int *)malloc(sizeof(int)*k);
+
+  srand((unsigned)time(NULL));
+
+  printf("(1)\n");
+  for(i=0; i<k; i++){
+    array[i]=rand()%100;
+    printf("%d\n",array[i]);
+  }
+    
+
+  return 0;
+
+
+
+
+
+
+}
+
+  

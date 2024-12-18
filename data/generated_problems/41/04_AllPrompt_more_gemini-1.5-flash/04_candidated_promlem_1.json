@@ -1,0 +1,23 @@
+{
+  "problem_id": "No7.c",
+  "difficulty": 7,
+  "description": "キーボードから入力された文字列を単語ごとに分割し、各単語の長さを表示するプログラムを作成してください。単語の区切り文字はスペースとタブと改行文字とします。動的メモリ確保を行い、メモリリークを防ぐようにしてください。",
+  "reason": "学習者は動的メモリ確保と配列、文字列操作の基本的な知識を有していると考えられます。この問題は、文字列処理の高度なスキルとメモリ管理の知識をテストすることを目的としています。文字列の分割、単語の長さの計算、動的メモリ確保、メモリリーク対策といった複数の概念を統合的に理解しているかを評価します。",
+  "examples": [
+    {
+      "input": "This is a sample sentence.",
+      "output": "This: 4\nis: 2\na: 1\nsample: 6\nsentence.: 9"
+    },
+    {
+      "input": "    Leading spaces and tabs are also handled.\t",
+      "output": "Leading: 7\nspaces: 6\nand: 3\ntabs: 4\nare: 3\nalso: 4\nhandled.: 8"
+    }
+  ],
+  "learning_objectives": [
+    "文字列のトークン化",
+    "動的メモリ確保と解放",
+    "メモリリークの防止",
+    "標準入出力",
+    "エラー処理"
+  ]
+}

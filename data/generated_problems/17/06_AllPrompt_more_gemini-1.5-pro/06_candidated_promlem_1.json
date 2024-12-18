@@ -1,0 +1,34 @@
+{
+  "problem_id": "No7.c",
+  "difficulty": 7,
+  "description": "与えられた2つの文字列str1とstr2について、str2がstr1の部分文字列であるかどうかを判定する関数isSubstringを作成しなさい。str1内にstr2が含まれる場合は1、含まれない場合は0を返すようにしてください。\n\n関数isSubstringの仕様は以下の通りです。\n\nint isSubstring(const char *str1, const char *str2);\n\nstr1: 検索対象の文字列\nstr2: 部分文字列\n戻り値: str2がstr1の部分文字列である場合は1、そうでない場合は0\n\n例えば、str1が\"KisarazuCity\"、str2が\"City\"の場合、isSubstring関数は1を返します。str1が\"KisarazuCity\"、str2が\"Tokyo\"の場合、isSubstring関数は0を返します。\n\nmain関数では、isSubstring関数を呼び出し、結果を表示するコードを作成してください。",
+  "reason": "学習者はNo4.cとNo5.cの問題を正しく解答しており、動的配列の操作、ポインタ、ループ処理、条件分岐といったC言語の基本的な概念を理解している。また、No4.cでは配列の要素を逆順に出力する処理、No5.cでは2次元配列を転置する処理を実装しており、配列要素へのアクセス方法やアルゴリズムの設計能力も身についている。しかし、No6.cは未解答であるため、文字列操作に課題がある可能性がある。そこで、文字列操作の理解を深めるために、部分文字列判定問題を提示する。この問題は、ポインタ演算、文字列比較、ループ処理、条件分岐といった複数の概念を組み合わせる必要があるため、学習者の応用能力を評価するのに適している。また、文字列操作は実用的なプログラミングで頻繁に利用されるため、この問題を通して学習者は実践的なスキルを習得することができる。",
+  "examples": [
+    {
+      "input": "\"KisarazuCity\", \"City\"",
+      "output": "1",
+      "explanation": "\"KisarazuCity\"の中に\"City\"が含まれているため、1を返します。"
+    },
+    {
+      "input": "\"KisarazuCity\", \"Tokyo\"",
+      "output": "0",
+      "explanation": "\"KisarazuCity\"の中に\"Tokyo\"が含まれていないため、0を返します。"
+    },
+    {
+      "input": "\"apple\", \"ple\"",
+      "output": "1",
+      "explanation": "\"apple\"の中に\"ple\"が含まれているため、1を返します。"
+    },
+    {
+      "input": "\"banana\", \"orange\"",
+      "output": "0",
+      "explanation": "\"banana\"の中に\"orange\"が含まれていないため、0を返します。"
+    }
+  ],
+  "learning_objectives": [
+    "ポインタ演算の理解",
+    "文字列比較の実装",
+    "ループ処理と条件分岐の活用",
+    "部分文字列判定アルゴリズムの理解"
+  ]
+}

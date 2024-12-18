@@ -1,0 +1,36 @@
+{
+  "problem_id": "No7.c",
+  "difficulty": 7,
+  "description": "与えられた2つの文字列str1とstr2を連結し、連結した文字列を動的に確保されたメモリに格納して返す関数`concatenate_strings`を作成してください。ただし、str1がNULLポインタの場合、str2をそのまま返し、str2がNULLポインタの場合、str1をそのまま返します。また、str1とstr2が両方NULLポインタの場合は、NULLポインタを返します。\n\n関数プロトタイプ: `char *concatenate_strings(char *str1, char *str2);`\n\nなお、文字列の長さを取得する関数`mystrlen`は提供されています。\n\n```c\nint mystrlen(char *str) {\n  int len = 0;\n  while (str != NULL && str[len] != '\\0') {\n    len++;\n  }\n  return len;\n}\n```",
+  "reason": "学習者は、配列、ポインタ、文字列操作、動的メモリ確保といったC言語の基本的な概念を理解しているものの、No6.cの問題では未解答でした。これは、複数の概念を組み合わせた応用問題への取り組みが課題となっている可能性を示唆しています。そこで、No7.cでは、No6.cの文字列連結問題を関数化し、NULLポインタの処理を追加することで、より実践的な状況でのコーディング能力を評価します。また、エラー処理を含む堅牢なコードの記述能力も評価対象となります。これにより、学習者はポインタと文字列操作への理解を深め、より複雑なプログラムを設計・実装する能力を向上させることができます。",
+  "examples": [
+    {
+      "input": "\"Kisarazu\", \"City\"",
+      "output": "\"KisarazuCity\"",
+      "explanation": "2つの文字列\"Kisarazu\"と\"City\"が正しく連結されています。"
+    },
+    {
+      "input": "NULL, \"City\"",
+      "output": "\"City\"",
+      "explanation": "str1がNULLポインタであるため、str2がそのまま返されています。"
+    },
+    {
+      "input": "\"Kisarazu\", NULL",
+      "output": "\"Kisarazu\"",
+      "explanation": "str2がNULLポインタであるため、str1がそのまま返されています。"
+    },
+    {
+      "input": "NULL, NULL",
+      "output": "NULL",
+      "explanation": "str1とstr2が両方NULLポインタであるため、NULLポインタが返されています。"
+    }
+  ],
+  "learning_objectives": [
+    "ポインタ操作",
+    "文字列操作",
+    "動的メモリ確保",
+    "関数化",
+    "エラー処理",
+    "NULLポインタの理解"
+  ]
+}

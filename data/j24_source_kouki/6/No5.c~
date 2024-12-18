@@ -1,0 +1,38 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+int main(void){
+
+  int **numbox;
+  int i;
+  int j;
+  int num;
+  srand((unsigned)time(NULL));
+
+  while(num<1){
+    printf("(1)1以上の整数を入力\nnの値：");
+    scanf("%d", &num);
+  }
+
+  numbox = (int **)malloc(sizeof(int *) *num);
+
+  for(i=0; i<num; i++){
+    numbox[i] = (int*)malloc(sizeof(int) *num);
+  }
+
+  for(i=0; i<num; i++){
+    for(j=0; j<num; j++){
+      numbox[i][j] = rand()%10;
+      printf("%d ", numbox[i][j];
+	     }
+
+
+
+
+
+  
+  free(numbox);
+  return 0;
+}
+  

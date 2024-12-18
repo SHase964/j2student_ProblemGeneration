@@ -1,0 +1,169 @@
+date,problem_id,model_code,,,,
+j2exam1125,No4.c,"#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+int main(void)
+{
+  int *pt;
+  int num;
+  int i;
+
+  srand((unsigned)time(NULL));
+  
+  printf(""num="");
+  scanf(""%d"", &num);
+
+  pt = (int *)malloc(sizeof(int)*num);
+
+  for (i=0; i<num; i++) {
+    pt[i] = rand()%99;
+  }
+
+  
+  printf(""(1)\n"");
+  for (i=0; i<num; i++) {
+    printf(""%d\n"", pt[i]);
+  }
+  printf(""\n"");
+
+  printf(""(2)\n"");
+  for (i=num-1; i>=0; i--) {
+    printf(""%d\n"", pt[i]);
+  }
+  printf(""\n"");
+
+  printf(""(3)\n"");
+  for (i=0; i<num; i++) {
+    if (pt[i]%2==0) {
+      printf(""%d\n"", pt[i]);
+    }
+  }
+  printf(""\n"");
+
+  free(pt);
+  
+  return 0;
+}
+
+",,,,
+j2exam1125,No5.c,"#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+int main(void)
+{
+  int **pt;
+  int n;
+  int i,j;
+  int sum;
+  int tmp;
+  
+  srand((unsigned)time(NULL));
+  
+  printf(""n="");
+  scanf(""%d"", &n);
+
+  pt = (int **)malloc(sizeof(int *)*n);
+  for (i=0; i<n; i++) {
+    pt[i] = (int *)malloc(sizeof(int)*n);
+  }
+  
+  for (i=0; i<n; i++) {
+    for (j=0; j<n; j++) {
+      pt[i][j] = rand()%9;
+    }
+  }
+  
+  
+  printf(""(1)\n"");
+  for (i=0; i<n; i++) {
+    for (j=0; j<n; j++) {
+      printf(""%d "", pt[i][j]);
+    }
+    printf(""\n"");
+  }
+  printf(""\n"");
+
+  sum = 0;
+  printf(""(2)\n"");
+  for (i=0; i<n; i++) {
+    sum += pt[i][i];
+  }
+  printf(""sum = %d\n\n"", sum);
+
+  printf(""(3)\n"");
+  for (i=0; i<n; i++) {
+    for (j=i; j<n; j++) {
+      tmp = pt[i][j];
+      pt[i][j] = pt[j][i];
+      pt[j][i] = tmp;
+    }
+  }
+  for (i=0; i<n; i++) {
+    for (j=0; j<n; j++) {
+      printf(""%d "", pt[i][j]);
+    }
+    printf(""\n"");
+  }
+  printf(""\n"");
+
+
+
+  for (i=0; i<n; i++) {
+    free(pt[i]);
+  }
+  free(pt);
+  
+  return 0;
+}
+
+",,,,
+j2exam1125,No6.c,"#include <stdio.h>
+#include <stdlib.h>
+
+int mystrlen(char str[])
+{
+  int len;
+
+  len = 0;
+  while(str[len]!='\0') {
+    len++;
+  }
+  return len;
+}
+
+int main(void)
+{
+  char str1[] = ""Kisarazu"";
+  char str2[] = ""City"";
+  char *pt;
+  int total;
+  int i, j;
+  
+  total = mystrlen(str1);
+  total += mystrlen(str2);
+  //printf(""%d\n"", total);
+  pt = (char *)malloc(sizeof(char)*(total+1));
+
+  i = 0;
+  while (str1[i]!='\0') {
+    pt[i] = str1[i];
+    i++;
+  }
+  j = 0;
+  while (str2[j]!='\0') {
+    pt[i] = str2[j];
+    i++;
+    j++;
+  }
+  pt[i] = '\0';
+
+  printf(""%s\n"", pt);
+  
+  free(pt);
+  
+  return 0;
+}
+
+",,,,

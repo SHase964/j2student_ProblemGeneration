@@ -1,0 +1,24 @@
+{
+  "problem_id": "No7.c",
+  "difficulty": 7,
+  "description": "コマンドライン引数として与えられた複数のファイルを読み込み、それらのファイルの内容を連結して標準出力に出力するプログラムを作成してください。エラー処理も適切に行い、ファイルが存在しない場合や読み込みに失敗した場合にはエラーメッセージを表示してください。",
+  "reason": "学習者は動的メモリ確保、配列、文字列操作、そして基本的なエラー処理を理解しているため、コマンドライン引数処理とファイル入出力という新たな要素を導入することで、適切な難易度で応用力を試す問題としました。",
+  "examples": [
+    {
+      "input": "program.exe file1.txt file2.txt",
+      "output": "file1.txtとfile2.txtの内容を連結したもの",
+      "explanation": "コマンドライン引数で指定されたfile1.txtとfile2.txtの内容が連結されて出力されます。ファイルが存在しない場合、エラーメッセージが表示されます。"
+    },
+    {
+      "input": "program.exe nonexistent.txt file2.txt",
+      "output": "error: nonexistent.txt could not be opened.\nfile2.txtの内容",
+      "explanation": "nonexistent.txtが存在しないため、エラーメッセージが表示されます。file2.txtは存在し、正常に読み込まれて出力されます。"
+    }
+  ],
+  "learning_objectives": [
+    "コマンドライン引数の処理",
+    "ファイル入出力",
+    "エラー処理",
+    "動的メモリ管理"
+  ]
+}

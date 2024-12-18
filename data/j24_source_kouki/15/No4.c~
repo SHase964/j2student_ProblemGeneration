@@ -1,0 +1,24 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include<time.h>
+
+int main(){
+  int *array;
+  int array_num;
+  int i;
+  srand((unsigned)time(NULL));
+  
+  scanf("%d",array_num);
+
+  array= (int*)calloc(array_num, sizeof(int));
+
+  for(i = 0; i < array_num; i++){
+    array[i] = ramd() % 100;
+  }
+
+  for(i = 0; i < array_num; i++){
+    printf("[%d] = %d\n", i, array[i];
+  }
+
+  return 0;
+}

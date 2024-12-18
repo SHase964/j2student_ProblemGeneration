@@ -1,0 +1,19 @@
+{
+  "problem_id": "No7.c",
+  "difficulty": 6,
+  "description": "与えられた整数nに対して、1からnまでの数の階乗を計算し、結果を表示するプログラムを作成してください。また、計算結果を配列に保存し、逆順に表示する機能も追加してください。",
+  "reason": "学習者は配列やループ、関数の使用に関する理解度が高く、動的メモリ管理も行っているため、階乗計算と配列の扱いを組み合わせた問題を提示することで応用力を養うことができます。新しい概念として再帰を導入することで、プログラミングの幅を広げる狙いがあります。",
+  "examples": [
+    {
+      "input": "5",
+      "output": "Factorial of 1 is 1\nFactorial of 2 is 2\nFactorial of 3 is 6\nFactorial of 4 is 24\nFactorial of 5 is 120\nReversed results:\n120\n24\n6\n2\n1\n",
+      "explanation": "入力として5を与えた場合、1から5までの階乗を計算し、配列に保存した後、逆順に表示します。"
+    }
+  ],
+  "learning_objectives": [
+    "階乗の計算",
+    "配列の使用",
+    "再帰関数の理解",
+    "動的メモリ管理"
+  ]
+}

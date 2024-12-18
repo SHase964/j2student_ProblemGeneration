@@ -1,0 +1,30 @@
+{
+  "problem_id": "No7.c",
+  "difficulty": 7,
+  "description": "与えられた文字列を、単語を逆順に並べた文字列に変換するプログラムを作成してください。ただし、単語はスペースで区切られているものとします。例えば、入力文字列が\"This is a sample sentence.\" の場合、出力文字列は\"sentence. sample a is This\" となります。",
+  "reason": "学習者は動的メモリ確保、配列、文字列操作の基本的なスキルを習得していますが、より高度な文字列操作とアルゴリズム設計のスキルを向上させる必要があります。この問題は、文字列の分割、逆順への並べ替え、動的メモリ管理を組み合わせることで、これらのスキルを総合的に評価することを目的としています。",
+  "examples": [
+    {
+      "input": "This is a sample sentence.",
+      "output": "sentence. sample a is This",
+      "explanation": "スペースを区切り文字として、単語を逆順に並べ替えています。"
+    },
+    {
+      "input": "Hello world!",
+      "output": "world! Hello",
+      "explanation": "スペースを区切り文字として、単語を逆順に並べ替えています。句読点も保持します。"
+    },
+    {
+      "input": "  Leading and trailing spaces  ",
+      "output": "spaces  trailing and Leading",
+      "explanation": "先頭と末尾のスペースは無視され、単語のみが逆順に並べ替えられます。"
+    }
+  ],
+  "learning_objectives": [
+    "文字列の分割",
+    "文字列の逆順への並べ替え",
+    "動的メモリ管理",
+    "ポインタ演算",
+    "アルゴリズム設計"
+  ]
+}
