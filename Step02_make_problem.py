@@ -281,9 +281,6 @@ def main():
     df_columns = source_df.columns # 日付と問題
     df_indices = source_df.index   # 学生ID
 
-    #result_df = pd.DataFrame(columns=["generated_promblem"], index=df_indices)
-    #candidated_df = pd.DataFrame(columns=["1", "2", "3"], index=df_indices)
-
     problem_list = [] # 問題のリスト
     model_code_list = [] # 模範回答のリスト
     source_list = []  # ソースコードのリスト
@@ -291,7 +288,7 @@ def main():
     # システムの初期化-----------------------------------------------
     system = PromptEngineeringSystem()
 
-    # 問題文ののリスト作成-----------------------------------------------
+    # 問題文のリスト作成-----------------------------------------------
     for df_column in df_columns:
         problem_txt = problem_df[
             (problem_df['date'] == df_column[0]) &
