@@ -1,0 +1,23 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(void){
+  int i,j;
+  int **array;
+  int num,num2;
+  
+  printf("何行何列の行列を生成しますか？ー＞");
+  scanf("%d",&num);
+
+  *array = (int **)malloc(sizeof(int *) * num);
+  for(i=0;i<num;i++){
+    array[i] = (int*)malloc(sizeof(int) * num);
+  }
+
+  free(*array);
+  for(i=0;i<num;i++){
+    free(array[i]);
+  }
+
+  return 0;
+}

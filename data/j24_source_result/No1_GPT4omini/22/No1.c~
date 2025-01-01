@@ -1,0 +1,20 @@
+#include<stdio.h>
+#include<stdlib.h>
+
+int main(void){
+  int *pt;
+  int i,n;
+
+  printf("格納したい要素数を入力する。");
+  scanf("%d",&n);
+
+  pt = (int *)malloc(sizeof(int)*n);
+  
+  for(i=0;i<n;i++){
+    scanf("%d",*(pt+i));
+    printf("%d\n",pt[i]);
+  }
+  free(pt);
+
+  return 0;
+}

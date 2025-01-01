@@ -1,0 +1,15 @@
+#include<stdio.h>
+int main(){
+  int youso,i,check;
+  int *array;
+  scanf("%d",&youso);
+  array = (int *)malloc(sizeof(int)*youso);
+  for(i=0;i<youso;i++){
+    array[i]=rand()%100;
+  }
+  printf("Original:");
+    for(i=0;i<youso;i++){
+      printf("%d ",array[i]);
+  }
+  return 0;
+}

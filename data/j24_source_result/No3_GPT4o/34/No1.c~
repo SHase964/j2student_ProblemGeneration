@@ -1,0 +1,16 @@
+#include<stdio.h>
+#include<stdlib.h>
+
+int main(){
+  int i;
+  int size=0;
+  int *pt;
+  
+  scanf("%d",&size);
+
+  pt=(int *)malloc(sizeof(int)*size);
+  for(i=0;i<size;i++){
+    pt[i]=i+2;
+    printf("pt[%d]=%d",i,pt[i]);
+  }
+}

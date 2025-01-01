@@ -1,0 +1,26 @@
+#include<stdio.h>
+#include<stdlib.h>
+
+int main(void)
+{
+  int *array;
+  int n;
+  int i;
+  int num;
+
+  printf ("入力する文字数を入力してください\n文字数=");
+  scanf("%d", &n);
+
+  *array = (int *)malloc(sizeof(int) *n);
+
+  printf("\n数字を入力してください");
+  for(i=0; i<n; i++) {
+    printf("\n%d番目=", i+1);
+    scanf("%d", &num);
+    array[i] = num;
+    printf("%d\n", num);
+  }
+
+  free(array);
+  return 0;
+}

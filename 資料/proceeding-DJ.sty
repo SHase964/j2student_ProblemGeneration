@@ -1,0 +1,310 @@
+%% Created by Yasuyuki SAITO, Department of Information Engineering.
+
+%% 2016/01/13 Edit by Kouta ASAI, and Akira NEMOTO, Advanced Control and Information Engineering Course
+%% 2017/12/07 Edit by by Shinichi OEDA, Department of Information Engineering.
+%% 「★」マークが変更を加えた部分を表す
+
+
+\usepackage{indentfirst}
+%\usepackage[dvips]{graphicx}
+\usepackage[dvipdfmx]{graphicx}
+\usepackage{hhline}
+\usepackage{array}
+
+% ★8ビットエンコーディング
+\usepackage[T1]{fontenc}
+
+% ★フォントをTimes系にする
+\usepackage{newtxtext, newtxmath}
+
+% ★余白の設定
+\usepackage[top=28truemm, bottom=24truemm, left=20truemm, right=20truemm]{geometry}
+
+
+%%% レイアウト（余白の設定）．
+%%% ★geometry.styで調整したので不要
+%%%% デフォルトの1 インチのオフセットを打ち消す．
+%\setlength{\voffset}{-1truein}
+%\setlength{\hoffset}{-1truein}
+%%%% 上余白．
+%\setlength{\topmargin}{28truemm}
+%\setlength{\headheight}{0truemm}
+%\setlength{\headsep}{0truemm}
+%%%% 左余白．
+%\setlength{\oddsidemargin}{20truemm}
+%\setlength{\evensidemargin}{20truemm}
+%%%% 用紙サイズ．
+%\setlength{\textwidth}{170truemm}
+%\setlength{\textheight}{245truemm}
+
+%%% 段間．
+\setlength{\columnsep}{8truemm}
+%%% 行間．
+\renewcommand{\baselinestretch}{1.00}
+
+%%% 文字間隔
+%%% http://rakasaka.fc2web.com/tex/tex.html
+\kanjiskip=.1zw plus 1pt minus 1pt
+\xkanjiskip=.1zw plus 1pt minus 1pt
+
+%%% 文字サイズの変更．
+%%% サイズ代用を抑制するために，\usepackage{type1cm} を指定する．
+\usepackage{type1cm}
+%% 本文
+%% ★TeXのptとWordのptは計算方法が異なるので修正
+%% ★とりあえずnormalsizeとlargeだけ
+\def\normalsize{\@setfontsize\normalsize{11pt}{14.3pt}}
+%% 著者名，章見出し
+\def\large{\@setfontsize\large{12.5pt}{14.3pt}}  
+%% （14ポイントの文字は特に使っていない）
+\def\Large{\@setfontsize\Large{14pt}{16.0pt}}
+%% タイトル
+\def\LARGE{\@setfontsize\LARGE{16pt}{18.3pt}}
+
+
+%% 発表タイトルと発表者
+\newenvironment{Center}{%
+  \topsep=0pt \partopsep=0pt%
+  \trivlist \centering\item\relax}{%
+  \endtrivlist}
+
+\def\maketitle{%
+  \twocolumn[
+    %%　★Wordテンプレと比べるとタイトルの位置が上ぎみ
+    %% ★7mmにするとちょうど良い
+    % \vspace*{2mm}
+     \vspace*{7mm}
+     {\LARGE \bfseries \@date}
+     \begin{Center}
+      \vspace*{-\baselineskip}
+      %% ★ゴシック太字にする
+      {\LARGE \bfseries\gtfamily \@titleJ}
+     \end{Center}
+
+    \begin{flushright}
+     {\large \@authorJ} \hspace*{2.64zw} \\
+	 %% ★Wordに合わせると行間が必要
+      \vspace{1truemm}
+
+      （木更津工業高等専門学校 専攻科 制御・情報システム工学専攻）
+    \end{flushright}
+
+     \vspace*{\baselineskip}
+
+     \begin{Center}
+      {\LARGE \bfseries \@titleE}
+     \end{Center}
+
+    \begin{flushright}
+     {\large \@authorE} \hspace*{2.64zw} \\
+
+     {\small
+      (Advanced Control and Information Engineering Course, National Institute of Technology, Kisarazu College)
+     }
+    \end{flushright}
+
+    \hspace*{1zw} \@abstract
+
+    \vspace*{\baselineskip}
+
+    {\tabcolsep = 0.5mm
+    \begin{tabular}{lp{40zw}}
+    %% ★\itは古い
+    %{\it Keywords}: & \@keywords \\
+    \textit{Keywords}: & \@keywords \\
+    \end{tabular}
+    }
+
+    \vspace*{\baselineskip}
+  ]
+}
+
+\makeatletter
+\def\titleJ#1{\def\@titleJ{#1}}
+\def\titleE#1{\def\@titleE{#1}}
+\def\authorJ#1{\def\@authorJ{#1}}
+\def\authorE#1{\def\@authorE{#1}}
+\def\abstract#1{\def\@abstract{#1}}
+\def\keywords#1{\def\@keywords{#1}}
+\makeatother
+
+
+%%% 章見出しの変更．
+%%% 章番号の後ろにドットを付す．→ 2016.Jan.12 取り止め．
+%% \thesection を修正すると，\ref{} などにも影響してしまう．
+%% ★jsarticle用に変更 jsarticle.clsを参考に改変
+\makeatletter
+\def\section{%
+	\vspace{\baselineskip}
+	\@startsection {section}{1}{\z@}%
+	{\z@}{\z@}
+	{\edef\@svsec{\thesection \hskip 1zw}\large\gtfamily}%
+}
+\makeatother
+
+\makeatletter
+\def\subsection{%
+	\@startsection {subsection}{2}{\z@}%
+	{\z@}{\z@}
+	{\edef\@svsec{\thesubsection \hskip 0.5em}\normalsize\gtfamily}%
+}
+\makeatother
+
+\makeatletter
+\def\subsubsection{%
+	\@startsection {subsubsection}{3}{\z@}%
+	{\z@}{\z@}
+	{\edef\@svsec{\thesubsubsection \hskip 0.5em}\normalsize\gtfamily}%
+}
+\makeatother
+
+%\makeatletter
+%\def\section{%
+%  \@startsection {section}{1}{\z@}%
+%  {-2.5ex plus -1ex minus -.2ex}%
+%  {0.3ex plus .2ex}%
+%%%  {\edef\@svsec{\thesection.\hskip 0.5em}\large\bfseries}%
+%  {\edef\@svsec{\thesection \hskip 1zw}\large\bfseries}%
+%}
+%\makeatother
+%
+%\makeatletter
+%\def\subsection{%
+%  \@startsection {subsection}{1}{\z@}%
+%  {-2.5ex plus -1ex minus -.2ex}%
+%  {0.3ex plus .2ex}%
+%  {\edef\@svsec{\thesubsection \hskip 0.5em}\normalsize\bfseries}%
+%}
+%\makeatother
+%
+%\makeatletter
+%\def\subsubsection{%
+%  \@startsection {subsubsection}{1}{\z@}%
+%  {-0.5ex plus -1ex minus -.2ex}
+%  {0.3ex plus .2ex}%
+%  {\edef\@svsec{\thesubsubsection \hskip 0.5em}\normalsize\bfseries}%
+%}
+%\makeatother
+
+
+%%% 太線の定義．
+%%% 2pt のところが太さ．
+\makeatletter
+\def\Hline{%
+ \noalign{\ifnum0=`}\fi\hrule \@height 2pt \futurelet
+ \reserved@a\@xhline}
+\makeatother
+
+
+%%% 箇条書きの記号の変更
+\def\labelitemi{$\bullet$}
+%% \def\labelitemii{\bf --}
+\def\labelitemii{\bf $\circ$}
+\def\labelitemiii{$\ast$}
+\def\labelitemiv{$\cdot$}
+
+
+%% caption パッケージは article.cls 用であり，それ以外のスタイルではwarning が
+%% 表示されるが，それを抑制する．
+\usepackage{silence}
+\WarningFilter{caption}{Unsupported document class}
+%% キャプションの設定．
+%%   2行目をぶら下げる．
+%%   区切り文字をピリオドにする．
+%%   図のときは Fig.
+%%   表のときは Table
+\usepackage[format=hang, labelsep=period, margin=0pt, figurename=Fig., tablename=Table]{caption}
+
+
+%% ページの上下に出力される図と図の間のスペース
+\setlength\floatsep{0pt} %dblfloatsep
+
+%% ページの上下に出力される図と本文の間のスペース
+\setlength\textfloatsep{0pt} %dbltextfloatsep
+
+%% ページの途中に出力される図と本文の間のスペース
+\setlength\intextsep{0pt}
+%%\setlength\intextsep{\baselineskip}
+
+%% 図とキャプションの間のスペース
+\setlength\abovecaptionskip{3pt}
+
+
+%%% ルビを振るときは，\usepackage{okumacro} を記述する．
+%%% 使い方
+%%% \ruby{瞬目}{しゅんぼく}
+%%% これ↑でもよいが，分けた方がより美しいバランスとなる．
+%%% \ruby{瞬}{しゅん}\ruby{目}{ぼく}
+
+
+%% \begin{namelist}{LeftmarginWidth}
+%% \item[label] body
+%% \end{namelist}
+\newcommand{\namelistlabel}[1]{\mbox{#1}\hfil}
+\newenvironment{namelist}[1]{%
+  \begin{list}{}
+    { \let \makelabel \namelistlabel
+      \setlength{\itemsep}{0mm}
+      \settowidth{\labelwidth}{#1}
+      \setlength{\leftmargin}{1.1 \labelwidth}
+    }
+}{%
+  \end{list}
+}
+
+
+\newcolumntype{I}{!{\vrule width 3\arrayrulewidth}}
+\newlength\savedwidth
+\newcommand\whline{%
+    \noalign{\xdef\origarrayrulewidth{\the\arrayrulewidth}%
+    \global\arrayrulewidth 3\arrayrulewidth}%
+    \hline%
+    \noalign{\global\arrayrulewidth\origarrayrulewidth}%
+}
+
+
+%%% 参考文献
+%%% 文献番号を本文の右肩につける．
+\usepackage[superscript]{cite}
+
+\makeatletter
+%%% 表記の変更．丸括弧にする．
+\renewcommand{\@biblabel}[1]{(#1)}
+%%% 引用箇所の表記の変更．丸括弧にする．
+\renewcommand{\citeform}[1]{(#1)}
+%\renewcommand{\@citess}[1]{\mbox{$\m@th^{\hbox{\OverciteFont{(#1)}}}$}}
+\makeatother
+
+%%% thebibliography 環境の再定義．
+%%% 項目間の間隔をなくす．
+\makeatletter
+\renewenvironment{thebibliography}[1]
+{
+  \small
+  %% ★「参考文献」は11pt
+  \section*{\fontsize{11.44pt}{14.3pt}\selectfont\refname\@mkboth{\refname}{\refname}}%
+  \list{\@biblabel{\@arabic\c@enumiv}}%
+       {\settowidth\labelwidth{\@biblabel{#1}}%
+%         \itemsep\z@% この行を追加  2016.Jan.13 コメントアウト．
+%         \parsep\z@%  この行も追加  2016.Jan.13 コメントアウト．
+         \setlength\itemsep{0pt}% ←ここの数値を調整
+         \setlength\baselineskip{14.3truept}% ←ここの数値を調整  ★14ptから14.3trueptに変更
+	 %% 文字間隔
+	 \kanjiskip=0zw plus 0pt minus 0pt
+	 \xkanjiskip=0zw plus 0pt minus 0pt
+	 %%
+         \leftmargin\labelwidth
+         \advance\leftmargin\labelsep
+         \@openbib@code
+         \usecounter{enumiv}%
+         \let\p@enumiv\@empty
+         \renewcommand\theenumiv{\@arabic\c@enumiv}}%
+   \sloppy
+   \clubpenalty4000
+   \@clubpenalty\clubpenalty
+   \widowpenalty4000%
+   \sfcode`\.\@m}
+  {\def\@noitemerr
+    {\@latex@warning{Empty `thebibliography' environment}}%
+  \endlist}
+\makeatother

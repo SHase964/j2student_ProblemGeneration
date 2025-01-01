@@ -1,0 +1,14 @@
+#include <stdio.h>
+
+
+int main(void)
+
+  int a;
+  int b;
+
+
+scanf("%d", &num);
+
+
+{
+  return 0;

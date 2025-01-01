@@ -1,0 +1,20 @@
+#include<stdio.h>
+#include<stdlib.h>
+
+int main(){
+  int len,i;
+  char *mozi,*dummy;
+
+  printf("文字数を入力してください\n");
+  scanf("%d",&len);
+  scanf("%c",&dummy);
+
+  mozi=(char *)malloc(sizeof(char)*len+1);
+
+  printf("文字列を入力してください\n");
+  fgets(mozi,len+1,stdin);
+
+  printf("%s",mozi);
+  free(mozi);
+  return 0;
+}

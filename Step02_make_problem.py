@@ -113,16 +113,9 @@ Generated Problem: {
 
         # 問題候補の相互検証
         verification_result = self._verify_problems(candidates)
-        
-        # 選択された問題の改善と最終化
-        # final_problem = self._improve_problem(
-        #     candidates[verification_result["selected_index"]], 
-        #     verification_result["improvements"]
-        # )
-        #candidates_str = [str(item) for item in candidates]
-        #candidates_str = "\n==========================================================================\n".join(candidates_str)    
+  
         final_problem = verification_result
-        #return final_problem, candidates_str
+
         return final_problem, candidates
 
     def _create_base_prompt(self, learner: LearnerProfile) -> str:
@@ -233,11 +226,6 @@ Generated Problem: {
     def _call_llm_api(self, prompt: str, temperature: float) -> str:
         """GPT-4 APIの呼び出し"""
         try:
-            #print(self.ROLE_SETTING_PROMPT)
-            #print(self.ROLE_FEEDBACK_PROMPT)
-            print(prompt)
-            print("===============================================================================================")
-            print("===============================================================================================")
             # for gpt
             if "gpt" in MODEL_NAME:
                 response = self.client.chat.completions.create(
@@ -320,7 +308,6 @@ def main():
             source_list.append(valid_source)
 
         if not all(x == "未回答" for x in source_list) :  # 全ての問題で未回答じゃない場合
-            #print(problem_txt)
             # ユーザを定義
             learner = LearnerProfile(
                 learner_id=df_index,
@@ -346,14 +333,6 @@ def main():
                 with open(f"{result_file_path}/{STEP}_candidated_promlem_{i}.json", 'w', encoding='utf-8') as f:
                    json.dump(candidated_problem, f, ensure_ascii=False, indent=2)
             time.sleep(30)
-            #result_df.at[df_index, df_column] = problem
-            #candidated_df.at[df_index, df_column] = candidated
-        else:
-            #result_df.at[df_index, df_column] = ""
-            #candidated_df.at[df_index, df_column] = ""
-            pass
-        #result_df.to_csv(f"{ROOT_PATH}/data/kouki/generated_data_{MODEL_NAME}.csv")
-        #candidated_df.to_csv(f"{ROOT_PATH}/data/kouki/candidated_data_{MODEL_NAME}.csv")
 
         source_list = []
 

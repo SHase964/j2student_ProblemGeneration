@@ -1,0 +1,18 @@
+#include<stdio.h>
+#include<stdlib.h>
+
+int main(void){
+  int leng,word,i,j,num;
+  char *sent;
+  char dummy;
+
+  printf("文章の文字数を入力（スペースを含む） : ");
+  scanf("%d%c",&num ,&dummy);
+
+  sent=(char *)malloc(sizeof(char)*num);
+
+  fgets(sent;char;stdin);
+
+  free(sent);
+  return 0;
+}

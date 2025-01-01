@@ -1,0 +1,16 @@
+#include<stdio.h>
+
+int main(void){
+  
+  int n;
+  int *numberbox;
+  
+  scanf("%d",&n);
+  
+  numberbox = (int *)malloc(sizeof(int
+  
+  
+
+  
+  return 0;
+}

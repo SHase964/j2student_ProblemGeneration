@@ -1,0 +1,38 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(void)
+{
+  int *array;
+  int mux;
+  int min;
+  int n, num;
+  int i,j;
+
+  printf("入力する文字数を入力してください\n文字数=");
+  scanf("%d", &n);
+
+  array = (int *)malloc(sizeof(int) *n+1);
+
+  printf("値を入力してください\n");
+  for(i=0; i<n; i++) {
+    scanf("%d", num);
+    array[i] = num;
+    if(i == 0) {
+      mux = num;
+      min = num;
+    }
+    if(mux < array[i]) {
+      mux = array[i];
+    }
+    if(min > array[i]) {
+      min = array[i];
+    }
+  }
+
+  printf("最大値: %d", mux);
+  printf("最小値: %d", min);
+
+  free(array);
+  return 0;
+}

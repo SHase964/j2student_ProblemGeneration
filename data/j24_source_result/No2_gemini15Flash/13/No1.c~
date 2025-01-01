@@ -1,0 +1,27 @@
+#include<stdio.h>
+#include<stdlib.h>
+
+int main(){
+  int i,num,j,count;
+  int **array;
+  char dummy;
+  scanf("%d",&num);
+  scanf("%c",&dummy);
+  array = (int **)malloc(sizeof(int *)*num);
+  for(i=0;i<num;i++){
+    array[i]=(int *)malloc(sizeof(int)*num);
+  }
+  count=0;
+  for(i=0;i<num;i++){
+    for(j=0;j<num;j++){
+      array[i][j]=count;
+      count++;
+      printf("%d ",array[i][j]);
+    }
+    printf("\n");
+  }
+  for(i=0;i<num;i++){
+    free(array[i]);
+  }
+  free(array);
+}

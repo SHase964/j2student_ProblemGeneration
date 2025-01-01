@@ -1,0 +1,36 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int bigger(int *pt,int num){
+  int i,big;
+  for(i=1;i<num;i++){
+    if(pt[i-1]<pt[i]){
+      big = pt[i];
+    }
+  }
+  return big;
+}
+
+int smaller(int *pt,int num){
+  int i,small;
+  for(i=1;i<num;i++){
+    if(pt[i-1]>pt[i]){
+      small = pt[i];
+    }
+  }
+  return small;
+}
+  
+  
+
+int main(void){
+  int *pt;
+  int i,num;
+
+  printf("整数を何個生成しますか？ー＞");
+  scanf("%d",&num);
+
+  pt = (int *)malloc(sizeof(int)*num);
+  
+  
+  free(pt);

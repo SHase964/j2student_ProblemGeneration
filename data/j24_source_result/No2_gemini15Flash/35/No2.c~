@@ -1,0 +1,47 @@
+#include <stdio.h>
+
+int main(void)
+{
+  int i,k,j;
+  char text[]="This is a sample sentence.";
+
+  
+  for(i=0; text[i]!="\0"; i++){
+    printf("%s\n",text[i];);
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  return 0;
+}

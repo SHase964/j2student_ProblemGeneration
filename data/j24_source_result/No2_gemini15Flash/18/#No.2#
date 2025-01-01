@@ -1,0 +1,22 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+void ascsort(int *bubble, int num){
+
+    int i, j, tmp;
+
+    while(num>1){
+
+        for(i=0;i<num-1;i++){
+
+            if(bubble[i]>bubble[i+1]){
+
+                tmp=bubble[i+1];
+                bubble[i+1]=bubble[i];
+                bubble[i]=tmp;
+            }
+        }
+        num=num-1;
+    }
+
+}

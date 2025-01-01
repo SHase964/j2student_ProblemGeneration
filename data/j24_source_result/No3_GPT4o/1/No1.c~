@@ -1,0 +1,32 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(void)
+{
+  char **numberBox;
+  int i,j, num,a, col;
+  char dummy;
+  
+  /* 行数を決める
+  printf("how many people?\n");
+  scanf("%d",&col);
+  numberBox = (char **)malloc(sizeof(char *) *col);*/
+  // n行目の列数
+  int row[col];
+
+    printf("how many mozi number?\n");
+    scanf("%d%c",&a,&dummy);
+    numberBox = (char *)malloc(sizeof(char) *(a+1));
+    printf("what's your name?\n");
+    fgets(numberBox,a+1,stdin);
+
+ 
+   printf("%s",numberBox);
+   printf("\n");
+   
+  
+
+  free(numberBox);
+
+  return 0;
+}

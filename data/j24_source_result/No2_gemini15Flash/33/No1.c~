@@ -1,0 +1,24 @@
+#include <stdio.h>
+
+int main(void){
+
+  int num;
+  printf("input to number");
+  scanf("%d",&num);
+
+  int **array;
+  array = (int **)malloc(sizeof(int*)*num);
+  for(int i=0; i <num; i++){
+    array[i] = (int *)malloc(sizeof(int)*num);
+  }
+
+  int ans = 1;
+  for(int i=0; i<num; i++){
+    for(int j=0; j<num; j++){
+      array[i][j] = ans;
+      printf("%d ",array[i][j]);
+    }
+    printf("\n");
+    ans++;
+  }
+}

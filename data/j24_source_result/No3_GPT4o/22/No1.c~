@@ -1,0 +1,16 @@
+#include<stdio.h>
+#include<stdlib.h>
+#include<time.h>
+
+int main(){
+  int **ma;
+  int i,m,n;
+
+  srand((unsigned)time(NULL));
+
+  printf("Input Number = ");
+  scanf("%d",&n);
+
+  ma = (int **)malloc(sizeof(int *)*n);
+  for(m=0;m<n;m++){
+    ma[m] = (int *)malloc(sizeof(int )*n);

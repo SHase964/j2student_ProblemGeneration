@@ -1,0 +1,38 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main (){
+  int num;
+  int i,j,l=0;
+  int c=0;
+  char **pt;
+  char word[];
+
+  printf("単語数＝");
+  scanf("%d",&num);
+
+  pt=malloc(sizeof(char *)*num);
+
+  for(i=0;i<num;i++){
+    printf("単語＝");
+    scanf("%c",&word);
+    while(word[l] != '\0'){
+      c++;
+      i++;
+    }
+    pt[i]=malloc(sizeof(char)*c);
+    
+    for(j=0;j<c;j++){
+      pt[i][j]=word[j];
+	}
+  }
+  printf("%s",pt);
+  return 0;
+}
+    
+
+
+
+
+
+  free(pt);

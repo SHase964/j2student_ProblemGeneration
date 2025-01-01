@@ -1,0 +1,33 @@
+#include<stdio.h>
+#include<stdlib.h>
+
+int main(){
+  int i;
+  int num;
+  int total;
+  double heikin;
+  int *pt;
+
+
+
+  printf("確保したい配列の数は?=");
+  scanf("%d",&num);
+  
+  
+  pt=(int *)malloc(sizeof(int)*(num+1));
+
+  for(i=0; i<num; i++){
+    printf("要素を入力してください=");
+    scanf("%d",&(pt+i));
+    total=total+(pt+i);
+  }
+
+  heikin=total(double)%num;
+
+  printf("平均値=%d",heikin);
+
+  return 0;
+}
+  
+
+  

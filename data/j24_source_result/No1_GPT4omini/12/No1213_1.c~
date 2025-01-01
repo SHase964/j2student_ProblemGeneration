@@ -1,0 +1,26 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+int main(void){
+  int n;
+  int a;
+  int *number;
+
+  srand((unsigned)time(NULL));
+
+  printf("Enter the number\n");
+  scanf("%d",&n);
+
+  number = (int *)malloc(sizeof(int)*(n));
+
+  for(a=0;a<n;a++){
+    number[a] = rand()%9+1;
+    printf("%d ",&number[a]);
+  }
+  
+
+  free(number);
+  
+  return 0;
+}

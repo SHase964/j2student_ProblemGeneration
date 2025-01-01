@@ -1,0 +1,15 @@
+#include<stdio.h>
+void nibai(char INT[]);
+int main(){
+  char INT[]="12345";
+  printf("Original array:%s\n",INT);
+  nibai(INT[]);
+  printf("Doubled array:%s\n",INT);
+  return 0;
+}
+  char nibai(int INT[]){
+    int i,count=5;
+    for(i=0;i<count;i++){
+      INT[i]*=2;
+    }
+  }

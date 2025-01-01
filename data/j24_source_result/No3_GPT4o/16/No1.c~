@@ -1,0 +1,30 @@
+#include<stdio.h>
+#include<stdlib.h>
+
+int main(void){
+
+  int num;
+  int *i;
+  
+  scanf("%d", &num);
+  
+  i=(int *)malloc(sizeof(int) * num);
+
+  for(int a=0; a<num; a++){
+    scanf("%d", i);
+  }
+
+  printf("%d");
+
+  for(a=0; a<num; a++){
+    if(i[a]==i[a+1]);
+    printf("%d ", i[a]);
+  }
+
+  printf("\n");
+  
+  free(i);
+
+  return 0;
+
+}

@@ -1,0 +1,8 @@
+#include <stdio.h>
+
+int main(void){
+
+  printf("ローマ字で文字を入力\n最後にendを入れること");
+  int *array;
+  scanf("%d",&*array);
+}

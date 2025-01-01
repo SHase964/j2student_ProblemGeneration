@@ -1,0 +1,14 @@
+#include<stdio.h>
+#include<stdlib.h>
+
+int main(void){
+  int *pt,i;
+  i=0;
+
+  pt = (int *)malloc(sizeof(int)*10+1);
+  scanf("%s",pt);
+  
+  printf("%s\n",pt);
+  return 0;
+}
+  

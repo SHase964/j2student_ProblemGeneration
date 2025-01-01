@@ -1,0 +1,12 @@
+#include<stdio.h>
+#include<stdlib.h>
+#define SIZE 30
+
+
+int main(void){
+  char *s;
+  char *d;
+  scanf("%c",)
+
+  return 0;
+}

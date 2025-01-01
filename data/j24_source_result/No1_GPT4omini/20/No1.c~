@@ -1,0 +1,28 @@
+#include <stdio.h>
+#include <stdlib.h>
+int main(){
+  int num;
+  int drx;
+  int *pt;
+  int dex;
+  printf("mny");
+  scanf("%d",&num);
+  pt=(int *)malloc(sizeof(int)*num);
+  for(drx=0;drx<num;drx++){
+     printf("[drx]=");
+  scanf("%d",&pt[drx]);
+  }
+   printf("(1)\n");
+  for(drx=0;drx<num;drx++){
+    printf("%d\n",pt[drx]);
+  }
+  printf("(2)\n");
+  dex=0;
+  for(drx=0;drx<num;drx++){
+    dex=dex+pt[drx];
+  }
+  dex=dex%num;
+  printf("%d",dex);
+  free(pt);
+  return 0;
+}

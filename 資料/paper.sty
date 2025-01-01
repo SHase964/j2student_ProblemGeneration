@@ -1,0 +1,126 @@
+%%% レイアウト（余白の設定）
+%%% デフォルトの1 インチのオフセットを打ち消す．
+\setlength{\voffset}{-1truein}
+\setlength{\hoffset}{-1truein}
+%%% 上余白
+\setlength{\topmargin}{28truemm}
+\setlength{\headheight}{0truemm}
+\setlength{\headsep}{0truemm}
+%%% 左余白
+\setlength{\oddsidemargin}{25truemm}
+\setlength{\evensidemargin}{25truemm}
+%%% 用紙サイズ
+\setlength{\textwidth}{160truemm}
+\setlength{\textheight}{245truemm}
+
+
+% 追加したもの ----------------------------------
+% \usepackage[dvips]{graphicx}
+\usepackage[dvipdfmx, hiresbb]{graphicx}
+\usepackage{ascmac, amsmath, bm}
+\usepackage{multicol, multirow}
+
+\setcounter{secnumdepth}{4}
+\setcounter{tocdepth}{4}
+% ------------------------------------------
+
+\def\topfraction{1.0}
+\def\bottomfraction{1.0}
+\def\floatpagefraction{1.0}
+\def\textfraction{0.0}
+\def\dbltopfraction{1.0}
+\def\dblfloatpagefraction{0.0}
+
+%% 箇条書の第2階層の行頭記号の変更
+\renewcommand{\labelitemii}{$\ast$}
+
+%% 数式の式番号
+\makeatletter
+ \renewcommand\theequation{\thechapter.\arabic{equation}}
+ \@addtoreset{equation}{chapter}
+\makeatother
+%% 図の番号
+\makeatletter
+ \renewcommand\thefigure{\thechapter.\arabic{figure}}
+ \@addtoreset{figure}{chapter}
+\makeatother
+
+%% 表の番号
+\makeatletter
+ \renewcommand\thetable{\thechapter.\arabic{table}}
+ \@addtoreset{table}{chapter}
+\makeatother
+
+
+%% 図表と本文との間の距離
+\setlength{\textfloatsep}{1.0\normalbaselineskip plus 3pt minus 1pt}
+
+%% キャプションと図表との間の距離
+\setlength{\abovecaptionskip}{0mm}
+\setlength{\belowcaptionskip}{0mm}
+
+%% キャプションの間のコロンをなくす．
+\usepackage{ccaption}
+\captiondelim{\hspace{0.75zw}}
+
+
+%% def (Bibliography)
+
+\def\thebibliography#1{\chapter*{参考文献}\list
+ {[\arabic{enumi}]}{\settowidth\labelwidth{[#1]}\leftmargin\labelwidth
+ \advance\leftmargin\labelsep
+ \usecounter{enumi}}
+ \def\newblock{\hskip .11em plus .33em minus .07em}
+ \sloppy
+ \sfcode`\.=1000\relax}
+\let\endthebibliography=\endlist
+
+%% 太線．2pt のところが太さ．
+\makeatletter
+\def\Hline{%
+ \noalign{\ifnum0=`}\fi\hrule \@height 2pt \futurelet
+ \reserved@a\@xhline}
+\makeatother
+
+%% 箇条書き
+%% \begin{namelist}{LeftmarginWidth}
+%% \item[label] body
+%% \end{namelist}
+\newcommand{\namelistlabel}[1]{\mbox{#1}\hfil}
+\newenvironment{namelist}[1]{%
+  \begin{list}{}
+    { \let \makelabel \namelistlabel
+      \setlength{\itemsep}{-2mm}
+      \settowidth{\labelwidth}{#1}
+      \setlength{\leftmargin}{1.1 \labelwidth}
+    }
+}{%
+  \end{list}
+}
+
+%% 表紙
+\makeatletter
+\def\title#1{\def\@title{#1}}
+\def\author#1{\def\@author{#1}}
+\def\date#1{\def\@date{#1}}
+
+\def\maketitle{
+  \thispagestyle{empty}
+  \begin{center}
+   \vspace*{8\baselineskip}
+   {\Huge \bf \@title}
+
+   \vspace{15\baselineskip}
+   {\huge \@author}
+
+   \vspace{3\baselineskip}
+   {\Large \@date}
+   
+   \vspace{\baselineskip}
+   {\Large 
+   木更津工業高等専門学校 \\
+   制御・情報システム工学専攻\\
+   大枝研究室}
+  \end{center}
+}
+\makeatother

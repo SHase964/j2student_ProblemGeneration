@@ -1,0 +1,13 @@
+#include <stdio.h>
+#include <stdlib.h>
+int main(void)
+{
+  int array[];
+  int NUM;
+
+  array[]=(int *)malloc(sizeof(int)*(NUM));
+
+  scanf("%d",array[]);
+
+  return 0;
+}
