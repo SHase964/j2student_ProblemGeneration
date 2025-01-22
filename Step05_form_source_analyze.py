@@ -15,17 +15,18 @@ class CodeAnalysisCorrelation:
         sns.set_style("whitegrid")
         # 日本語フォントの設定
         #plt.rcParams['font.family'] = 'MS Gothic'
-        #plt.rcParams['font.family'] = 'Hiragino Sans GB'
-        plt.rcParams['font.family'] = ['Hiragino Mincho ProN', 'sans-serif']
+        plt.rcParams['font.family'] = 'Hiragino Sans GB'
+        plt.rcParams['font.family'] = 'Osaka'
+        #plt.rcParams['font.family'] = ['Hiragino Mincho ProN', 'sans-serif']
         plt.rcParams['axes.unicode_minus'] = False
         
         # フォントサイズ設定
         plt.rcParams['font.size'] = 10          # 基本フォントサイズ
         plt.rcParams['axes.labelsize'] = 10     # 軸ラベルのフォントサイズ
         plt.rcParams['axes.titlesize'] = 12     # タイトルのフォントサイズ
-        plt.rcParams['xtick.labelsize'] = 9     # x軸目盛りのフォントサイズ
-        plt.rcParams['ytick.labelsize'] = 9     # y軸目盛りのフォントサイズ
-        plt.rcParams['legend.fontsize'] = 9     # 凡例のフォントサイズ
+        plt.rcParams['xtick.labelsize'] = 13     # x軸目盛りのフォントサイズ
+        plt.rcParams['ytick.labelsize'] = 13     # y軸目盛りのフォントサイズ
+        plt.rcParams['legend.fontsize'] = 10     # 凡例のフォントサイズ
         
         # 軸の設定
         plt.rcParams['axes.linewidth'] = 1.0    # 軸の太さ
@@ -135,6 +136,9 @@ class CodeAnalysisCorrelation:
     def _create_comparison_plot(self, merged_list, model_names, columns, title, filename):
         """比較プロットの作成"""
         means = []
+        # 入れ替え
+        merged_list[0], merged_list[1] = merged_list[1], merged_list[0]
+        model_names[0], model_names[1] = model_names[1], model_names[0]
         for df in merged_list:
             means.append(df[columns].mean())
         
@@ -193,9 +197,11 @@ class CodeAnalysisCorrelation:
             print(f"\n{model_name}の評価指標間の相関:")
             print(f"アンケート-ソースコード評価の相関係数: {corr:.3f} (p={p_val:.4f})")
 
-    def perform_anova_tukey_analysis(self, df_list, model_names, form_column, source_column):
+    def perform_anova_tukey_analysis(self, merged_list, model_names, form_column, source_column):
         """一元配置分散分析とTukey's HSDテストの実行"""
-        
+        # 入れ替え
+        merged_list[0], merged_list[1] = merged_list[1], merged_list[0]
+        model_names[0], model_names[1] = model_names[1], model_names[0]
         # 分析対象の全カラム
         all_columns = form_column + source_column
         
@@ -205,7 +211,7 @@ class CodeAnalysisCorrelation:
             # 各モデルのデータを準備
             data_groups = []
             labels = []
-            for df, model in zip(df_list, model_names):
+            for df, model in zip(merged_list, model_names):
                 values = df[column].dropna().values
                 data_groups.append(values)
                 labels.extend([model] * len(values))
@@ -234,10 +240,9 @@ class CodeAnalysisCorrelation:
                 print(tukey)
                 
                 # 結果の可視化（箱ひげ図）
-                plt.figure(figsize=(10, 6))
+                plt.figure(figsize=(6, 5))
                 plt.boxplot([group for group in data_groups], tick_labels=model_names)
-                plt.title(f'{column}のモデル間比較')
-                plt.ylabel('値')
+                plt.title(f'{column}のモデル間比較') 
                 plt.savefig(f'./data/result_plot/boxplot_{column}.png')
                 plt.close()
             
@@ -411,7 +416,7 @@ def form_source_analyze():
 
 def main():
     form_analyze()
-    form_source_analyze()
+    #form_source_analyze()
 
 if __name__ == "__main__":
     main()
